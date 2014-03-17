@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0406F1AF18D6EB5F0072BF1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406F1AE18D6EB5F0072BF1F /* Foundation.framework */; };
+		0406F1B118D6EB5F0072BF1F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406F1B018D6EB5F0072BF1F /* CoreGraphics.framework */; };
+		0406F1B318D6EB5F0072BF1F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406F1B218D6EB5F0072BF1F /* UIKit.framework */; };
+		0406F1B918D6EB5F0072BF1F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0406F1B718D6EB5F0072BF1F /* InfoPlist.strings */; };
+		0406F1BB18D6EB5F0072BF1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1BA18D6EB5F0072BF1F /* main.m */; };
+		0406F1BF18D6EB5F0072BF1F /* AbacusAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1BE18D6EB5F0072BF1F /* AbacusAppDelegate.m */; };
+		0406F1C218D6EB5F0072BF1F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0406F1C018D6EB5F0072BF1F /* Main_iPhone.storyboard */; };
+		0406F1C518D6EB5F0072BF1F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0406F1C318D6EB5F0072BF1F /* Main_iPad.storyboard */; };
+		0406F1C818D6EB5F0072BF1F /* AbacusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1C718D6EB5F0072BF1F /* AbacusViewController.m */; };
+		0406F1CA18D6EB5F0072BF1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0406F1C918D6EB5F0072BF1F /* Images.xcassets */; };
+		0406F1D118D6EB5F0072BF1F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406F1D018D6EB5F0072BF1F /* XCTest.framework */; };
+		0406F1D218D6EB5F0072BF1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406F1AE18D6EB5F0072BF1F /* Foundation.framework */; };
+		0406F1D318D6EB600072BF1F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406F1B218D6EB5F0072BF1F /* UIKit.framework */; };
+		0406F1DB18D6EB600072BF1F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0406F1D918D6EB600072BF1F /* InfoPlist.strings */; };
+		0406F1DD18D6EB600072BF1F /* AbacusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1DC18D6EB600072BF1F /* AbacusTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0406F1D418D6EB600072BF1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0406F1A318D6EB5F0072BF1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0406F1AA18D6EB5F0072BF1F;
+			remoteInfo = Abacus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0406F1AB18D6EB5F0072BF1F /* Abacus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Abacus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0406F1AE18D6EB5F0072BF1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0406F1B018D6EB5F0072BF1F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0406F1B218D6EB5F0072BF1F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0406F1B618D6EB5F0072BF1F /* Abacus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Abacus-Info.plist"; sourceTree = "<group>"; };
+		0406F1B818D6EB5F0072BF1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0406F1BA18D6EB5F0072BF1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0406F1BC18D6EB5F0072BF1F /* Abacus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Abacus-Prefix.pch"; sourceTree = "<group>"; };
+		0406F1BD18D6EB5F0072BF1F /* AbacusAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbacusAppDelegate.h; sourceTree = "<group>"; };
+		0406F1BE18D6EB5F0072BF1F /* AbacusAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbacusAppDelegate.m; sourceTree = "<group>"; };
+		0406F1C118D6EB5F0072BF1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		0406F1C418D6EB5F0072BF1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		0406F1C618D6EB5F0072BF1F /* AbacusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbacusViewController.h; sourceTree = "<group>"; };
+		0406F1C718D6EB5F0072BF1F /* AbacusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbacusViewController.m; sourceTree = "<group>"; };
+		0406F1C918D6EB5F0072BF1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0406F1CF18D6EB5F0072BF1F /* AbacusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbacusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0406F1D018D6EB5F0072BF1F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0406F1D818D6EB600072BF1F /* AbacusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AbacusTests-Info.plist"; sourceTree = "<group>"; };
+		0406F1DA18D6EB600072BF1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0406F1DC18D6EB600072BF1F /* AbacusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbacusTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0406F1A818D6EB5F0072BF1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0406F1B118D6EB5F0072BF1F /* CoreGraphics.framework in Frameworks */,
+				0406F1B318D6EB5F0072BF1F /* UIKit.framework in Frameworks */,
+				0406F1AF18D6EB5F0072BF1F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0406F1CC18D6EB5F0072BF1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0406F1D118D6EB5F0072BF1F /* XCTest.framework in Frameworks */,
+				0406F1D318D6EB600072BF1F /* UIKit.framework in Frameworks */,
+				0406F1D218D6EB5F0072BF1F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0406F1A218D6EB5F0072BF1F = {
+			isa = PBXGroup;
+			children = (
+				0406F1B418D6EB5F0072BF1F /* Abacus */,
+				0406F1D618D6EB600072BF1F /* AbacusTests */,
+				0406F1AD18D6EB5F0072BF1F /* Frameworks */,
+				0406F1AC18D6EB5F0072BF1F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0406F1AC18D6EB5F0072BF1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0406F1AB18D6EB5F0072BF1F /* Abacus.app */,
+				0406F1CF18D6EB5F0072BF1F /* AbacusTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0406F1AD18D6EB5F0072BF1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0406F1AE18D6EB5F0072BF1F /* Foundation.framework */,
+				0406F1B018D6EB5F0072BF1F /* CoreGraphics.framework */,
+				0406F1B218D6EB5F0072BF1F /* UIKit.framework */,
+				0406F1D018D6EB5F0072BF1F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0406F1B418D6EB5F0072BF1F /* Abacus */ = {
+			isa = PBXGroup;
+			children = (
+				0406F1BD18D6EB5F0072BF1F /* AbacusAppDelegate.h */,
+				0406F1BE18D6EB5F0072BF1F /* AbacusAppDelegate.m */,
+				0406F1C018D6EB5F0072BF1F /* Main_iPhone.storyboard */,
+				0406F1C318D6EB5F0072BF1F /* Main_iPad.storyboard */,
+				0406F1C618D6EB5F0072BF1F /* AbacusViewController.h */,
+				0406F1C718D6EB5F0072BF1F /* AbacusViewController.m */,
+				0406F1C918D6EB5F0072BF1F /* Images.xcassets */,
+				0406F1B518D6EB5F0072BF1F /* Supporting Files */,
+			);
+			path = Abacus;
+			sourceTree = "<group>";
+		};
+		0406F1B518D6EB5F0072BF1F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0406F1B618D6EB5F0072BF1F /* Abacus-Info.plist */,
+				0406F1B718D6EB5F0072BF1F /* InfoPlist.strings */,
+				0406F1BA18D6EB5F0072BF1F /* main.m */,
+				0406F1BC18D6EB5F0072BF1F /* Abacus-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0406F1D618D6EB600072BF1F /* AbacusTests */ = {
+			isa = PBXGroup;
+			children = (
+				0406F1DC18D6EB600072BF1F /* AbacusTests.m */,
+				0406F1D718D6EB600072BF1F /* Supporting Files */,
+			);
+			path = AbacusTests;
+			sourceTree = "<group>";
+		};
+		0406F1D718D6EB600072BF1F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0406F1D818D6EB600072BF1F /* AbacusTests-Info.plist */,
+				0406F1D918D6EB600072BF1F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0406F1AA18D6EB5F0072BF1F /* Abacus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0406F1E018D6EB600072BF1F /* Build configuration list for PBXNativeTarget "Abacus" */;
+			buildPhases = (
+				0406F1A718D6EB5F0072BF1F /* Sources */,
+				0406F1A818D6EB5F0072BF1F /* Frameworks */,
+				0406F1A918D6EB5F0072BF1F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Abacus;
+			productName = Abacus;
+			productReference = 0406F1AB18D6EB5F0072BF1F /* Abacus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0406F1CE18D6EB5F0072BF1F /* AbacusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0406F1E318D6EB600072BF1F /* Build configuration list for PBXNativeTarget "AbacusTests" */;
+			buildPhases = (
+				0406F1CB18D6EB5F0072BF1F /* Sources */,
+				0406F1CC18D6EB5F0072BF1F /* Frameworks */,
+				0406F1CD18D6EB5F0072BF1F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0406F1D518D6EB600072BF1F /* PBXTargetDependency */,
+			);
+			name = AbacusTests;
+			productName = AbacusTests;
+			productReference = 0406F1CF18D6EB5F0072BF1F /* AbacusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0406F1A318D6EB5F0072BF1F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Abacus;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Anil K Nellutla";
+				TargetAttributes = {
+					0406F1CE18D6EB5F0072BF1F = {
+						TestTargetID = 0406F1AA18D6EB5F0072BF1F;
+					};
+				};
+			};
+			buildConfigurationList = 0406F1A618D6EB5F0072BF1F /* Build configuration list for PBXProject "Abacus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0406F1A218D6EB5F0072BF1F;
+			productRefGroup = 0406F1AC18D6EB5F0072BF1F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0406F1AA18D6EB5F0072BF1F /* Abacus */,
+				0406F1CE18D6EB5F0072BF1F /* AbacusTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0406F1A918D6EB5F0072BF1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0406F1C518D6EB5F0072BF1F /* Main_iPad.storyboard in Resources */,
+				0406F1CA18D6EB5F0072BF1F /* Images.xcassets in Resources */,
+				0406F1C218D6EB5F0072BF1F /* Main_iPhone.storyboard in Resources */,
+				0406F1B918D6EB5F0072BF1F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0406F1CD18D6EB5F0072BF1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0406F1DB18D6EB600072BF1F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0406F1A718D6EB5F0072BF1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0406F1C818D6EB5F0072BF1F /* AbacusViewController.m in Sources */,
+				0406F1BB18D6EB5F0072BF1F /* main.m in Sources */,
+				0406F1BF18D6EB5F0072BF1F /* AbacusAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0406F1CB18D6EB5F0072BF1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0406F1DD18D6EB600072BF1F /* AbacusTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0406F1D518D6EB600072BF1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0406F1AA18D6EB5F0072BF1F /* Abacus */;
+			targetProxy = 0406F1D418D6EB600072BF1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0406F1B718D6EB5F0072BF1F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0406F1B818D6EB5F0072BF1F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0406F1C018D6EB5F0072BF1F /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0406F1C118D6EB5F0072BF1F /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		0406F1C318D6EB5F0072BF1F /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0406F1C418D6EB5F0072BF1F /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		0406F1D918D6EB600072BF1F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0406F1DA18D6EB600072BF1F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0406F1DE18D6EB600072BF1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0406F1DF18D6EB600072BF1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0406F1E118D6EB600072BF1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Abacus/Abacus-Prefix.pch";
+				INFOPLIST_FILE = "Abacus/Abacus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0406F1E218D6EB600072BF1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Abacus/Abacus-Prefix.pch";
+				INFOPLIST_FILE = "Abacus/Abacus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0406F1E418D6EB600072BF1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Abacus.app/Abacus";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Abacus/Abacus-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AbacusTests/AbacusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0406F1E518D6EB600072BF1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Abacus.app/Abacus";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Abacus/Abacus-Prefix.pch";
+				INFOPLIST_FILE = "AbacusTests/AbacusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0406F1A618D6EB5F0072BF1F /* Build configuration list for PBXProject "Abacus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0406F1DE18D6EB600072BF1F /* Debug */,
+				0406F1DF18D6EB600072BF1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0406F1E018D6EB600072BF1F /* Build configuration list for PBXNativeTarget "Abacus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0406F1E118D6EB600072BF1F /* Debug */,
+				0406F1E218D6EB600072BF1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0406F1E318D6EB600072BF1F /* Build configuration list for PBXNativeTarget "AbacusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0406F1E418D6EB600072BF1F /* Debug */,
+				0406F1E518D6EB600072BF1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0406F1A318D6EB5F0072BF1F /* Project object */;
+}
