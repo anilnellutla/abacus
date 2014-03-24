@@ -22,6 +22,11 @@
 		0406F1D318D6EB600072BF1F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406F1B218D6EB5F0072BF1F /* UIKit.framework */; };
 		0406F1DB18D6EB600072BF1F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0406F1D918D6EB600072BF1F /* InfoPlist.strings */; };
 		0406F1DD18D6EB600072BF1F /* AbacusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1DC18D6EB600072BF1F /* AbacusTests.m */; };
+		0406F1E818D6EB740072BF1F /* Bead.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1E718D6EB740072BF1F /* Bead.m */; };
+		040B501418DF4AE6007C0ACE /* ColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B501318DF4AE6007C0ACE /* ColumnView.m */; };
+		04433BEE18DFB58200335F0C /* BeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04433BED18DFB58200335F0C /* BeadView.m */; };
+		04433BF118DFC06100335F0C /* RowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04433BF018DFC06100335F0C /* RowView.m */; };
+		045A5A6818D8C96300F98418 /* AbacusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A5A6718D8C96300F98418 /* AbacusView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,16 @@
 		0406F1D818D6EB600072BF1F /* AbacusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AbacusTests-Info.plist"; sourceTree = "<group>"; };
 		0406F1DA18D6EB600072BF1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0406F1DC18D6EB600072BF1F /* AbacusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbacusTests.m; sourceTree = "<group>"; };
+		0406F1E618D6EB740072BF1F /* Bead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bead.h; sourceTree = "<group>"; };
+		0406F1E718D6EB740072BF1F /* Bead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bead.m; sourceTree = "<group>"; };
+		040B501218DF4AE6007C0ACE /* ColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnView.h; sourceTree = "<group>"; };
+		040B501318DF4AE6007C0ACE /* ColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnView.m; sourceTree = "<group>"; };
+		04433BEC18DFB58200335F0C /* BeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeadView.h; sourceTree = "<group>"; };
+		04433BED18DFB58200335F0C /* BeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeadView.m; sourceTree = "<group>"; };
+		04433BEF18DFC06100335F0C /* RowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowView.h; sourceTree = "<group>"; };
+		04433BF018DFC06100335F0C /* RowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowView.m; sourceTree = "<group>"; };
+		045A5A6618D8C96300F98418 /* AbacusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbacusView.h; sourceTree = "<group>"; };
+		045A5A6718D8C96300F98418 /* AbacusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbacusView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +133,20 @@
 				0406F1BE18D6EB5F0072BF1F /* AbacusAppDelegate.m */,
 				0406F1C018D6EB5F0072BF1F /* Main_iPhone.storyboard */,
 				0406F1C318D6EB5F0072BF1F /* Main_iPad.storyboard */,
+				045A5A6618D8C96300F98418 /* AbacusView.h */,
+				045A5A6718D8C96300F98418 /* AbacusView.m */,
+				04433BEC18DFB58200335F0C /* BeadView.h */,
+				04433BED18DFB58200335F0C /* BeadView.m */,
+				04433BEF18DFC06100335F0C /* RowView.h */,
+				04433BF018DFC06100335F0C /* RowView.m */,
+				040B501218DF4AE6007C0ACE /* ColumnView.h */,
+				040B501318DF4AE6007C0ACE /* ColumnView.m */,
 				0406F1C618D6EB5F0072BF1F /* AbacusViewController.h */,
 				0406F1C718D6EB5F0072BF1F /* AbacusViewController.m */,
 				0406F1C918D6EB5F0072BF1F /* Images.xcassets */,
 				0406F1B518D6EB5F0072BF1F /* Supporting Files */,
+				0406F1E618D6EB740072BF1F /* Bead.h */,
+				0406F1E718D6EB740072BF1F /* Bead.m */,
 			);
 			path = Abacus;
 			sourceTree = "<group>";
@@ -200,7 +225,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Abacus;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Anil K Nellutla";
 				TargetAttributes = {
 					0406F1CE18D6EB5F0072BF1F = {
@@ -254,9 +279,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040B501418DF4AE6007C0ACE /* ColumnView.m in Sources */,
+				04433BF118DFC06100335F0C /* RowView.m in Sources */,
 				0406F1C818D6EB5F0072BF1F /* AbacusViewController.m in Sources */,
+				0406F1E818D6EB740072BF1F /* Bead.m in Sources */,
 				0406F1BB18D6EB5F0072BF1F /* main.m in Sources */,
+				04433BEE18DFB58200335F0C /* BeadView.m in Sources */,
 				0406F1BF18D6EB5F0072BF1F /* AbacusAppDelegate.m in Sources */,
+				045A5A6818D8C96300F98418 /* AbacusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +348,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -358,7 +387,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -417,7 +445,6 @@
 		0406F1E418D6EB600072BF1F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Abacus.app/Abacus";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -440,7 +467,6 @@
 		0406F1E518D6EB600072BF1F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Abacus.app/Abacus";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -475,6 +501,7 @@
 				0406F1E218D6EB600072BF1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0406F1E318D6EB600072BF1F /* Build configuration list for PBXNativeTarget "AbacusTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +510,7 @@
 				0406F1E518D6EB600072BF1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
