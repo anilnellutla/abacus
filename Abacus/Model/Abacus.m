@@ -26,7 +26,8 @@
     return self;
 }
 
--(NSMutableArray *) columns {
+-(NSMutableArray *) columns
+{
     if(!_columns) {
         _columns = [[NSMutableArray alloc] init];
     }
