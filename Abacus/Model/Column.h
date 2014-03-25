@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Bead.h"
 
 @interface Column : NSObject
+
+//designated initializer
+-(instancetype)initWithPlaceValue:(NSUInteger)placeValue beadsPerColumn:(NSUInteger)numOfBeadsPerColumn;
+
+@property (nonatomic) NSUInteger placeValue;
+@property (nonatomic) NSUInteger numOfBeadsPerColumn;
+@property (strong, nonatomic) NSMutableArray *beads;
 
 @end

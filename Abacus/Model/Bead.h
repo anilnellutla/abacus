@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Bead : NSObject
+
+//designated initializer
+-(instancetype)initWithValue:(NSUInteger)value;
+
 @property (nonatomic) NSUInteger value;
 @end
