@@ -144,9 +144,9 @@
 				0406F1C618D6EB5F0072BF1F /* AbacusViewController.h */,
 				0406F1C718D6EB5F0072BF1F /* AbacusViewController.m */,
 				0406F1C918D6EB5F0072BF1F /* Images.xcassets */,
-				0406F1B518D6EB5F0072BF1F /* Supporting Files */,
 				0406F1E618D6EB740072BF1F /* Bead.h */,
 				0406F1E718D6EB740072BF1F /* Bead.m */,
+				0406F1B518D6EB5F0072BF1F /* Supporting Files */,
 			);
 			path = Abacus;
 			sourceTree = "<group>";

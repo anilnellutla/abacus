@@ -14,7 +14,7 @@
 static const NSUInteger BEADS_PER_COLUMN = 5;
 static const CGFloat BEAD_GAP = 4;
 
-#define COLUMN_BEAD_SIZE_RATIO 0.80
+#define COLUMN_BEAD_SIZE_RATIO 0.70
 
 #pragma mark - Initialization
 
@@ -52,8 +52,14 @@ static const CGFloat BEAD_GAP = 4;
     [[UIColor blueColor] setStroke];
     [path stroke];
     
+    [self drawBeads:rect];
+  
+}
+
+- (void)drawBeads:(CGRect)rect
+{
     CGSize BEAD_SIZE = { rect.size.width * COLUMN_BEAD_SIZE_RATIO, rect.size.width * COLUMN_BEAD_SIZE_RATIO};
-    CGFloat beadOriginX = rect.origin.x + (rect.size.width/(10*COLUMN_BEAD_SIZE_RATIO));
+    CGFloat beadOriginX = rect.origin.x + (rect.size.width - BEAD_SIZE.width)/2;
     CGFloat beadOriginY = 0 + BEAD_GAP;
     
     CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);

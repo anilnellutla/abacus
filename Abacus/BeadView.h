@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Bead.h"
 
 @interface BeadView : UIView
-
+@property (strong, nonatomic) Bead *bead;
 @end

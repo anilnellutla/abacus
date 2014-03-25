@@ -10,9 +10,17 @@
 
 @implementation Bead
 
--(BOOL)isSet
+-(instancetype)initWithValue:(NSUInteger)value
 {
-    
+    self = [super init];
+    if(self) {
+        self.value = value;
+    }
+    return self;
+}
+
+-(BOOL)isSet
+{    
     return (_value == 0) ? NO : YES;
 }
 @end
