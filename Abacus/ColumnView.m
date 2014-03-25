@@ -39,12 +39,23 @@ static const CGFloat BEAD_GAP = 4;
     return self;
 }
 
+- (void)setColumn:(Column *)column
+{
+    _column = column;
+    [self setNeedsDisplay];
+}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {    
     // Drawing code
+    [self drawColumn:rect];
+}
+
+- (void)drawColumn:(CGRect)rect
+{
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(rect.origin.x + (rect.size.width/2), rect.origin.y)];
     [path addLineToPoint:CGPointMake(rect.origin.x + (rect.size.width/2), rect.size.height)];
@@ -53,7 +64,7 @@ static const CGFloat BEAD_GAP = 4;
     [path stroke];
     
     [self drawBeads:rect];
-  
+
 }
 
 - (void)drawBeads:(CGRect)rect

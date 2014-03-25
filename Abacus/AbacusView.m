@@ -9,9 +9,7 @@
 #import "AbacusView.h"
 #import "ColumnView.h"
 #import "RowView.h"
-
-@interface AbacusView()<UIDynamicAnimatorDelegate>
-@end
+#import "Column.h"
 
 @implementation AbacusView
 
@@ -56,7 +54,7 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     CGFloat columnWidth = rect.size.width/(NUM_OF_COLUMNS + 1);
     CGFloat columnGap = columnWidth / (NUM_OF_COLUMNS);
     CGFloat pathX = rect.size.width - columnWidth - columnGap;
-    for(NSUInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+    for(int i = 0; i < NUM_OF_COLUMNS; i++) {
         CGRect columnFrame = CGRectMake(pathX, rect.origin.y, columnWidth, rect.size.height);
         ColumnView *columnView = [[ColumnView alloc] initWithFrame:columnFrame];
         

@@ -34,6 +34,12 @@
     return self;
 }
 
+- (void)setBead:(Bead *)bead
+{
+    _bead = bead;
+    [self setNeedsDisplay];
+}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -56,6 +62,7 @@
     [self addGestureRecognizer:swipeUp];
     [self addGestureRecognizer:swipeDown];
     */
+    
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [panRecognizer setMinimumNumberOfTouches:1];
