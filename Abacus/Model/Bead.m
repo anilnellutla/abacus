@@ -10,7 +10,7 @@
 
 @implementation Bead
 
--(instancetype)initWithValue:(NSUInteger)value
+-(instancetype)initWithValue:(NSInteger)value
 {
     self = [super init];
     if(self) {

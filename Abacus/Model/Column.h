@@ -15,7 +15,11 @@
 -(instancetype)initWithPlaceValue:(NSUInteger)placeValue beadsPerColumn:(NSUInteger)numOfBeadsPerColumn;
 
 @property (nonatomic) NSUInteger placeValue;
-@property (nonatomic) NSUInteger numOfBeadsPerColumn;
+//@property (nonatomic) NSUInteger numOfBeadsPerColumn;
 @property (strong, nonatomic) NSMutableArray *beads;
 
+-(void)reset;
+-(NSInteger)value;
+-(NSInteger)maxValue;
+-(BOOL)canValueBeSet:(NSInteger)value;
 @end
