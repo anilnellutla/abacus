@@ -11,4 +11,5 @@
 
 @interface BeadView : UIView
 @property (strong, nonatomic) Bead *bead;
+@property (nonatomic) NSUInteger beadIndex;
 @end

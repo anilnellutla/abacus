@@ -7,17 +7,25 @@
 //
 
 #import "AbacusViewController.h"
+#import "AbacusView.h"
+#import "Abacus.h"
 
 @interface AbacusViewController ()
-
+@property (weak, nonatomic) IBOutlet AbacusView *abacusView;
 @end
 
 @implementation AbacusViewController
+static const NSUInteger NUM_OF_COLUMNS = 10;
+static const NSUInteger BEADS_PER_COLUMN = 5;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    Abacus *abacus = [[Abacus alloc]initWithNumOfColumns:NUM_OF_COLUMNS
+                                          beadsPerColumn:BEADS_PER_COLUMN];
+    
+    self.abacusView.abacus = abacus;
 }
 
 - (void)didReceiveMemoryWarning

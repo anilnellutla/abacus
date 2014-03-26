@@ -73,14 +73,17 @@ static const CGFloat BEAD_GAP = 4;
     CGFloat beadOriginX = rect.origin.x + (rect.size.width - BEAD_SIZE.width)/2;
     CGFloat beadOriginY = 0 + BEAD_GAP;
     
+    int beadIndex = 5;
     CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
     BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
+    beadView.beadIndex = beadIndex;
     [self addSubview:beadView];
     
     beadOriginY = (rect.size.height) - (BEAD_SIZE.height) - (BEAD_GAP);
     for(NSUInteger i = 0; i < (BEADS_PER_COLUMN - 1); i++) {
         CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
         BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
+        beadView.beadIndex = --beadIndex;
         [self addSubview:beadView];
         
         beadOriginY = beadOriginY - BEAD_SIZE.height - (BEAD_GAP);

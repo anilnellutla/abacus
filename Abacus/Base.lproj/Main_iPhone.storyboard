@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Abacus View Controller-->
         <scene sceneID="T1n-Re-xvm">
             <objects>
-                <viewController id="k1h-vy-aek" sceneMemberID="viewController">
+                <viewController id="k1h-vy-aek" customClass="AbacusViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m51-Pv-Myy"/>
                         <viewControllerLayoutGuide type="bottom" id="m3M-S0-MLo"/>
@@ -45,6 +45,9 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="abacusView" destination="WLE-M6-bRx" id="tHq-Bo-9ld"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrv-gg-qaB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

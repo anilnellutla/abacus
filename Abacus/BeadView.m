@@ -90,9 +90,39 @@
     
     NSLog(@"move");
     CGPoint translation = [recognizer translationInView:self];
-    recognizer.view.center = CGPointMake(recognizer.view.center.x ,
-                                         recognizer.view.center.y + translation.y);
+    
+    
+    NSUInteger beadIndex = self.beadIndex;
+    
+    if(beadIndex == 1) {
+        NSLog(@"bead 1 move");
+        UIView *rowView = [[[[self superview] superview] subviews] firstObject];
+        CGFloat yLimit = rowView.center.y + rowView.bounds.size.height;
+        if(recognizer.view.center.y + translation.y - (self.bounds.size.height/2) > yLimit) {
+            recognizer.view.center = CGPointMake(recognizer.view.center.x ,
+                                                 recognizer.view.center.y + translation.y);
+        }
+
+    } else if(beadIndex == 2) {
+        NSLog(@"bead 2 move");
+        recognizer.view.center = CGPointMake(recognizer.view.center.x ,
+                                             recognizer.view.center.y + translation.y);
+    } else if(beadIndex == 3) {
+        NSLog(@"bead 3 move");
+        recognizer.view.center = CGPointMake(recognizer.view.center.x ,
+                                             recognizer.view.center.y + translation.y);
+    } else if(beadIndex == 4) {
+        NSLog(@"bead 4 move");
+        recognizer.view.center = CGPointMake(recognizer.view.center.x ,
+                                             recognizer.view.center.y + translation.y);
+    } else if(beadIndex == 5) {
+        NSLog(@"bead 5 move");
+        recognizer.view.center = CGPointMake(recognizer.view.center.x ,
+                                             recognizer.view.center.y + translation.y);
+    }
+    
     [recognizer setTranslation:CGPointMake(0, 0) inView:self];
+
 }
 
 

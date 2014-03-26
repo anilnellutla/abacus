@@ -15,6 +15,12 @@
 
 static const NSUInteger NUM_OF_COLUMNS = 10;
 
+-(void)setAbacus:(Abacus *)abacus
+{
+    _abacus = abacus;
+    [self setNeedsDisplay];
+}
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -43,9 +49,9 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     [abacusRect stroke];
     
     
-    [self drawColumns:rect];
-    
     [self drawRow:rect];
+
+    [self drawColumns:rect];    
     
 }
 
@@ -57,6 +63,7 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     for(int i = 0; i < NUM_OF_COLUMNS; i++) {
         CGRect columnFrame = CGRectMake(pathX, rect.origin.y, columnWidth, rect.size.height);
         ColumnView *columnView = [[ColumnView alloc] initWithFrame:columnFrame];
+        columnView.columnIndex = i + 1;
         
         [self addSubview:columnView];
         
