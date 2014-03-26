@@ -28,6 +28,7 @@
 		04420BAC18E12FFA00D2B13B /* Abacus.m in Sources */ = {isa = PBXBuildFile; fileRef = 04420BAB18E12FFA00D2B13B /* Abacus.m */; };
 		04433BEE18DFB58200335F0C /* BeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04433BED18DFB58200335F0C /* BeadView.m */; };
 		04433BF118DFC06100335F0C /* RowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04433BF018DFC06100335F0C /* RowView.m */; };
+		0457414618E29274007FE184 /* BeadBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457414518E29274007FE184 /* BeadBehavior.m */; };
 		045A5A6818D8C96300F98418 /* AbacusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A5A6718D8C96300F98418 /* AbacusView.m */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		04433BED18DFB58200335F0C /* BeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeadView.m; sourceTree = "<group>"; };
 		04433BEF18DFC06100335F0C /* RowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowView.h; sourceTree = "<group>"; };
 		04433BF018DFC06100335F0C /* RowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowView.m; sourceTree = "<group>"; };
+		0457414418E29274007FE184 /* BeadBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeadBehavior.h; sourceTree = "<group>"; };
+		0457414518E29274007FE184 /* BeadBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeadBehavior.m; sourceTree = "<group>"; };
 		045A5A6618D8C96300F98418 /* AbacusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbacusView.h; sourceTree = "<group>"; };
 		045A5A6718D8C96300F98418 /* AbacusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbacusView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +152,8 @@
 				040B501318DF4AE6007C0ACE /* ColumnView.m */,
 				0406F1C618D6EB5F0072BF1F /* AbacusViewController.h */,
 				0406F1C718D6EB5F0072BF1F /* AbacusViewController.m */,
+				0457414418E29274007FE184 /* BeadBehavior.h */,
+				0457414518E29274007FE184 /* BeadBehavior.m */,
 				04420BA618E1130800D2B13B /* Model */,
 				0406F1C918D6EB5F0072BF1F /* Images.xcassets */,
 				0406F1B518D6EB5F0072BF1F /* Supporting Files */,
@@ -300,6 +305,7 @@
 				040B501418DF4AE6007C0ACE /* ColumnView.m in Sources */,
 				04433BF118DFC06100335F0C /* RowView.m in Sources */,
 				0406F1C818D6EB5F0072BF1F /* AbacusViewController.m in Sources */,
+				0457414618E29274007FE184 /* BeadBehavior.m in Sources */,
 				0406F1E818D6EB740072BF1F /* Bead.m in Sources */,
 				0406F1BB18D6EB5F0072BF1F /* main.m in Sources */,
 				04433BEE18DFB58200335F0C /* BeadView.m in Sources */,

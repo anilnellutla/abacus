@@ -90,17 +90,30 @@
     
     NSLog(@"move");
     CGPoint translation = [recognizer translationInView:self];
-    
+    CGPoint velocity = [recognizer velocityInView:self];
+    BOOL panDown = NO;
+    if(velocity.y > 0) {
+        panDown = YES;
+        NSLog(@"bead moving down");
+    } else {
+        NSLog(@"bead moving up");
+    }
     
     NSUInteger beadIndex = self.beadIndex;
     
     if(beadIndex == 1) {
         NSLog(@"bead 1 move");
-        UIView *rowView = [[[[self superview] superview] subviews] firstObject];
-        CGFloat yLimit = rowView.center.y + rowView.bounds.size.height;
-        if(recognizer.view.center.y + translation.y - (self.bounds.size.height/2) > yLimit) {
-            recognizer.view.center = CGPointMake(recognizer.view.center.x ,
-                                                 recognizer.view.center.y + translation.y);
+        
+        if(panDown == YES) {
+            
+        } else {
+            UIView *rowView = [[[[self superview] superview] subviews] firstObject];
+            CGFloat yLimit = rowView.center.y + rowView.bounds.size.height;
+
+            if(recognizer.view.center.y + translation.y - (self.bounds.size.height/2) > yLimit) {
+                recognizer.view.center = CGPointMake(recognizer.view.center.x ,
+                                                     recognizer.view.center.y + translation.y);
+            }
         }
 
     } else if(beadIndex == 2) {

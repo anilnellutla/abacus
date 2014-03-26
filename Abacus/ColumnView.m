@@ -8,6 +8,13 @@
 
 #import "ColumnView.h"
 #import "BeadView.h"
+#import "BeadBehavior.h"
+
+@interface ColumnView() <UIDynamicAnimatorDelegate>
+@property (strong, nonatomic) UIDynamicAnimator *animator;
+@property (strong, nonatomic) BeadBehavior *beadBehavior;
+@property (strong, nonatomic) UIAttachmentBehavior *attachment;
+@end
 
 @implementation ColumnView
 
@@ -15,6 +22,30 @@ static const NSUInteger BEADS_PER_COLUMN = 5;
 static const CGFloat BEAD_GAP = 4;
 
 #define COLUMN_BEAD_SIZE_RATIO 0.70
+
+- (BeadBehavior *)beadBehavior
+{
+    if (!_beadBehavior) {
+        _beadBehavior = [[BeadBehavior alloc] init];
+        [self.animator addBehavior:_beadBehavior];
+    }
+    return _beadBehavior;
+}
+
+- (UIDynamicAnimator *)animator
+{
+    if (!_animator) {
+        _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
+        _animator.delegate = self;
+    }
+    return _animator;
+}
+
+- (void)dynamicAnimatorDidPause:(UIDynamicAnimator *)animator
+{
+    NSLog(@"dynamicAnimatorDidPause");
+}
+
 
 #pragma mark - Initialization
 
@@ -78,6 +109,8 @@ static const CGFloat BEAD_GAP = 4;
     BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
     beadView.beadIndex = beadIndex;
     [self addSubview:beadView];
+    [self.beadBehavior addItem:beadView];
+
     
     beadOriginY = (rect.size.height) - (BEAD_SIZE.height) - (BEAD_GAP);
     for(NSUInteger i = 0; i < (BEADS_PER_COLUMN - 1); i++) {
@@ -85,6 +118,7 @@ static const CGFloat BEAD_GAP = 4;
         BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
         beadView.beadIndex = --beadIndex;
         [self addSubview:beadView];
+        [self.beadBehavior addItem:beadView];
         
         beadOriginY = beadOriginY - BEAD_SIZE.height - (BEAD_GAP);
     }
