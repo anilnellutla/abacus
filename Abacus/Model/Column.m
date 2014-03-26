@@ -23,7 +23,8 @@
     return self;
 }
 
--(NSMutableArray *) beads {
+-(NSMutableArray *) beads
+{
     if(!_beads) {
         _beads = [[NSMutableArray alloc] init];
     }

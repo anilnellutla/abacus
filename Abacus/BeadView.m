@@ -85,7 +85,8 @@
     NSLog(@"swipeDown");
 }
 
-- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer
+{
     
     NSLog(@"move");
     CGPoint translation = [recognizer translationInView:self];
