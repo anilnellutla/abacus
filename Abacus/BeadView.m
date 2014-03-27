@@ -83,37 +83,10 @@ static const CGFloat BEAD_GAP = 4;
     [[UIColor blueColor] setStroke];
     [path stroke];
     
-    /*
-    UISwipeGestureRecognizer *swipeUp=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeUp:)];
-    swipeUp.direction=UISwipeGestureRecognizerDirectionUp;
-    
-    UISwipeGestureRecognizer *swipeDown=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeDown:)];
-    swipeDown.direction=UISwipeGestureRecognizerDirectionDown;
-    
-    [self addGestureRecognizer:swipeUp];
-    [self addGestureRecognizer:swipeDown];
-    */
-    
-    
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
     [panRecognizer setMinimumNumberOfTouches:1];
     [panRecognizer setMaximumNumberOfTouches:1];
     [self addGestureRecognizer:panRecognizer];
-}
-
--(void)swipeUp:(UISwipeGestureRecognizer*)gestureRecognizer
-{
-    NSLog(@"swipeUp");
-    CGRect frame = self.frame;
-    frame.origin.y -= 5;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.frame = frame;
-    }];
-}
-
--(void)swipeDown:(UISwipeGestureRecognizer*)gestureRecognizer
-{
-    NSLog(@"swipeDown");
 }
 
 - (void)drag:(UIPanGestureRecognizer *)recognizer
@@ -128,33 +101,78 @@ static const CGFloat BEAD_GAP = 4;
     }
     
     if(dragDown == YES) {
-        [self moveDown:translation.y];
+        if(self.beadIndex == 1) {
+            NSMutableArray *views = [[NSMutableArray alloc] init];
+            [views addObject:[self getBeadView:2]];
+            [views addObject:[self getBeadView:3]];
+            [views addObject:[self getBeadView:4]];
+            NSNumber *y = [NSNumber numberWithFloat:translation.y];
+            [views makeObjectsPerformSelector:@selector(moveDown:) withObject:y];
+            [self moveDown:[NSNumber numberWithFloat:translation.y]];
+        } else if(self.beadIndex == 2) {
+            NSMutableArray *views = [[NSMutableArray alloc] init];
+            [views addObject:[self getBeadView:3]];
+            [views addObject:[self getBeadView:4]];
+            NSNumber *y = [NSNumber numberWithFloat:translation.y];
+            [views makeObjectsPerformSelector:@selector(moveDown:) withObject:y];
+            [self moveDown:[NSNumber numberWithFloat:translation.y]];
+        } else if(self.beadIndex == 3) {
+            UIView *view = [[[self superview] subviews] objectAtIndex: 1];
+            NSNumber *y = [NSNumber numberWithFloat:translation.y];
+            [view performSelector:@selector(moveDown:) withObject:y];
+            [self moveDown:[NSNumber numberWithFloat:translation.y]];
+        } else {
+            [self moveDown:[NSNumber numberWithFloat:translation.y]];
+        }
+        
     } else {
-        [self moveUp:translation.y];
+        if(self.beadIndex == 1) {
+            [self moveUp:[NSNumber numberWithFloat:translation.y]];
+        } else if(self.beadIndex == 2) {
+            UIView *view = [self getBeadView:1];
+            NSNumber *y = [NSNumber numberWithFloat:translation.y];
+            [view performSelector:@selector(moveUp:) withObject:y];
+            [self moveUp:[NSNumber numberWithFloat:translation.y]];
+        } else if(self.beadIndex == 3) {
+            NSMutableArray *views = [[NSMutableArray alloc] init];
+            [views addObject:[self getBeadView:2]];
+            [views addObject:[self getBeadView:1]];
+            NSNumber *y = [NSNumber numberWithFloat:translation.y];
+            [views makeObjectsPerformSelector:@selector(moveUp:) withObject:y];
+            [self moveUp:[NSNumber numberWithFloat:translation.y]];
+        } else if(self.beadIndex == 4) {
+            NSMutableArray *views = [[NSMutableArray alloc] init];
+            [views addObject:[self getBeadView:3]];
+            [views addObject:[self getBeadView:2]];
+            [views addObject:[self getBeadView:1]];
+            NSNumber *y = [NSNumber numberWithFloat:translation.y];
+            [views makeObjectsPerformSelector:@selector(moveUp:) withObject:y];
+            [self moveUp:[NSNumber numberWithFloat:translation.y]];
+        }
     }
     
     [recognizer setTranslation:CGPointMake(0, 0) inView:self];
 
 }
 
-- (void)moveUp:(CGFloat)y
+- (void)moveUp:(NSNumber *)y
 {
     // y is negative for drag down
     CGFloat moveUpLimit = [self moveUpLimit];
-    CGFloat moveTo = self.center.y + y - (self.bounds.size.height/2);
+    CGFloat moveTo = self.center.y + y.floatValue - (self.bounds.size.height/2);
     if(moveTo > moveUpLimit) {
-        self.center = CGPointMake(self.center.x, self.center.y + y);
+        self.center = CGPointMake(self.center.x, self.center.y + y.floatValue);
     }
     
 }
 
-- (void)moveDown:(CGFloat)y
+- (void)moveDown:(NSNumber *)y
 {
     // y is positive for drag up
     CGFloat moveDownLimit = [self moveDownLimit];
-    CGFloat moveTo = self.center.y + y + (self.bounds.size.height/2);
+    CGFloat moveTo = self.center.y + y.floatValue + (self.bounds.size.height/2);
     if(moveTo < moveDownLimit) {
-        self.center = CGPointMake(self.center.x, self.center.y + y);
+        self.center = CGPointMake(self.center.x, self.center.y + y.floatValue);
     }
 }
 
