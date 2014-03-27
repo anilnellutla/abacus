@@ -126,9 +126,7 @@ static const CGFloat BEAD_GAP = 4;
         }
         
     } else {
-        if(self.beadIndex == 1) {
-            [self moveUp:[NSNumber numberWithFloat:translation.y]];
-        } else if(self.beadIndex == 2) {
+        if(self.beadIndex == 2) {
             UIView *view = [self getBeadView:1];
             NSNumber *y = [NSNumber numberWithFloat:translation.y];
             [view performSelector:@selector(moveUp:) withObject:y];
@@ -147,6 +145,8 @@ static const CGFloat BEAD_GAP = 4;
             [views addObject:[self getBeadView:1]];
             NSNumber *y = [NSNumber numberWithFloat:translation.y];
             [views makeObjectsPerformSelector:@selector(moveUp:) withObject:y];
+            [self moveUp:[NSNumber numberWithFloat:translation.y]];
+        } else {
             [self moveUp:[NSNumber numberWithFloat:translation.y]];
         }
     }
