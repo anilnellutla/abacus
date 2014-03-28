@@ -17,25 +17,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vV-2p-Osr">
-                                <rect key="frame" x="230" y="20" width="774" height="390"/>
+                                <rect key="frame" x="230" y="20" width="774" height="372"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ebg-dA-Pds" customClass="AbacusView">
-                                        <rect key="frame" x="44" y="41" width="683" height="349"/>
+                                        <rect key="frame" x="44" y="26" width="683" height="316"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7vV-2p-Osr" firstAttribute="leading" secondItem="jxg-ec-6Gv" secondAttribute="leading" constant="230" id="fEk-EI-7VA"/>
-                            <constraint firstItem="7vV-2p-Osr" firstAttribute="top" secondItem="jxg-ec-6Gv" secondAttribute="top" constant="20" symbolic="YES" id="j8s-WG-2pH"/>
-                            <constraint firstAttribute="trailing" secondItem="7vV-2p-Osr" secondAttribute="trailing" constant="20" symbolic="YES" id="n6c-2d-30b"/>
-                            <constraint firstItem="MfZ-l6-SZp" firstAttribute="top" secondItem="7vV-2p-Osr" secondAttribute="bottom" constant="358" id="nC2-Qy-589"/>
+                            <constraint firstAttribute="trailing" secondItem="7vV-2p-Osr" secondAttribute="trailing" constant="20" symbolic="YES" id="4id-bX-RF3"/>
+                            <constraint firstItem="MfZ-l6-SZp" firstAttribute="top" secondItem="7vV-2p-Osr" secondAttribute="bottom" constant="376" id="7tP-oe-89L"/>
+                            <constraint firstItem="7vV-2p-Osr" firstAttribute="leading" secondItem="jxg-ec-6Gv" secondAttribute="leading" constant="230" id="bHK-2M-c51"/>
+                            <constraint firstItem="7vV-2p-Osr" firstAttribute="top" secondItem="jxg-ec-6Gv" secondAttribute="top" constant="20" symbolic="YES" id="fZB-g1-TKX"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>

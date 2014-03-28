@@ -10,11 +10,12 @@
 
 @implementation Bead
 
--(instancetype)initWithValue:(NSInteger)value
+-(instancetype)initWithValue:(NSInteger)value index:(NSUInteger)index
 {
     self = [super init];
     if(self) {
         self.value = value;
+        self.index = index;
     }
     return self;
 }

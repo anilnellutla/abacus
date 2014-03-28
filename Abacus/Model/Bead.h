@@ -11,7 +11,7 @@
 @interface Bead : NSObject
 
 //designated initializer
--(instancetype)initWithValue:(NSInteger)value;
-
+-(instancetype)initWithValue:(NSInteger)value index:(NSUInteger)index;
+@property (nonatomic) NSUInteger index;
 @property (nonatomic) NSInteger value;
 @end

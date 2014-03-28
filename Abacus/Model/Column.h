@@ -11,13 +11,12 @@
 
 @interface Column : NSObject
 
-//designated initializer
--(instancetype)initWithPlaceValue:(NSUInteger)placeValue beadsPerColumn:(NSUInteger)numOfBeadsPerColumn;
+// designated initializer
+-(instancetype)initWithPlaceValue:(NSUInteger)placeValue;
 
 @property (nonatomic) NSUInteger placeValue;
-//@property (nonatomic) NSUInteger numOfBeadsPerColumn;
-@property (strong, nonatomic) NSMutableArray *beads;
 
+-(void)addBead:(Bead *)bead;
 -(void)reset;
 -(NSInteger)value;
 -(NSInteger)maxValue;

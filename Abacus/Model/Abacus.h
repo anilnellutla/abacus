@@ -11,13 +11,7 @@
 
 @interface Abacus : NSObject
 
-//designated initializer
--(instancetype)initWithNumOfColumns:(NSUInteger)numOfColumns beadsPerColumn:(NSUInteger)numOfBeadsPerColumn;
-
-@property (nonatomic) NSUInteger numOfColumns;
-@property (nonatomic) NSUInteger numOfBeadsPerColumn;
-@property (strong, nonatomic) NSMutableArray *columns;
-
+-(void)addColumn:(Column *)column;
 -(void)reset;
 -(NSInteger)value;
 -(Column *)column:(NSUInteger)placeValue;

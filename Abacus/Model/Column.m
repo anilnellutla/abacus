@@ -8,17 +8,17 @@
 
 #import "Column.h"
 
+@interface Column()
+@property (strong, nonatomic) NSMutableArray *beads;
+@end
+
 @implementation Column
 
--(instancetype)initWithPlaceValue:(NSUInteger)placeValue beadsPerColumn:(NSUInteger)numOfBeadsPerColumn
+-(instancetype)initWithPlaceValue:(NSUInteger)placeValue
 {
     self = [super init];
     if(self) {
         self.placeValue = placeValue;
-        for(int i = 0; i < numOfBeadsPerColumn; i++) {
-            Bead *bead = [[Bead alloc] initWithValue:0];
-            [self.beads addObject:bead];
-        }
     }
     return self;
 }
@@ -29,6 +29,11 @@
         _beads = [[NSMutableArray alloc] init];
     }
     return _beads;
+}
+
+-(void)addBead:(Bead *)bead
+{
+    [self.beads addObject:bead];
 }
 
 -(void)reset

@@ -7,31 +7,23 @@
 //
 
 #import "Abacus.h"
+@interface Abacus()
+@property (strong, nonatomic) NSMutableArray *columns;
+@end
 
 @implementation Abacus
 
--(instancetype)initWithNumOfColumns:(NSUInteger)numOfColumns beadsPerColumn:(NSUInteger)numOfBeadsPerColumn
-{
-    self = [super init];
-    if(self) {
-        self.numOfColumns = numOfColumns;
-        self.numOfBeadsPerColumn = numOfBeadsPerColumn;
-        int nextPlaceValue = 1;
-        for(int i = 0; i < numOfColumns; i++) {
-            Column *column = [[Column alloc] initWithPlaceValue:nextPlaceValue beadsPerColumn:numOfBeadsPerColumn];
-            nextPlaceValue *= 10;
-            [self.columns addObject:column];
-        }
-    }
-    return self;
-}
-
--(NSMutableArray *) columns
+-(NSMutableArray *)columns
 {
     if(!_columns) {
-        _columns = [[NSMutableArray alloc] init];
+        _columns = [[NSMutableArray alloc]initWithCapacity:10];
     }
     return _columns;
+}
+
+-(void)addColumn:(Column *)column
+{
+    [self.columns addObject:column];
 }
 
 -(void)reset
@@ -58,7 +50,7 @@
         }
     }
     
-    return [[Column alloc]initWithPlaceValue:placeValue beadsPerColumn:[self numOfBeadsPerColumn]];
+    return nil;
 }
 
 @end
