@@ -22,10 +22,6 @@ static const NSUInteger BEADS_PER_COLUMN = 5;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    Abacus *abacus = [[Abacus alloc]initWithNumOfColumns:NUM_OF_COLUMNS
-                                          beadsPerColumn:BEADS_PER_COLUMN];
-    
-    self.abacusView.abacus = abacus;
 }
 
 - (void)didReceiveMemoryWarning

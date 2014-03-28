@@ -8,6 +8,7 @@
 
 #import "ColumnView.h"
 #import "BeadView.h"
+#import "Bead.h"
 
 
 @implementation ColumnView
@@ -15,13 +16,15 @@
 static const NSUInteger BEADS_PER_COLUMN = 5;
 static const CGFloat BEAD_GAP = 4;
 
-#define COLUMN_BEAD_SIZE_RATIO 0.70
+//#define COLUMN_BEAD_SIZE_RATIO 0.70
+#define COLUMN_BEAD_WIDTH_RATIO 0.70
+#define COLUMN_BEAD_HEIGHT_RATIO 0.55
 
 #pragma mark - Initialization
 
 - (void)setUp
 {
-    self.backgroundColor = nil;
+    //self.backgroundColor = nil;
     self.opaque = NO;
     self.contentMode = UIViewContentModeRedraw;
 }
@@ -70,25 +73,36 @@ static const CGFloat BEAD_GAP = 4;
 
 - (void)drawBeads:(CGRect)rect
 {
-    CGSize BEAD_SIZE = { rect.size.width * COLUMN_BEAD_SIZE_RATIO, rect.size.width * COLUMN_BEAD_SIZE_RATIO};
+    CGSize BEAD_SIZE = { rect.size.width * COLUMN_BEAD_WIDTH_RATIO, rect.size.width * COLUMN_BEAD_HEIGHT_RATIO};
     CGFloat beadOriginX = rect.origin.x + (rect.size.width - BEAD_SIZE.width)/2;
     CGFloat beadOriginY = 0 + BEAD_GAP;
     
     int beadIndex = 5;
     CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
     BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
-    beadView.beadIndex = beadIndex;
+    Bead *bead = [[Bead alloc] initWithValue:0 index:beadIndex];
+    beadView.bead = bead;
     [self addSubview:beadView];
+
+    [self.column addBead:bead];
+    
+    beadIndex -= 1;
+
 
     
     beadOriginY = (rect.size.height) - (BEAD_SIZE.height) - (BEAD_GAP);
     for(NSUInteger i = 0; i < (BEADS_PER_COLUMN - 1); i++) {
         CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
         BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
-        beadView.beadIndex = --beadIndex;
+        Bead *bead = [[Bead alloc] initWithValue:0 index:beadIndex];
+        beadView.bead = bead;
         [self addSubview:beadView];
         
+        [self.column addBead:bead];
+        
         beadOriginY = beadOriginY - BEAD_SIZE.height - (BEAD_GAP);
+        beadIndex -= 1;
+
     }
 }
 

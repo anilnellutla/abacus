@@ -46,7 +46,7 @@ static const CGFloat BEAD_GAP = 4;
 
 - (void)setUp
 {
-    self.backgroundColor = nil;
+    //self.backgroundColor = nil;
     self.opaque = NO;
     self.contentMode = UIViewContentModeRedraw;
 }
@@ -101,7 +101,7 @@ static const CGFloat BEAD_GAP = 4;
     }
     
     if(dragDown == YES) {
-        if(self.beadIndex == 1) {
+        if(self.bead.index == 1) {
             NSMutableArray *views = [[NSMutableArray alloc] init];
             [views addObject:[self getBeadView:2]];
             [views addObject:[self getBeadView:3]];
@@ -109,14 +109,14 @@ static const CGFloat BEAD_GAP = 4;
             NSNumber *y = [NSNumber numberWithFloat:translation.y];
             [views makeObjectsPerformSelector:@selector(moveDown:) withObject:y];
             [self moveDown:[NSNumber numberWithFloat:translation.y]];
-        } else if(self.beadIndex == 2) {
+        } else if(self.bead.index == 2) {
             NSMutableArray *views = [[NSMutableArray alloc] init];
             [views addObject:[self getBeadView:3]];
             [views addObject:[self getBeadView:4]];
             NSNumber *y = [NSNumber numberWithFloat:translation.y];
             [views makeObjectsPerformSelector:@selector(moveDown:) withObject:y];
             [self moveDown:[NSNumber numberWithFloat:translation.y]];
-        } else if(self.beadIndex == 3) {
+        } else if(self.bead.index == 3) {
             UIView *view = [[[self superview] subviews] objectAtIndex: 1];
             NSNumber *y = [NSNumber numberWithFloat:translation.y];
             [view performSelector:@selector(moveDown:) withObject:y];
@@ -126,19 +126,19 @@ static const CGFloat BEAD_GAP = 4;
         }
         
     } else {
-        if(self.beadIndex == 2) {
+        if(self.bead.index == 2) {
             UIView *view = [self getBeadView:1];
             NSNumber *y = [NSNumber numberWithFloat:translation.y];
             [view performSelector:@selector(moveUp:) withObject:y];
             [self moveUp:[NSNumber numberWithFloat:translation.y]];
-        } else if(self.beadIndex == 3) {
+        } else if(self.bead.index == 3) {
             NSMutableArray *views = [[NSMutableArray alloc] init];
             [views addObject:[self getBeadView:2]];
             [views addObject:[self getBeadView:1]];
             NSNumber *y = [NSNumber numberWithFloat:translation.y];
             [views makeObjectsPerformSelector:@selector(moveUp:) withObject:y];
             [self moveUp:[NSNumber numberWithFloat:translation.y]];
-        } else if(self.beadIndex == 4) {
+        } else if(self.bead.index == 4) {
             NSMutableArray *views = [[NSMutableArray alloc] init];
             [views addObject:[self getBeadView:3]];
             [views addObject:[self getBeadView:2]];
@@ -179,19 +179,19 @@ static const CGFloat BEAD_GAP = 4;
 - (CGFloat)moveUpLimit
 {
     CGFloat moveUpLimit = 0;
-    if(self.beadIndex == 1) {
+    if(self.bead.index == 1) {
         UIView *rowView = [[[[self superview] superview] subviews] firstObject];
         moveUpLimit = rowView.center.y + rowView.bounds.size.height + BEAD_GAP;
-    } else if(self.beadIndex == 2) {
+    } else if(self.bead.index == 2) {
         UIView *firstBeadView = [self getBeadView:1];
         moveUpLimit = firstBeadView.center.y +firstBeadView.bounds.size.height/2 + BEAD_GAP;
-    } else if(self.beadIndex == 3) {
+    } else if(self.bead.index == 3) {
         UIView *secondBeadView = [self getBeadView:2];
         moveUpLimit = secondBeadView.center.y +secondBeadView.bounds.size.height/2 + BEAD_GAP;
-    } else if(self.beadIndex == 4) {
+    } else if(self.bead.index == 4) {
         UIView *thirdBeadView = [self getBeadView:3];
         moveUpLimit = thirdBeadView.center.y +thirdBeadView.bounds.size.height/2 + BEAD_GAP;
-    } else if(self.beadIndex == 5) {
+    } else if(self.bead.index == 5) {
         UIView *columnView = [self superview];
         moveUpLimit = columnView.center.y - columnView.bounds.size.height/2 + BEAD_GAP;
     }
@@ -201,19 +201,19 @@ static const CGFloat BEAD_GAP = 4;
 - (CGFloat)moveDownLimit
 {
     CGFloat moveDownLimit = 0;
-    if(self.beadIndex == 1) {
+    if(self.bead.index == 1) {
         UIView *secondBeadView = [self getBeadView:2];
         moveDownLimit = secondBeadView.center.y - secondBeadView.bounds.size.height/2 - BEAD_GAP;
-    } else if(self.beadIndex == 2) {
+    } else if(self.bead.index == 2) {
         UIView *thirdBeadView = [self getBeadView:3];
         moveDownLimit = thirdBeadView.center.y - thirdBeadView.bounds.size.height/2 - BEAD_GAP;
-    } else if(self.beadIndex == 3) {
+    } else if(self.bead.index == 3) {
         UIView *fourthBeadView = [self getBeadView:4];
         moveDownLimit = fourthBeadView.center.y - fourthBeadView.bounds.size.height/2 - BEAD_GAP;
-    } else if(self.beadIndex == 4) {
+    } else if(self.bead.index == 4) {
         UIView *columnView = [self superview];
         moveDownLimit = columnView.center.y + columnView.bounds.size.height/2 - BEAD_GAP;
-    } else if(self.beadIndex == 5) {
+    } else if(self.bead.index == 5) {
         UIView *rowView = [[[[self superview] superview] subviews] firstObject];
         moveDownLimit = rowView.center.y - rowView.bounds.size.height - BEAD_GAP;
     }

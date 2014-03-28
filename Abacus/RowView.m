@@ -14,7 +14,7 @@
 
 - (void)setUp
 {
-    self.backgroundColor = nil;
+    //self.backgroundColor = nil;
     self.opaque = NO;
     self.contentMode = UIViewContentModeRedraw;
 }

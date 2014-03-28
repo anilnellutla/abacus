@@ -15,10 +15,12 @@
 
 static const NSUInteger NUM_OF_COLUMNS = 10;
 
--(void)setAbacus:(Abacus *)abacus
+-(Abacus *)abacus
 {
-    _abacus = abacus;
-    [self setNeedsDisplay];
+    if(!_abacus) {
+        _abacus = [[Abacus alloc] init];
+    }
+    return _abacus;
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -29,10 +31,10 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     UIBezierPath *backgroundRect = [UIBezierPath bezierPathWithRect:self.bounds];
     [backgroundRect addClip];
     
-    [[UIColor whiteColor] setFill];
+    //[[UIColor whiteColor] setFill];
     
     //UIRectFill(self.bounds);
-    [backgroundRect fill];
+    //[backgroundRect fill];
     
     [self drawAbacus:rect];
     
@@ -42,12 +44,11 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
 {    
     UIBezierPath *abacusRect = [UIBezierPath bezierPathWithRect:rect];
     
-    [[UIColor whiteColor] setFill];
-    [abacusRect fill];
+    //[[UIColor whiteColor] setFill];
+    //[abacusRect fill];
     
     [[UIColor blueColor] setStroke];
     [abacusRect stroke];
-    
     
     [self drawRow:rect];
 
@@ -60,14 +61,18 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     CGFloat columnWidth = rect.size.width/(NUM_OF_COLUMNS + 1);
     CGFloat columnGap = columnWidth / (NUM_OF_COLUMNS);
     CGFloat pathX = rect.size.width - columnWidth - columnGap;
+    int placeValue = 1;
     for(int i = 0; i < NUM_OF_COLUMNS; i++) {
         CGRect columnFrame = CGRectMake(pathX, rect.origin.y, columnWidth, rect.size.height);
         ColumnView *columnView = [[ColumnView alloc] initWithFrame:columnFrame];
-        columnView.columnIndex = i + 1;
-        
+        Column *column = [[Column alloc] initWithPlaceValue:placeValue];
+        columnView.column = column;
         [self addSubview:columnView];
         
+        [self.abacus addColumn:column];
+        
         pathX = pathX - columnWidth - columnGap;
+        placeValue *= 10;
     }
 }
 
@@ -83,7 +88,7 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
 
 - (void)setUp
 {
-    self.backgroundColor = nil;
+    //self.backgroundColor = nil;
     self.opaque = NO;
     self.contentMode = UIViewContentModeRedraw;
 }

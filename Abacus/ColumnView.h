@@ -11,5 +11,4 @@
 
 @interface ColumnView : UIView
 @property (strong, nonatomic) Column *column;
-@property (nonatomic) NSUInteger columnIndex;
 @end
