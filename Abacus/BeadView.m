@@ -68,7 +68,6 @@ static const CGFloat BEAD_GAP = 4;
 - (void)setBead:(Bead *)bead
 {
     _bead = bead;
-    [self setNeedsDisplay];
 }
 
 
@@ -78,9 +77,11 @@ static const CGFloat BEAD_GAP = 4;
 {
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
     path.lineWidth = 0;
-    [[UIColor blueColor] setFill];
+    //[[UIColor blueColor] setFill];
+    [[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setFill];
     [path fill];
-    [[UIColor blueColor] setStroke];
+    //[[UIColor blueColor] setStroke];
+    [[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setStroke];
     [path stroke];
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
@@ -117,7 +118,7 @@ static const CGFloat BEAD_GAP = 4;
             [views makeObjectsPerformSelector:@selector(moveDown:) withObject:y];
             [self moveDown:[NSNumber numberWithFloat:translation.y]];
         } else if(self.bead.index == 3) {
-            UIView *view = [[[self superview] subviews] objectAtIndex: 1];
+            UIView *view = [self getBeadView:4];
             NSNumber *y = [NSNumber numberWithFloat:translation.y];
             [view performSelector:@selector(moveDown:) withObject:y];
             [self moveDown:[NSNumber numberWithFloat:translation.y]];
@@ -178,20 +179,25 @@ static const CGFloat BEAD_GAP = 4;
 
 - (CGFloat)moveUpLimit
 {
+    return [self moveUpLimit:self.bead.index];
+}
+
+- (CGFloat)moveUpLimit:(NSUInteger)beadIndex
+{
     CGFloat moveUpLimit = 0;
-    if(self.bead.index == 1) {
+    if(beadIndex == 1) {
         UIView *rowView = [[[[self superview] superview] subviews] firstObject];
         moveUpLimit = rowView.center.y + rowView.bounds.size.height + BEAD_GAP;
-    } else if(self.bead.index == 2) {
+    } else if(beadIndex == 2) {
         UIView *firstBeadView = [self getBeadView:1];
         moveUpLimit = firstBeadView.center.y +firstBeadView.bounds.size.height/2 + BEAD_GAP;
-    } else if(self.bead.index == 3) {
+    } else if(beadIndex == 3) {
         UIView *secondBeadView = [self getBeadView:2];
         moveUpLimit = secondBeadView.center.y +secondBeadView.bounds.size.height/2 + BEAD_GAP;
-    } else if(self.bead.index == 4) {
+    } else if(beadIndex == 4) {
         UIView *thirdBeadView = [self getBeadView:3];
         moveUpLimit = thirdBeadView.center.y +thirdBeadView.bounds.size.height/2 + BEAD_GAP;
-    } else if(self.bead.index == 5) {
+    } else if(beadIndex == 5) {
         UIView *columnView = [self superview];
         moveUpLimit = columnView.center.y - columnView.bounds.size.height/2 + BEAD_GAP;
     }
@@ -200,24 +206,55 @@ static const CGFloat BEAD_GAP = 4;
 
 - (CGFloat)moveDownLimit
 {
+    return [self moveDownLimit:self.bead.index];
+}
+
+- (CGFloat)moveDownLimit:(NSUInteger)beadIndex
+{
     CGFloat moveDownLimit = 0;
-    if(self.bead.index == 1) {
+    if(beadIndex == 1) {
         UIView *secondBeadView = [self getBeadView:2];
         moveDownLimit = secondBeadView.center.y - secondBeadView.bounds.size.height/2 - BEAD_GAP;
-    } else if(self.bead.index == 2) {
+    } else if(beadIndex == 2) {
         UIView *thirdBeadView = [self getBeadView:3];
         moveDownLimit = thirdBeadView.center.y - thirdBeadView.bounds.size.height/2 - BEAD_GAP;
-    } else if(self.bead.index == 3) {
+    } else if(beadIndex == 3) {
         UIView *fourthBeadView = [self getBeadView:4];
         moveDownLimit = fourthBeadView.center.y - fourthBeadView.bounds.size.height/2 - BEAD_GAP;
-    } else if(self.bead.index == 4) {
+    } else if(beadIndex == 4) {
         UIView *columnView = [self superview];
         moveDownLimit = columnView.center.y + columnView.bounds.size.height/2 - BEAD_GAP;
-    } else if(self.bead.index == 5) {
+    } else if(beadIndex == 5) {
         UIView *rowView = [[[[self superview] superview] subviews] firstObject];
         moveDownLimit = rowView.center.y - rowView.bounds.size.height - BEAD_GAP;
     }
     return moveDownLimit;
+}
+
+- (BOOL)isBead:(NSUInteger)beadIndex adjacentToBead:(NSUInteger)adjacentBeadIndex
+{
+    if(beadIndex < adjacentBeadIndex) {
+        CGFloat moveDownLimit = [self moveDownLimit:beadIndex];
+        BeadView *bead = [self getBeadView:beadIndex];
+        CGFloat moveDownTo = bead.center.y + (bead.bounds.size.height/2);
+        // it means bead cannot be moved down
+        if(moveDownLimit - moveDownTo < 1) {
+            return YES;
+        } else {
+            return NO;
+        }
+    } else {
+        CGFloat moveUpLimit = [self moveUpLimit:adjacentBeadIndex];
+        BeadView *adjacentBead = [self getBeadView:adjacentBeadIndex];
+        CGFloat moveUpTo = adjacentBead.center.y - (adjacentBead.bounds.size.height/2);
+        // it means bead cannot be moved up
+        if(moveUpTo - moveUpLimit < 1) {
+            return YES;
+        } else {
+            return NO;
+        }
+    }
+    return NO;
 }
 
 - (BeadView *) getBeadView:(NSUInteger)beadIndex

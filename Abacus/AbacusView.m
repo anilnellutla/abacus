@@ -15,13 +15,6 @@
 
 static const NSUInteger NUM_OF_COLUMNS = 10;
 
--(Abacus *)abacus
-{
-    if(!_abacus) {
-        _abacus = [[Abacus alloc] init];
-    }
-    return _abacus;
-}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -47,12 +40,17 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     //[[UIColor whiteColor] setFill];
     //[abacusRect fill];
     
-    [[UIColor blueColor] setStroke];
+    [[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setStroke];
+    //[[UIColor blueColor] setStroke];
     [abacusRect stroke];
+    
+    _abacus = [[Abacus alloc] init];
     
     [self drawRow:rect];
 
-    [self drawColumns:rect];    
+    [self drawColumns:rect];
+    
+    NSLog(@"drawAbacus completed");
     
 }
 

@@ -15,8 +15,6 @@
 @end
 
 @implementation AbacusViewController
-static const NSUInteger NUM_OF_COLUMNS = 10;
-static const NSUInteger BEADS_PER_COLUMN = 5;
 
 - (void)viewDidLoad
 {

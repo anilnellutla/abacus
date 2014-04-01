@@ -18,7 +18,7 @@
 {
     self = [super init];
     if(self) {
-        self.placeValue = placeValue;
+        _placeValue = placeValue;
     }
     return self;
 }

@@ -17,8 +17,8 @@ static const NSUInteger BEADS_PER_COLUMN = 5;
 static const CGFloat BEAD_GAP = 4;
 
 //#define COLUMN_BEAD_SIZE_RATIO 0.70
-#define COLUMN_BEAD_WIDTH_RATIO 0.70
-#define COLUMN_BEAD_HEIGHT_RATIO 0.55
+#define COLUMN_BEAD_WIDTH_RATIO 0.52
+#define COLUMN_BEAD_HEIGHT_RATIO 0.52
 
 #pragma mark - Initialization
 
@@ -46,7 +46,6 @@ static const CGFloat BEAD_GAP = 4;
 - (void)setColumn:(Column *)column
 {
     _column = column;
-    [self setNeedsDisplay];
 }
 
 
@@ -64,7 +63,8 @@ static const CGFloat BEAD_GAP = 4;
     [path moveToPoint:CGPointMake(rect.origin.x + (rect.size.width/2), rect.origin.y)];
     [path addLineToPoint:CGPointMake(rect.origin.x + (rect.size.width/2), rect.size.height)];
     [path closePath];
-    [[UIColor blueColor] setStroke];
+    //[[UIColor blueColor] setStroke];
+    [[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setStroke];
     [path stroke];
     
     [self drawBeads:rect];

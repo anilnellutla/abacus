@@ -14,8 +14,8 @@
 {
     self = [super init];
     if(self) {
-        self.value = value;
-        self.index = index;
+        _value = value;
+        _index = index;
     }
     return self;
 }
