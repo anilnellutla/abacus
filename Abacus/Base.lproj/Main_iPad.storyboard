@@ -26,6 +26,8 @@
                                         <gestureRecognizers/>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Ebg-dA-Pds" secondAttribute="bottom" id="BHq-xT-VXF"/>
                                     <constraint firstItem="Ebg-dA-Pds" firstAttribute="leading" secondItem="7vV-2p-Osr" secondAttribute="leading" constant="20" symbolic="YES" id="KAM-L5-JTt"/>
@@ -34,7 +36,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7vV-2p-Osr" firstAttribute="leading" secondItem="jxg-ec-6Gv" secondAttribute="leading" constant="20" symbolic="YES" id="PCV-oa-Css"/>
                             <constraint firstAttribute="trailing" secondItem="7vV-2p-Osr" secondAttribute="trailing" constant="20" symbolic="YES" id="YKi-fp-8r9"/>

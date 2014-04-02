@@ -16,7 +16,7 @@
 
 @implementation BeadView
 
-static const CGFloat BEAD_GAP = 4;
+static const CGFloat BEAD_GAP = 2;
 
 - (BeadBehavior *)beadBehavior
 {
@@ -78,10 +78,11 @@ static const CGFloat BEAD_GAP = 4;
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
     path.lineWidth = 0;
     //[[UIColor blueColor] setFill];
-    [[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setFill];
+    //[[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setFill];
+    [[UIColor colorWithRed:0.45 green:0.2 blue:0.02 alpha:1.0] setFill];
     [path fill];
     //[[UIColor blueColor] setStroke];
-    [[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setStroke];
+    [[UIColor colorWithRed:0.45 green:0.2 blue:0.02 alpha:1.0] setStroke];
     [path stroke];
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];

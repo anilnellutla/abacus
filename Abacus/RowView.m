@@ -42,7 +42,7 @@
     [path moveToPoint:CGPointMake(rect.origin.x, rect.origin.y)];
     [path addLineToPoint:CGPointMake(rect.origin.x + rect.size.width, rect.origin.y)];
     [path closePath];
-    [[UIColor blueColor] setStroke];
+    [[UIColor blackColor] setStroke];
     [path stroke];
 }
 
