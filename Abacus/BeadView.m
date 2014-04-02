@@ -70,6 +70,11 @@ static const CGFloat BEAD_GAP = 2;
     _bead = bead;
 }
 
+- (UIColor *)beadColor
+{
+    return [UIColor colorWithRed:0.45 green:0.2 blue:0.02 alpha:1.0];
+}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -77,12 +82,9 @@ static const CGFloat BEAD_GAP = 2;
 {
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
     path.lineWidth = 0;
-    //[[UIColor blueColor] setFill];
-    //[[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setFill];
-    [[UIColor colorWithRed:0.45 green:0.2 blue:0.02 alpha:1.0] setFill];
+    [[self beadColor] setFill];
     [path fill];
-    //[[UIColor blueColor] setStroke];
-    [[UIColor colorWithRed:0.45 green:0.2 blue:0.02 alpha:1.0] setStroke];
+    [[self beadColor] setStroke];
     [path stroke];
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
@@ -122,7 +124,7 @@ static const CGFloat BEAD_GAP = 2;
         NSNumber *y = [NSNumber numberWithFloat:translation.y];
         [views makeObjectsPerformSelector:@selector(moveDown:) withObject:y];
         
-        if ([(UIPanGestureRecognizer*)recognizer state] == UIGestureRecognizerStateEnded) {
+        if ([recognizer state] == UIGestureRecognizerStateEnded) {
             [views makeObjectsPerformSelector:@selector(moveDown)];
         }
     } else {
@@ -144,7 +146,7 @@ static const CGFloat BEAD_GAP = 2;
         NSNumber *y = [NSNumber numberWithFloat:translation.y];
         [views makeObjectsPerformSelector:@selector(moveUp:) withObject:y];
         
-        if ([(UIPanGestureRecognizer*)recognizer state] == UIGestureRecognizerStateEnded) {
+        if ([recognizer state] == UIGestureRecognizerStateEnded) {
             [views makeObjectsPerformSelector:@selector(moveUp)];
         }
     }

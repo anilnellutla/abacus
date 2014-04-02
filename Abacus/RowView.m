@@ -33,6 +33,11 @@
     return self;
 }
 
+- (UIColor *)rowColor
+{
+    return [UIColor blackColor];
+}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -42,7 +47,7 @@
     [path moveToPoint:CGPointMake(rect.origin.x, rect.origin.y)];
     [path addLineToPoint:CGPointMake(rect.origin.x + rect.size.width, rect.origin.y)];
     [path closePath];
-    [[UIColor blackColor] setStroke];
+    [[self rowColor] setStroke];
     [path stroke];
 }
 

@@ -15,6 +15,10 @@
 
 static const NSUInteger NUM_OF_COLUMNS = 10;
 
+- (UIColor *)abacusBorderColor
+{
+    return [UIColor blackColor];
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -24,11 +28,6 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     UIBezierPath *backgroundRect = [UIBezierPath bezierPathWithRect:self.bounds];
     [backgroundRect addClip];
     
-    //[[UIColor whiteColor] setFill];
-    
-    //UIRectFill(self.bounds);
-    //[backgroundRect fill];
-    
     [self drawAbacus:rect];
     
 }
@@ -37,11 +36,7 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
 {    
     UIBezierPath *abacusRect = [UIBezierPath bezierPathWithRect:rect];
     
-    //[[UIColor whiteColor] setFill];
-    //[abacusRect fill];
-    
-    //[[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setStroke];
-    [[UIColor blackColor] setStroke];
+    [[self abacusBorderColor] setStroke];
     [abacusRect stroke];
     
     _abacus = [[Abacus alloc] init];

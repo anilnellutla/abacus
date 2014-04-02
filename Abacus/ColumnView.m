@@ -57,14 +57,18 @@ static const CGFloat BEAD_GAP = 2;
     [self drawColumn:rect];
 }
 
+- (UIColor *)columnColor
+{
+    return [UIColor blackColor];
+}
+
 - (void)drawColumn:(CGRect)rect
 {
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(rect.origin.x + (rect.size.width/2), rect.origin.y)];
     [path addLineToPoint:CGPointMake(rect.origin.x + (rect.size.width/2), rect.size.height)];
     [path closePath];
-    [[UIColor blackColor] setStroke];
-    //[[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] setStroke];
+    [[self columnColor] setStroke];
     [path stroke];
     
     [self drawBeads:rect];
