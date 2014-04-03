@@ -104,50 +104,21 @@ static const CGFloat BEAD_GAP = 2;
         dragDown = YES;
     }
     
-    NSMutableArray *views = [[NSMutableArray alloc] init];
     if(dragDown == YES) {
-        if(self.bead.index == 1) {
-            [views addObject:[self getBeadView:4]];
-            [views addObject:[self getBeadView:3]];
-            [views addObject:[self getBeadView:2]];
-            [views addObject:self];
-        } else if(self.bead.index == 2) {
-            [views addObject:[self getBeadView:4]];
-            [views addObject:[self getBeadView:3]];
-            [views addObject:self];
-        } else if(self.bead.index == 3) {
-            [views addObject:[self getBeadView:4]];
-            [views addObject:self];
-        } else {
-            [views addObject:self];
+        if(translation.y > 0) {
+            NSNumber *y = [NSNumber numberWithFloat:translation.y];
+            [self moveDown:y];
         }
-        NSNumber *y = [NSNumber numberWithFloat:translation.y];
-        [views makeObjectsPerformSelector:@selector(moveDown:) withObject:y];
-        
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
-            [views makeObjectsPerformSelector:@selector(moveDown)];
+            [self moveDown];
         }
     } else {
-        if(self.bead.index == 2) {
-            [views addObject:[self getBeadView:1]];
-            [views addObject:self];
-        } else if(self.bead.index == 3) {
-            [views addObject:[self getBeadView:1]];
-            [views addObject:[self getBeadView:2]];
-            [views addObject:self];
-        } else if(self.bead.index == 4) {
-            [views addObject:[self getBeadView:1]];
-            [views addObject:[self getBeadView:2]];
-            [views addObject:[self getBeadView:3]];
-            [views addObject:self];
-        } else {
-            [views addObject:self];
+        if(translation.y < 0) {
+            NSNumber *y = [NSNumber numberWithFloat:translation.y];
+            [self moveUp:y];
         }
-        NSNumber *y = [NSNumber numberWithFloat:translation.y];
-        [views makeObjectsPerformSelector:@selector(moveUp:) withObject:y];
-        
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
-            [views makeObjectsPerformSelector:@selector(moveUp)];
+            [self moveUp];
         }
     }
     
@@ -157,7 +128,10 @@ static const CGFloat BEAD_GAP = 2;
 
 - (void)moveUp:(NSNumber *)y
 {
-    // y is negative for drag down
+    // y is negative for drag up
+    BeadView *beadView = [self getAdjacentTopBead];
+    [beadView moveUp:y];
+    
     CGFloat moveUpLimit = [self moveUpLimit];
     CGFloat moveTo = self.center.y + y.floatValue - (self.bounds.size.height/2);
     if(moveTo > moveUpLimit) {
@@ -168,7 +142,10 @@ static const CGFloat BEAD_GAP = 2;
 
 - (void)moveDown:(NSNumber *)y
 {
-    // y is positive for drag up
+    // y is positive for drag down
+    BeadView *beadView = [self getAdjacentBottomBead];
+    [beadView moveDown:y];
+    
     CGFloat moveDownLimit = [self moveDownLimit];
     CGFloat moveTo = self.center.y + y.floatValue + (self.bounds.size.height/2);
     if(moveTo < moveDownLimit) {
@@ -178,6 +155,9 @@ static const CGFloat BEAD_GAP = 2;
 
 - (void)moveUp
 {
+    BeadView *beadView = [self getAdjacentTopBead];
+    [beadView moveUp];
+    
     CGFloat moveUpLimit = [self moveUpLimit];
     CGFloat moveTo = moveUpLimit + (self.bounds.size.height/2);
     self.center = CGPointMake(self.center.x, moveTo);
@@ -185,6 +165,9 @@ static const CGFloat BEAD_GAP = 2;
 
 - (void)moveDown
 {
+    BeadView *beadView = [self getAdjacentBottomBead];
+    [beadView moveDown];
+    
     CGFloat moveDownLimit = [self moveDownLimit];
     CGFloat moveTo = moveDownLimit - (self.bounds.size.height/2);
     self.center = CGPointMake(self.center.x, moveTo);
@@ -242,6 +225,53 @@ static const CGFloat BEAD_GAP = 2;
         moveDownLimit = rowView.center.y - rowView.bounds.size.height - BEAD_GAP;
     }
     return moveDownLimit;
+}
+
+- (BeadView *) getAdjacentBottomBead
+{
+    BeadView *adjacentBeadView;
+    switch (self.bead.index) {
+        case 1:
+            adjacentBeadView =  [self getBeadView:2];
+            break;
+        case 2:
+            adjacentBeadView =  [self getBeadView:3];
+            break;
+        case 3:
+            adjacentBeadView =  [self getBeadView:4];
+            break;
+        default:
+            break;
+    }
+    if((adjacentBeadView.center.y - adjacentBeadView.bounds.size.height/2)
+       - (self.center.y + self.bounds.size.height/2) <= 2 * BEAD_GAP ) {
+        return adjacentBeadView;
+    }
+
+    return nil;
+}
+
+- (BeadView *) getAdjacentTopBead
+{
+    BeadView *adjacentBeadView;
+    switch (self.bead.index) {
+        case 2:
+            adjacentBeadView =  [self getBeadView:1];
+            break;
+        case 3:
+            adjacentBeadView =  [self getBeadView:2];
+            break;
+        case 4:
+            adjacentBeadView =  [self getBeadView:3];
+            break;
+        default:
+            break;
+    }
+    if((self.center.y - self.bounds.size.height/2)
+       - (adjacentBeadView.center.y + adjacentBeadView.bounds.size.height/2) <= 2 * BEAD_GAP ) {
+        return adjacentBeadView;
+    }
+    return nil;
 }
 
 - (BeadView *) getBeadView:(NSUInteger)beadIndex
