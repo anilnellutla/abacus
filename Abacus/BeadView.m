@@ -243,9 +243,11 @@ static const CGFloat BEAD_GAP = 2;
         default:
             break;
     }
-    if((adjacentBeadView.center.y - adjacentBeadView.bounds.size.height/2)
-       - (self.center.y + self.bounds.size.height/2) <= 2 * BEAD_GAP ) {
-        return adjacentBeadView;
+    if(adjacentBeadView) {
+        if((adjacentBeadView.center.y - adjacentBeadView.bounds.size.height/2)
+           - (self.center.y + self.bounds.size.height/2) <= 2 * BEAD_GAP ) {
+            return adjacentBeadView;
+        }
     }
     
     return nil;
@@ -267,9 +269,11 @@ static const CGFloat BEAD_GAP = 2;
         default:
             break;
     }
-    if((self.center.y - self.bounds.size.height/2)
-       - (adjacentBeadView.center.y + adjacentBeadView.bounds.size.height/2) <= 2 * BEAD_GAP ) {
-        return adjacentBeadView;
+    if(adjacentBeadView) {
+        if((self.center.y - self.bounds.size.height/2)
+           - (adjacentBeadView.center.y + adjacentBeadView.bounds.size.height/2) <= 2 * BEAD_GAP ) {
+            return adjacentBeadView;
+        }
     }
     return nil;
 }
