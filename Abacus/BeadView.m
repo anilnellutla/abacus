@@ -9,38 +9,10 @@
 #import "BeadView.h"
 #import "BeadBehavior.h"
 
-@interface BeadView() <UIDynamicAnimatorDelegate>
-@property (strong, nonatomic) UIDynamicAnimator *animator;
-@property (strong, nonatomic) BeadBehavior *beadBehavior;
-@end
 
 @implementation BeadView
 
 static const CGFloat BEAD_GAP = 2;
-
-- (BeadBehavior *)beadBehavior
-{
-    if (!_beadBehavior) {
-        _beadBehavior = [[BeadBehavior alloc] init];
-        [self.animator addBehavior:_beadBehavior];
-    }
-    return _beadBehavior;
-}
-
-- (UIDynamicAnimator *)animator
-{
-    if (!_animator) {
-        _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.superview];
-        _animator.delegate = self;
-    }
-    return _animator;
-}
-
-- (void)dynamicAnimatorDidPause:(UIDynamicAnimator *)animator
-{
-    NSLog(@"dynamicAnimatorDidPause");
-}
-
 
 #pragma mark - Initialization
 
@@ -134,6 +106,8 @@ static const CGFloat BEAD_GAP = 2;
     CGFloat moveTo = self.center.y + y - (self.bounds.size.height/2);
     if(moveTo > moveUpLimit) {
         self.center = CGPointMake(self.center.x, self.center.y + y);
+    } else {
+        self.center = CGPointMake(self.center.x, moveUpLimit + self.bounds.size.height/2);
     }
     
 }
@@ -148,6 +122,8 @@ static const CGFloat BEAD_GAP = 2;
     CGFloat moveTo = self.center.y + y + (self.bounds.size.height/2);
     if(moveTo < moveDownLimit) {
         self.center = CGPointMake(self.center.x, self.center.y + y);
+    } else {
+        self.center = CGPointMake(self.center.x, moveDownLimit - self.bounds.size.height/2);
     }
 }
 
@@ -159,7 +135,7 @@ static const CGFloat BEAD_GAP = 2;
     CGFloat moveUpLimit = [self moveUpLimit];
     CGFloat moveTo = moveUpLimit + (self.bounds.size.height/2);
     //self.center = CGPointMake(self.center.x, moveTo);
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.1
                      animations:^{
                          self.center = CGPointMake(self.center.x, moveTo);
                      }
@@ -177,7 +153,7 @@ static const CGFloat BEAD_GAP = 2;
     CGFloat moveDownLimit = [self moveDownLimit];
     CGFloat moveTo = moveDownLimit - (self.bounds.size.height/2);
     //self.center = CGPointMake(self.center.x, moveTo);
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.1
                      animations:^{
                          self.center = CGPointMake(self.center.x, moveTo);
                      }
@@ -259,7 +235,7 @@ static const CGFloat BEAD_GAP = 2;
     }
     if(adjacentBeadView) {
         if((adjacentBeadView.center.y - adjacentBeadView.bounds.size.height/2)
-           - (self.center.y + self.bounds.size.height/2) <= 2 * BEAD_GAP ) {
+           - (self.center.y + self.bounds.size.height/2) ==  BEAD_GAP ) {
             return adjacentBeadView;
         }
     }
@@ -285,7 +261,7 @@ static const CGFloat BEAD_GAP = 2;
     }
     if(adjacentBeadView) {
         if((self.center.y - self.bounds.size.height/2)
-           - (adjacentBeadView.center.y + adjacentBeadView.bounds.size.height/2) <= 2 * BEAD_GAP ) {
+           - (adjacentBeadView.center.y + adjacentBeadView.bounds.size.height/2) == BEAD_GAP ) {
             return adjacentBeadView;
         }
     }
