@@ -123,7 +123,7 @@ static const CGFloat BEAD_GAP = 2;
     }
     
     [recognizer setTranslation:CGPointMake(0, 0) inView:self];
-
+    
 }
 
 - (void)moveUp:(NSNumber *)y
@@ -247,7 +247,7 @@ static const CGFloat BEAD_GAP = 2;
        - (self.center.y + self.bounds.size.height/2) <= 2 * BEAD_GAP ) {
         return adjacentBeadView;
     }
-
+    
     return nil;
 }
 
@@ -293,7 +293,7 @@ static const CGFloat BEAD_GAP = 2;
         case 5:
             beadView =  [[[self superview] subviews] objectAtIndex:0];
             break;
-
+            
         default:
             break;
     }
