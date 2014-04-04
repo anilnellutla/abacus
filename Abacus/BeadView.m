@@ -106,16 +106,14 @@ static const CGFloat BEAD_GAP = 2;
     
     if(dragDown == YES) {
         if(translation.y > 0) {
-            NSNumber *y = [NSNumber numberWithFloat:translation.y];
-            [self moveDown:y];
+            [self moveDown:translation.y];
         }
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
             [self moveDown];
         }
     } else {
         if(translation.y < 0) {
-            NSNumber *y = [NSNumber numberWithFloat:translation.y];
-            [self moveUp:y];
+            [self moveUp:translation.y];
         }
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
             [self moveUp];
@@ -126,30 +124,30 @@ static const CGFloat BEAD_GAP = 2;
     
 }
 
-- (void)moveUp:(NSNumber *)y
+- (void)moveUp:(CGFloat)y
 {
     // y is negative for drag up
     BeadView *beadView = [self getAdjacentTopBead];
     [beadView moveUp:y];
     
     CGFloat moveUpLimit = [self moveUpLimit];
-    CGFloat moveTo = self.center.y + y.floatValue - (self.bounds.size.height/2);
+    CGFloat moveTo = self.center.y + y - (self.bounds.size.height/2);
     if(moveTo > moveUpLimit) {
-        self.center = CGPointMake(self.center.x, self.center.y + y.floatValue);
+        self.center = CGPointMake(self.center.x, self.center.y + y);
     }
     
 }
 
-- (void)moveDown:(NSNumber *)y
+- (void)moveDown:(CGFloat)y
 {
     // y is positive for drag down
     BeadView *beadView = [self getAdjacentBottomBead];
     [beadView moveDown:y];
     
     CGFloat moveDownLimit = [self moveDownLimit];
-    CGFloat moveTo = self.center.y + y.floatValue + (self.bounds.size.height/2);
+    CGFloat moveTo = self.center.y + y + (self.bounds.size.height/2);
     if(moveTo < moveDownLimit) {
-        self.center = CGPointMake(self.center.x, self.center.y + y.floatValue);
+        self.center = CGPointMake(self.center.x, self.center.y + y);
     }
 }
 
