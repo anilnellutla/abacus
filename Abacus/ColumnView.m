@@ -17,7 +17,7 @@ static const NSUInteger BEADS_PER_COLUMN = 5;
 static const CGFloat BEAD_GAP = 2;
 
 //#define COLUMN_BEAD_SIZE_RATIO 0.70
-#define COLUMN_BEAD_WIDTH_RATIO 0.52
+#define COLUMN_BEAD_WIDTH_RATIO 0.62
 #define COLUMN_BEAD_HEIGHT_RATIO 0.52
 
 #pragma mark - Initialization
