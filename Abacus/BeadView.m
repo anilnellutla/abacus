@@ -158,7 +158,15 @@ static const CGFloat BEAD_GAP = 2;
     
     CGFloat moveUpLimit = [self moveUpLimit];
     CGFloat moveTo = moveUpLimit + (self.bounds.size.height/2);
-    self.center = CGPointMake(self.center.x, moveTo);
+    //self.center = CGPointMake(self.center.x, moveTo);
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         self.center = CGPointMake(self.center.x, moveTo);
+                     }
+                     completion:^(BOOL finished) {
+                     
+                     }
+     ];
 }
 
 - (void)moveDown
@@ -168,7 +176,15 @@ static const CGFloat BEAD_GAP = 2;
     
     CGFloat moveDownLimit = [self moveDownLimit];
     CGFloat moveTo = moveDownLimit - (self.bounds.size.height/2);
-    self.center = CGPointMake(self.center.x, moveTo);
+    //self.center = CGPointMake(self.center.x, moveTo);
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         self.center = CGPointMake(self.center.x, moveTo);
+                     }
+                     completion:^(BOOL finished) {
+                         
+                     }
+     ];
 }
 
 - (CGFloat)moveUpLimit
