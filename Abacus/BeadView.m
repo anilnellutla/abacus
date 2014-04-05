@@ -40,11 +40,6 @@ static const CGFloat BEAD_GAP = 2;
     return self;
 }
 
-- (void)setBead:(Bead *)bead
-{
-    _bead = bead;
-}
-
 - (UIColor *)beadColor
 {
     return [UIColor colorWithRed:0.45 green:0.2 blue:0.02 alpha:1.0];
@@ -192,7 +187,7 @@ static const CGFloat BEAD_GAP = 2;
 
 - (CGFloat)moveUpLimit
 {
-    return [self moveUpLimit:self.bead.index];
+    return [self moveUpLimit:self.beadIndex];
 }
 
 - (CGFloat)moveUpLimit:(NSUInteger)beadIndex
@@ -219,7 +214,7 @@ static const CGFloat BEAD_GAP = 2;
 
 - (CGFloat)moveDownLimit
 {
-    return [self moveDownLimit:self.bead.index];
+    return [self moveDownLimit:self.beadIndex];
 }
 
 - (CGFloat)moveDownLimit:(NSUInteger)beadIndex
@@ -247,7 +242,7 @@ static const CGFloat BEAD_GAP = 2;
 - (BeadView *) getBottomBead
 {
     BeadView *adjacentBeadView;
-    switch (self.bead.index) {
+    switch (self.beadIndex) {
         case 1:
             adjacentBeadView =  [self getBeadView:2];
             break;
@@ -266,7 +261,7 @@ static const CGFloat BEAD_GAP = 2;
 - (BeadView *) getTopBead
 {
     BeadView *adjacentBeadView;
-    switch (self.bead.index) {
+    switch (self.beadIndex) {
         case 2:
             adjacentBeadView =  [self getBeadView:1];
             break;

@@ -43,12 +43,6 @@ static const CGFloat BEAD_GAP = 2;
     return self;
 }
 
-- (void)setColumn:(Column *)column
-{
-    _column = column;
-}
-
-
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -84,11 +78,8 @@ static const CGFloat BEAD_GAP = 2;
     int beadIndex = 5;
     CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
     BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
-    Bead *bead = [[Bead alloc] initWithValue:0 index:beadIndex];
-    beadView.bead = bead;
+    beadView.beadIndex = beadIndex;
     [self addSubview:beadView];
-
-    [self.column addBead:bead];
     
     beadIndex -= 1;
 
@@ -98,12 +89,9 @@ static const CGFloat BEAD_GAP = 2;
     for(NSUInteger i = 0; i < (BEADS_PER_COLUMN - 1); i++) {
         CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
         BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
-        Bead *bead = [[Bead alloc] initWithValue:0 index:beadIndex];
-        beadView.bead = bead;
+        beadView.beadIndex = beadIndex;
         [self addSubview:beadView];
-        
-        [self.column addBead:bead];
-        
+                
         beadOriginY = beadOriginY - BEAD_SIZE.height - (BEAD_GAP);
         beadIndex -= 1;
 

@@ -38,9 +38,7 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     
     [[self abacusBorderColor] setStroke];
     [abacusRect stroke];
-    
-    _abacus = [[Abacus alloc] init];
-    
+        
     [self drawRow:rect];
 
     [self drawColumns:rect];
@@ -56,12 +54,8 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     for(int i = 0; i < NUM_OF_COLUMNS; i++) {
         CGRect columnFrame = CGRectMake(pathX, rect.origin.y, columnWidth, rect.size.height);
         ColumnView *columnView = [[ColumnView alloc] initWithFrame:columnFrame];
-        Column *column = [[Column alloc] initWithPlaceValue:placeValue];
-        columnView.column = column;
         [self addSubview:columnView];
-        
-        [self.abacus addColumn:column];
-        
+                
         pathX = pathX - columnWidth - columnGap;
         placeValue *= 10;
     }

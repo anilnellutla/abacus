@@ -10,5 +10,4 @@
 #import "Abacus.h"
 
 @interface AbacusView : UIView
-@property (strong, nonatomic) Abacus *abacus;
 @end

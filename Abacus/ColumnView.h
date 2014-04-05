@@ -10,5 +10,4 @@
 #import "Column.h"
 
 @interface ColumnView : UIView
-@property (strong, nonatomic) Column *column;
 @end
