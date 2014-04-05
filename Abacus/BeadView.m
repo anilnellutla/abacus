@@ -9,10 +9,6 @@
 #import "BeadView.h"
 #import "BeadBehavior.h"
 
-@interface BeadView()
-@property (nonatomic) NSString *moveDirection;
-@end
-
 @implementation BeadView
 
 static const CGFloat BEAD_GAP = 2;
@@ -75,41 +71,32 @@ static const CGFloat BEAD_GAP = 2;
     }
     
     if(dragDown == YES) {
-        if ([recognizer state] == UIGestureRecognizerStateBegan) {
-            _moveDirection = @"moveDown";
-        }
         
         if(translation.y > 0) {
             [self moveDown:translation.y];
         }
         
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
-            [self moveDown];
-        }
-        
-        if([[self moveDirection] isEqualToString:@"moveUp"]) {
-            BeadView *beadView = [self getTopBead];
-            if(beadView) {
-                [beadView moveUp];
+            if([self shouldAutoMoveUp]) {
+                BeadView *bottomAnchorBead = [self getBottomAnchorBead];
+                [bottomAnchorBead moveUp];
+            } else {
+                [self moveDown];
             }
         }
+        
     } else {
-        if ([recognizer state] == UIGestureRecognizerStateBegan) {
-            _moveDirection = @"moveUp";
-        }
         
         if(translation.y < 0) {
             [self moveUp:translation.y];
         }
         
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
-            [self moveUp];
-        }
-        
-        if([[self moveDirection] isEqualToString:@"moveDown"]) {
-            BeadView *beadView = [self getBottomBead];
-            if(beadView) {
-                [beadView moveDown];
+            if([self shouldAutoMoveDown]) {
+                BeadView *topAnchorBead = [self getTopAnchorBead];
+                [topAnchorBead moveDown];
+            } else {
+                [self moveUp];
             }
         }
     }
@@ -301,6 +288,35 @@ static const CGFloat BEAD_GAP = 2;
     return nil;
 }
 
+- (BeadView *) getBottomAnchorBead
+{
+    BeadView *anchorBead;
+    if(self.beadIndex == 4 || self.beadIndex == 5) {
+        anchorBead = self;
+    } else {
+        anchorBead = self;
+        while([anchorBead getAdjacentBottomBead]) {
+            anchorBead = [anchorBead getAdjacentBottomBead];
+        }
+    }
+    
+    return anchorBead;
+}
+
+- (BeadView *) getTopAnchorBead
+{
+    BeadView *anchorBead;
+    if(self.beadIndex == 1 || self.beadIndex == 5) {
+        anchorBead = self;
+    } else {
+        anchorBead = self;
+        while([anchorBead getAdjacentTopBead]) {
+            anchorBead = [anchorBead getAdjacentTopBead];
+        }
+    }
+    
+    return anchorBead;
+}
 - (BeadView *) getBeadView:(NSUInteger)beadIndex
 {
     BeadView *beadView;
@@ -327,6 +343,23 @@ static const CGFloat BEAD_GAP = 2;
     return beadView;
 }
 
+- (BOOL)shouldAutoMoveDown {
+    CGFloat moveDownLimit = [self moveDownLimit];
+    CGFloat moveDistance = moveDownLimit - (self.center.y + self.bounds.size.height/2);
+    if(moveDistance < (3 * self.bounds.size.height)/4) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)shouldAutoMoveUp {
+    CGFloat moveUpLimit = [self moveUpLimit];
+    CGFloat moveDistance = (self.center.y - self.bounds.size.height/2) - moveUpLimit;
+    if(moveDistance < (3 * self.bounds.size.height)/4) {
+        return YES;
+    }
+    return NO;
+}
 
 
 @end
