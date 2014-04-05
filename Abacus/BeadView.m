@@ -80,35 +80,41 @@ static const CGFloat BEAD_GAP = 2;
     }
     
     if(dragDown == YES) {
-        if(translation.y > 0) {
-            [self moveDown:translation.y];
-        }
         if ([recognizer state] == UIGestureRecognizerStateBegan) {
             _moveDirection = @"moveDown";
         }
+        
+        if(translation.y > 0) {
+            [self moveDown:translation.y];
+        }
+        
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
             [self moveDown];
-            if([[self moveDirection] isEqualToString:@"moveUp"]) {
-                BeadView *beadView = [self getTopBead];
-                if(beadView) {
-                    [beadView moveUp];
-                }
+        }
+        
+        if([[self moveDirection] isEqualToString:@"moveUp"]) {
+            BeadView *beadView = [self getTopBead];
+            if(beadView) {
+                [beadView moveUp];
             }
         }
     } else {
-        if(translation.y < 0) {
-            [self moveUp:translation.y];
-        }
         if ([recognizer state] == UIGestureRecognizerStateBegan) {
             _moveDirection = @"moveUp";
         }
+        
+        if(translation.y < 0) {
+            [self moveUp:translation.y];
+        }
+        
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
             [self moveUp];
-            if([[self moveDirection] isEqualToString:@"moveDown"]) {
-                BeadView *beadView = [self getBottomBead];
-                if(beadView) {
-                    [beadView moveDown];
-                }
+        }
+        
+        if([[self moveDirection] isEqualToString:@"moveDown"]) {
+            BeadView *beadView = [self getBottomBead];
+            if(beadView) {
+                [beadView moveDown];
             }
         }
     }
