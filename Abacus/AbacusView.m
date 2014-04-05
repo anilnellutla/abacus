@@ -44,9 +44,7 @@ static const NSUInteger NUM_OF_COLUMNS = 10;
     [self drawRow:rect];
 
     [self drawColumns:rect];
-    
-    NSLog(@"drawAbacus completed");
-    
+        
 }
 
 -(void)drawColumns:(CGRect)rect

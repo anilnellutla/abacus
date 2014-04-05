@@ -9,6 +9,9 @@
 #import "BeadView.h"
 #import "BeadBehavior.h"
 
+@interface BeadView()
+@property (nonatomic) NSString *moveDirection;
+@end
 
 @implementation BeadView
 
@@ -80,15 +83,33 @@ static const CGFloat BEAD_GAP = 2;
         if(translation.y > 0) {
             [self moveDown:translation.y];
         }
+        if ([recognizer state] == UIGestureRecognizerStateBegan) {
+            _moveDirection = @"moveDown";
+        }
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
             [self moveDown];
+            if([[self moveDirection] isEqualToString:@"moveUp"]) {
+                BeadView *beadView = [self getTopBead];
+                if(beadView) {
+                    [beadView moveUp];
+                }
+            }
         }
     } else {
         if(translation.y < 0) {
             [self moveUp:translation.y];
         }
+        if ([recognizer state] == UIGestureRecognizerStateBegan) {
+            _moveDirection = @"moveUp";
+        }
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
             [self moveUp];
+            if([[self moveDirection] isEqualToString:@"moveDown"]) {
+                BeadView *beadView = [self getBottomBead];
+                if(beadView) {
+                    [beadView moveDown];
+                }
+            }
         }
     }
     
@@ -217,7 +238,7 @@ static const CGFloat BEAD_GAP = 2;
     return moveDownLimit;
 }
 
-- (BeadView *) getAdjacentBottomBead
+- (BeadView *) getBottomBead
 {
     BeadView *adjacentBeadView;
     switch (self.bead.index) {
@@ -233,17 +254,10 @@ static const CGFloat BEAD_GAP = 2;
         default:
             break;
     }
-    if(adjacentBeadView) {
-        if((adjacentBeadView.center.y - adjacentBeadView.bounds.size.height/2)
-           - (self.center.y + self.bounds.size.height/2) ==  BEAD_GAP ) {
-            return adjacentBeadView;
-        }
-    }
-    
-    return nil;
+    return adjacentBeadView;
 }
 
-- (BeadView *) getAdjacentTopBead
+- (BeadView *) getTopBead
 {
     BeadView *adjacentBeadView;
     switch (self.bead.index) {
@@ -259,6 +273,24 @@ static const CGFloat BEAD_GAP = 2;
         default:
             break;
     }
+    return adjacentBeadView;
+}
+
+- (BeadView *) getAdjacentBottomBead
+{
+    BeadView *adjacentBeadView = [self getBottomBead];
+    if(adjacentBeadView) {
+        if((adjacentBeadView.center.y - adjacentBeadView.bounds.size.height/2)
+           - (self.center.y + self.bounds.size.height/2) ==  BEAD_GAP ) {
+            return adjacentBeadView;
+        }
+    }
+    return nil;
+}
+
+- (BeadView *) getAdjacentTopBead
+{
+    BeadView *adjacentBeadView = [self getTopBead];
     if(adjacentBeadView) {
         if((self.center.y - self.bounds.size.height/2)
            - (adjacentBeadView.center.y + adjacentBeadView.bounds.size.height/2) == BEAD_GAP ) {
