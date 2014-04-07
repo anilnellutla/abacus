@@ -23,10 +23,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLE-M6-bRx" customClass="AbacusView">
                                         <rect key="frame" x="20" y="15" width="440" height="231"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="WLE-M6-bRx" firstAttribute="top" secondItem="Zzb-hw-73L" secondAttribute="top" constant="15" id="7Ys-2J-pfj"/>
                                     <constraint firstItem="WLE-M6-bRx" firstAttribute="leading" secondItem="Zzb-hw-73L" secondAttribute="leading" constant="20" symbolic="YES" id="C1T-gp-aVf"/>
@@ -35,7 +35,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="m3M-S0-MLo" firstAttribute="top" secondItem="Zzb-hw-73L" secondAttribute="bottom" constant="49" id="JLP-8d-ifh"/>
                             <constraint firstItem="Zzb-hw-73L" firstAttribute="top" secondItem="Ho6-UT-Ve9" secondAttribute="top" constant="20" symbolic="YES" id="XQX-04-2cR"/>

@@ -9,6 +9,10 @@
 #import "BeadView.h"
 #import "BeadBehavior.h"
 
+@interface BeadView()
+@property (nonatomic) NSString *moveDirection;
+@end
+
 @implementation BeadView
 
 static const CGFloat BEAD_GAP = 2;
@@ -65,40 +69,73 @@ static const CGFloat BEAD_GAP = 2;
     //NSLog(@"move");
     CGPoint translation = [recognizer translationInView:self];
     CGPoint velocity = [recognizer velocityInView:self];
-    BOOL dragDown = NO;
-    if(velocity.y > 0) {
-        dragDown = YES;
+    BOOL dragUp = NO;
+    if(velocity.y < 0) {
+        dragUp = YES;
     }
     
-    if(dragDown == YES) {
+    if(dragUp == YES) {
         
-        if(translation.y > 0) {
-            [self moveDown:translation.y];
+        if ([recognizer state] == UIGestureRecognizerStateBegan) {
+            _moveDirection = @"moveUp";
         }
-        
-        if ([recognizer state] == UIGestureRecognizerStateEnded) {
-            if([self shouldAutoMoveUp]) {
-                BeadView *bottomAnchorBead = [self getBottomAnchorBead];
-                [bottomAnchorBead moveUp];
-            } else {
-                [self moveDown];
-            }
-        }
-        
-    } else {
         
         if(translation.y < 0) {
             [self moveUp:translation.y];
         }
         
+        if([[self moveDirection] isEqualToString:@"moveDown"]) {
+            BeadView *bottomAnchorBead = [[self getBottomBead] getBottomAnchorBead];
+            if(![bottomAnchorBead isReset]) {
+                [bottomAnchorBead moveUp:translation.y];
+            }
+        }
+        
         if ([recognizer state] == UIGestureRecognizerStateEnded) {
             if([self shouldAutoMoveDown]) {
                 BeadView *topAnchorBead = [self getTopAnchorBead];
-                [topAnchorBead moveDown];
+                if(![topAnchorBead isSet]) {
+                    [topAnchorBead moveDown];
+                }
             } else {
-                [self moveUp];
+                BeadView *bottomAnchorBead = [self getBottomAnchorBead];
+                if(![bottomAnchorBead isReset]) {
+                    [bottomAnchorBead moveUp];
+                }
             }
         }
+        
+    } else {
+        
+        if ([recognizer state] == UIGestureRecognizerStateBegan) {
+            _moveDirection = @"moveDown";
+        }
+        
+        if(translation.y > 0) {
+            [self moveDown:translation.y];
+        }
+        
+        if([[self moveDirection] isEqualToString:@"moveUp"]) {
+            BeadView *topAnchorBead = [[self getTopBead] getTopAnchorBead];
+            if(![topAnchorBead isSet]) {
+                [topAnchorBead moveDown:translation.y];
+            }
+        }
+        
+        if ([recognizer state] == UIGestureRecognizerStateEnded) {
+            if([self shouldAutoMoveUp]) {
+                BeadView *bottomAnchorBead = [self getBottomAnchorBead];
+                if(![bottomAnchorBead isReset]) {
+                    [bottomAnchorBead moveUp];
+                }
+            } else {
+                BeadView *topAnchorBead = [self getTopAnchorBead];
+                if(![topAnchorBead isSet]) {
+                    [topAnchorBead moveDown];
+                }
+            }
+        }
+        
     }
     
     [recognizer setTranslation:CGPointMake(0, 0) inView:self];
@@ -346,7 +383,7 @@ static const CGFloat BEAD_GAP = 2;
 - (BOOL)shouldAutoMoveDown {
     CGFloat moveDownLimit = [self moveDownLimit];
     CGFloat moveDistance = moveDownLimit - (self.center.y + self.bounds.size.height/2);
-    if(moveDistance < (3 * self.bounds.size.height)/4) {
+    if(moveDistance > BEAD_GAP && moveDistance < (3 * self.bounds.size.height)/4) {
         return YES;
     }
     return NO;
@@ -355,8 +392,72 @@ static const CGFloat BEAD_GAP = 2;
 - (BOOL)shouldAutoMoveUp {
     CGFloat moveUpLimit = [self moveUpLimit];
     CGFloat moveDistance = (self.center.y - self.bounds.size.height/2) - moveUpLimit;
-    if(moveDistance < (3 * self.bounds.size.height)/4) {
+    if(moveDistance > BEAD_GAP && moveDistance < (3 * self.bounds.size.height)/4) {
         return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isSet {
+    
+    if(self.beadIndex == 1) {
+        if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+            return YES;
+        }
+    } else if(self.beadIndex == 2) {
+        if([[self getBeadView:1] isSet]) {
+            if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+                return YES;
+            }
+        }
+    } else if(self.beadIndex == 3) {
+        if([[self getBeadView:2] isSet]) {
+            if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+                return YES;
+            }
+        }
+    } else if(self.beadIndex == 4) {
+        if([[self getBeadView:3] isSet]) {
+            if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+                return YES;
+            }
+        }
+    } else if(self.beadIndex == 5) {
+        if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (BOOL)isReset {
+    
+    if(self.beadIndex == 4) {
+        if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+            return YES;
+        }
+    } else if(self.beadIndex == 3) {
+        if([[self getBeadView:4] isReset]) {
+            if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+                return YES;
+            }
+        }
+    } else if(self.beadIndex == 2) {
+        if([[self getBeadView:3] isReset]) {
+            if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+                return YES;
+            }
+        }
+    } else if(self.beadIndex == 1) {
+        if([[self getBeadView:2 ] isReset]) {
+            if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+                return YES;
+            }
+        }
+    } else if(self.beadIndex == 5) {
+        if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+            return YES;
+        }
     }
     return NO;
 }
