@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Util.h"
 
 @interface AbacusTests : XCTestCase
 
@@ -28,7 +29,23 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void)testLeftMostDigit
+{
+    NSInteger value = -345734534058340;
+    NSInteger leftMostDigit = [Util leftMostDigit:value];
+    NSLog(@"value = %ld leftMostDigit = %ld", value, leftMostDigit);
+}
+
+- (void)testDigits
+{
+    NSInteger value = 349898;
+    NSArray *digits = [Util digits:value];
+    for(NSNumber *digit in digits) {
+        NSLog(@"digit %ld", [digit longValue]);
+    }
 }
 
 @end

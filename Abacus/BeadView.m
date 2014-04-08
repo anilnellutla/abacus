@@ -380,7 +380,8 @@ static const CGFloat BEAD_GAP = 2;
     return beadView;
 }
 
-- (BOOL)shouldAutoMoveDown {
+- (BOOL)shouldAutoMoveDown
+{
     CGFloat moveDownLimit = [self moveDownLimit];
     CGFloat moveDistance = moveDownLimit - (self.center.y + self.bounds.size.height/2);
     if(moveDistance > BEAD_GAP && moveDistance < (3 * self.bounds.size.height)/4) {
@@ -389,7 +390,8 @@ static const CGFloat BEAD_GAP = 2;
     return NO;
 }
 
-- (BOOL)shouldAutoMoveUp {
+- (BOOL)shouldAutoMoveUp
+{
     CGFloat moveUpLimit = [self moveUpLimit];
     CGFloat moveDistance = (self.center.y - self.bounds.size.height/2) - moveUpLimit;
     if(moveDistance > BEAD_GAP && moveDistance < (3 * self.bounds.size.height)/4) {
@@ -398,7 +400,8 @@ static const CGFloat BEAD_GAP = 2;
     return NO;
 }
 
-- (BOOL)isSet {
+- (BOOL)isSet
+{
     
     if(self.beadIndex == 1) {
         if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
@@ -430,7 +433,8 @@ static const CGFloat BEAD_GAP = 2;
     return NO;
 }
 
-- (BOOL)isReset {
+- (BOOL)isReset
+{
     
     if(self.beadIndex == 4) {
         if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
@@ -460,6 +464,16 @@ static const CGFloat BEAD_GAP = 2;
         }
     }
     return NO;
+}
+
+- (void)set
+{
+    [self moveUp];
+}
+
+- (void)reset
+{
+    [self moveDown];
 }
 
 

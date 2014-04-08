@@ -26,7 +26,7 @@
 -(NSMutableArray *) beads
 {
     if(!_beads) {
-        _beads = [[NSMutableArray alloc] init];
+        _beads = [[NSMutableArray alloc] initWithCapacity:5];
     }
     return _beads;
 }

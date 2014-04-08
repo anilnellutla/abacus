@@ -24,6 +24,9 @@
 		0406F1DD18D6EB600072BF1F /* AbacusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1DC18D6EB600072BF1F /* AbacusTests.m */; };
 		0406F1E818D6EB740072BF1F /* Bead.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1E718D6EB740072BF1F /* Bead.m */; };
 		040B501418DF4AE6007C0ACE /* ColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B501318DF4AE6007C0ACE /* ColumnView.m */; };
+		043B30AF18F36F3F00F68FB9 /* Partners.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30AE18F36F3F00F68FB9 /* Partners.m */; };
+		043B30B218F3713000F68FB9 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30B118F3713000F68FB9 /* Util.m */; };
+		043B30B518F3A33F00F68FB9 /* Formulae.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30B418F3A33F00F68FB9 /* Formulae.m */; };
 		04420BA918E1149700D2B13B /* Column.m in Sources */ = {isa = PBXBuildFile; fileRef = 04420BA818E1149700D2B13B /* Column.m */; };
 		04420BAC18E12FFA00D2B13B /* Abacus.m in Sources */ = {isa = PBXBuildFile; fileRef = 04420BAB18E12FFA00D2B13B /* Abacus.m */; };
 		04433BEE18DFB58200335F0C /* BeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04433BED18DFB58200335F0C /* BeadView.m */; };
@@ -67,6 +70,12 @@
 		0406F1E718D6EB740072BF1F /* Bead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bead.m; sourceTree = "<group>"; };
 		040B501218DF4AE6007C0ACE /* ColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnView.h; sourceTree = "<group>"; };
 		040B501318DF4AE6007C0ACE /* ColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnView.m; sourceTree = "<group>"; };
+		043B30AD18F36F3F00F68FB9 /* Partners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partners.h; sourceTree = "<group>"; };
+		043B30AE18F36F3F00F68FB9 /* Partners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Partners.m; sourceTree = "<group>"; };
+		043B30B018F3713000F68FB9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		043B30B118F3713000F68FB9 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		043B30B318F3A33F00F68FB9 /* Formulae.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formulae.h; sourceTree = "<group>"; };
+		043B30B418F3A33F00F68FB9 /* Formulae.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formulae.m; sourceTree = "<group>"; };
 		04420BA718E1149700D2B13B /* Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Column.h; sourceTree = "<group>"; };
 		04420BA818E1149700D2B13B /* Column.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Column.m; sourceTree = "<group>"; };
 		04420BAA18E12FFA00D2B13B /* Abacus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Abacus.h; sourceTree = "<group>"; };
@@ -199,6 +208,12 @@
 				04420BA818E1149700D2B13B /* Column.m */,
 				04420BAA18E12FFA00D2B13B /* Abacus.h */,
 				04420BAB18E12FFA00D2B13B /* Abacus.m */,
+				043B30AD18F36F3F00F68FB9 /* Partners.h */,
+				043B30AE18F36F3F00F68FB9 /* Partners.m */,
+				043B30B018F3713000F68FB9 /* Util.h */,
+				043B30B118F3713000F68FB9 /* Util.m */,
+				043B30B318F3A33F00F68FB9 /* Formulae.h */,
+				043B30B418F3A33F00F68FB9 /* Formulae.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,8 +317,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043B30B218F3713000F68FB9 /* Util.m in Sources */,
+				043B30AF18F36F3F00F68FB9 /* Partners.m in Sources */,
 				040B501418DF4AE6007C0ACE /* ColumnView.m in Sources */,
 				04433BF118DFC06100335F0C /* RowView.m in Sources */,
+				043B30B518F3A33F00F68FB9 /* Formulae.m in Sources */,
 				0406F1C818D6EB5F0072BF1F /* AbacusViewController.m in Sources */,
 				0457414618E29274007FE184 /* BeadBehavior.m in Sources */,
 				0406F1E818D6EB740072BF1F /* Bead.m in Sources */,

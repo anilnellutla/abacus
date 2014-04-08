@@ -82,9 +82,7 @@ static const CGFloat BEAD_GAP = 2;
     [self addSubview:beadView];
     
     beadIndex -= 1;
-
-
-    
+   
     beadOriginY = (rect.size.height) - (BEAD_SIZE.height) - (BEAD_GAP);
     for(NSUInteger i = 0; i < (BEADS_PER_COLUMN - 1); i++) {
         CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
