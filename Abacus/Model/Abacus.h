@@ -11,8 +11,14 @@
 
 @interface Abacus : NSObject
 
+@property (strong, nonatomic) NSMutableArray *expression;
+
 -(void)addColumn:(Column *)column;
+
 -(void)reset;
+
 -(NSInteger)value;
--(Column *)column:(NSUInteger)placeValue;
+
+-(void)add:(NSInteger)value;
+
 @end

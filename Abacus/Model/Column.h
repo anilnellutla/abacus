@@ -17,8 +17,16 @@
 @property (nonatomic) NSUInteger placeValue;
 
 -(void)addBead:(Bead *)bead;
+
 -(void)reset;
+
 -(NSInteger)value;
+
 -(NSInteger)maxValue;
+
 -(BOOL)canValueBeSet:(NSInteger)value;
+
+-(void)setValue:(NSInteger)value;
+
+-(BOOL)isPartnerNeeded:(NSInteger)value; 
 @end

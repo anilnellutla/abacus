@@ -27,6 +27,7 @@
 		043B30AF18F36F3F00F68FB9 /* Partners.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30AE18F36F3F00F68FB9 /* Partners.m */; };
 		043B30B218F3713000F68FB9 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30B118F3713000F68FB9 /* Util.m */; };
 		043B30B518F3A33F00F68FB9 /* Formulae.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30B418F3A33F00F68FB9 /* Formulae.m */; };
+		043B30B818F3B68C00F68FB9 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30B718F3B68C00F68FB9 /* Calculator.m */; };
 		04420BA918E1149700D2B13B /* Column.m in Sources */ = {isa = PBXBuildFile; fileRef = 04420BA818E1149700D2B13B /* Column.m */; };
 		04420BAC18E12FFA00D2B13B /* Abacus.m in Sources */ = {isa = PBXBuildFile; fileRef = 04420BAB18E12FFA00D2B13B /* Abacus.m */; };
 		04433BEE18DFB58200335F0C /* BeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04433BED18DFB58200335F0C /* BeadView.m */; };
@@ -76,6 +77,8 @@
 		043B30B118F3713000F68FB9 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		043B30B318F3A33F00F68FB9 /* Formulae.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formulae.h; sourceTree = "<group>"; };
 		043B30B418F3A33F00F68FB9 /* Formulae.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formulae.m; sourceTree = "<group>"; };
+		043B30B618F3B68C00F68FB9 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
+		043B30B718F3B68C00F68FB9 /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		04420BA718E1149700D2B13B /* Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Column.h; sourceTree = "<group>"; };
 		04420BA818E1149700D2B13B /* Column.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Column.m; sourceTree = "<group>"; };
 		04420BAA18E12FFA00D2B13B /* Abacus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Abacus.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				043B30B118F3713000F68FB9 /* Util.m */,
 				043B30B318F3A33F00F68FB9 /* Formulae.h */,
 				043B30B418F3A33F00F68FB9 /* Formulae.m */,
+				043B30B618F3B68C00F68FB9 /* Calculator.h */,
+				043B30B718F3B68C00F68FB9 /* Calculator.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				0457414618E29274007FE184 /* BeadBehavior.m in Sources */,
 				0406F1E818D6EB740072BF1F /* Bead.m in Sources */,
 				0406F1BB18D6EB5F0072BF1F /* main.m in Sources */,
+				043B30B818F3B68C00F68FB9 /* Calculator.m in Sources */,
 				04433BEE18DFB58200335F0C /* BeadView.m in Sources */,
 				0406F1BF18D6EB5F0072BF1F /* AbacusAppDelegate.m in Sources */,
 				04420BA918E1149700D2B13B /* Column.m in Sources */,
