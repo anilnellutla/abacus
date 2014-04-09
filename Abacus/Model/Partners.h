@@ -13,6 +13,6 @@
 // designated initializer
 -(instancetype)initWithOperands:(NSInteger)operand1 and:(NSInteger)operand2;
 
-@property (nonatomic) NSUInteger operand1;
-@property (nonatomic) NSUInteger operand2;
+@property (nonatomic) NSInteger operand1;
+@property (nonatomic) NSInteger operand2;
 @end

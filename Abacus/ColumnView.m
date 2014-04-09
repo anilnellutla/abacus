@@ -13,7 +13,7 @@
 
 @implementation ColumnView
 
-static const NSUInteger BEADS_PER_COLUMN = 5;
+static const NSInteger BEADS_PER_COLUMN = 5;
 static const CGFloat BEAD_GAP = 2;
 
 //#define COLUMN_BEAD_SIZE_RATIO 0.70
@@ -84,7 +84,7 @@ static const CGFloat BEAD_GAP = 2;
     beadIndex -= 1;
    
     beadOriginY = (rect.size.height) - (BEAD_SIZE.height) - (BEAD_GAP);
-    for(NSUInteger i = 0; i < (BEADS_PER_COLUMN - 1); i++) {
+    for(NSInteger i = 0; i < (BEADS_PER_COLUMN - 1); i++) {
         CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
         BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
         beadView.beadIndex = beadIndex;

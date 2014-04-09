@@ -16,25 +16,29 @@
 
 @implementation Abacus
 
--(NSMutableArray *)columns
+static const NSInteger NUM_OF_COLUMNS = 10;
+
+-(instancetype)init
 {
-    if(!_columns) {
-        _columns = [[NSMutableArray alloc]initWithCapacity:10];
+    self = [super init];
+    if(self) {
+        _columns = [[NSMutableArray alloc] initWithCapacity:NUM_OF_COLUMNS];
+        NSInteger placeValue = 1;
+        for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+            Column *column = [[Column alloc] initWithPlaceValue:placeValue];
+            [_columns addObject:column];
+            placeValue *= 10;
+        }
     }
-    return _columns;
+    return self;
 }
 
 -(NSMutableArray *)expression
 {
     if(!_expression) {
-        _expression = [[NSMutableArray alloc]initWithCapacity:10];
+        _expression = [[NSMutableArray alloc] initWithCapacity:10];
     }
     return _expression;
-}
-
--(void)addColumn:(Column *)column
-{
-    [self.columns addObject:column];
 }
 
 -(void)reset
@@ -53,7 +57,7 @@
     return value;
 }
 
--(Column *)column:(NSUInteger)placeValue
+-(Column *)getColumn:(NSInteger)placeValue
 {
     for(Column *column in self.columns) {
         if([column placeValue] == placeValue) {
@@ -67,23 +71,46 @@
 -(void)setColumnValue:(NSInteger)value
 {
     NSInteger placeValue = [Util leftMostDigitPlaceValue:value];
-    [[self column:placeValue] setValue:value];
+    [[self getColumn:placeValue] setValue:value];
 }
 
 -(NSInteger) getColumnValue:(NSInteger)placeValue
 {
-    return [[self column:placeValue] value];
+    return [[self getColumn:placeValue] value];
 }
 
 -(BOOL)isPartnerNeeded:(NSInteger)value
 {
     NSInteger placeValue = [Util leftMostDigitPlaceValue:value];
-    return [[self column:placeValue ] isPartnerNeeded:value];
+    return [[self getColumn:placeValue ] isPartnerNeeded:value];
 }
 
--(void)add:(NSInteger)value
+-(void)add:(NSInteger)number
 {
-    [self setValue:value];
+    [self add:number to:0];
+}
+
+-(void)subtract:(NSInteger)number
+{
+    [self add:-1*number to:0];
+}
+
+-(void) add:(NSInteger)number1 to:(NSInteger)number2
+{
+    NSArray *digits = [Util digits:number1];
+    for(NSNumber *digit in digits) {
+        [self setValue:digit.longValue];
+    }
+    
+    digits = [Util digits:number2];
+    for(NSNumber *digit in digits) {
+        [self setValue:digit.longValue];
+    }    
+}
+
+-(void) subtract:(NSInteger)number1 from:(NSInteger)number2
+{
+    [self add:number2 to:-1*number1];
 }
 
 -(void)setValue:(NSInteger)value
@@ -109,8 +136,67 @@
     }
 }
 
--(void) resetExpression
+-(void)resetExpression
 {
     [[self expression] removeAllObjects];
 }
+
+-(NSString*)description
+{
+    NSMutableString *abacusStr = [[NSMutableString alloc] init];
+    
+    [abacusStr appendString:@"\n"];
+    for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+        [abacusStr appendString:@"***"];
+    }
+    [abacusStr appendString:@"\n"];
+    
+    NSInteger placeValue = pow(10, NUM_OF_COLUMNS-1);
+    for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+        Column *column = [self getColumn:placeValue];
+        placeValue = placeValue/10;
+        Bead *bead = [column getBead:5];
+        if([bead isSet]) {
+            [abacusStr appendString:@" - "];
+        } else {
+            if (i == (NUM_OF_COLUMNS - 1)) {
+                [abacusStr appendString:@"| "];
+            } else {
+                [abacusStr appendString:@" | "];
+            }
+        }
+    }
+    
+    [abacusStr appendString:@"\n"];
+    for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+        [abacusStr appendString:@"***"];
+    }
+    
+    for(NSInteger j = 1; j <= 4; j++) {
+        [abacusStr appendString:@"\n"];
+        placeValue = pow(10, NUM_OF_COLUMNS-1);
+        for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+            Column *column = [self getColumn:placeValue];
+            placeValue = placeValue/10;
+            Bead *bead = [column getBead:j];
+            if([bead isSet]) {
+                [abacusStr appendString:@" - "];
+            } else {
+                if (i == (NUM_OF_COLUMNS - 1)) {
+                    [abacusStr appendString:@"| "];
+                } else {
+                    [abacusStr appendString:@" | "];
+                }
+            }
+        }
+        [abacusStr appendString:@"\n"];
+    }
+    
+    for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+        [abacusStr appendString:@"***"];
+    }
+    [abacusStr appendString:@"\n"];
+    return abacusStr;
+}
+
 @end

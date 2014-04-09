@@ -13,7 +13,7 @@
 
 @implementation AbacusView
 
-static const NSUInteger NUM_OF_COLUMNS = 10;
+static const NSInteger NUM_OF_COLUMNS = 10;
 
 - (UIColor *)abacusBorderColor
 {

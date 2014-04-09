@@ -11,9 +11,9 @@
 @interface Bead : NSObject
 
 //designated initializer
--(instancetype)initWithValue:(NSInteger)value index:(NSUInteger)index;
+-(instancetype)initWithValue:(NSInteger)value index:(NSInteger)index;
 
-@property (nonatomic) NSUInteger index;
+@property (nonatomic) NSInteger index;
 
 // values would be 0, 1, 5, 10, 50, 100, 500...
 @property (nonatomic) NSInteger value;

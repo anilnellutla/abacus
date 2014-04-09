@@ -12,19 +12,17 @@
 @interface Column : NSObject
 
 // designated initializer
--(instancetype)initWithPlaceValue:(NSUInteger)placeValue;
+-(instancetype)initWithPlaceValue:(NSInteger)placeValue;
 
-@property (nonatomic) NSUInteger placeValue;
+-(Bead *)getBead:(NSInteger)index;
 
--(void)addBead:(Bead *)bead;
+@property (nonatomic) NSInteger placeValue;
 
 -(void)reset;
 
 -(NSInteger)value;
 
 -(NSInteger)maxValue;
-
--(BOOL)canValueBeSet:(NSInteger)value;
 
 -(void)setValue:(NSInteger)value;
 

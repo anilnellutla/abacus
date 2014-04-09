@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Util.h"
+#import "Abacus.h"
 
 @interface AbacusTests : XCTestCase
 
@@ -46,6 +47,21 @@
     for(NSNumber *digit in digits) {
         NSLog(@"digit %ld", [digit longValue]);
     }
+}
+
+- (void)testAbacus
+{
+    Abacus *abacus = [[Abacus alloc] init];
+    NSLog(@"Abacus:\n%@",[abacus description]);
+    [abacus add:4];
+    NSLog(@"Abacus:\n%@",[abacus description]);
+    [abacus add:70];
+    NSLog(@"Abacus:\n%@",[abacus description]);
+    [abacus subtract:5];
+    NSLog(@"Abacus:\n%@",[abacus description]);
+    [abacus add:61471397];
+    NSLog(@"Abacus:\n%@",[abacus description]);
+    NSLog(@"Abacus Value:%ld",[abacus value]);
 }
 
 @end

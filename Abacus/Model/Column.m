@@ -14,26 +14,30 @@
 
 @implementation Column
 
--(instancetype)initWithPlaceValue:(NSUInteger)placeValue
+static const NSInteger BEADS_PER_COLUMN = 5;
+
+-(instancetype)initWithPlaceValue:(NSInteger)placeValue
 {
     self = [super init];
     if(self) {
         _placeValue = placeValue;
+        _beads = [[NSMutableArray alloc] initWithCapacity:BEADS_PER_COLUMN];
+        for(NSInteger i = 1; i <= BEADS_PER_COLUMN; i++) {
+            Bead *bead = [[Bead alloc] initWithValue:0 index:i];
+            [_beads addObject:bead];
+        }
     }
     return self;
 }
 
--(NSMutableArray *) beads
+-(Bead *)getBead:(NSInteger)index
 {
-    if(!_beads) {
-        _beads = [[NSMutableArray alloc] initWithCapacity:5];
+    for(Bead *bead in self.beads) {
+        if([bead index] == index) {
+            return bead;
+        }
     }
-    return _beads;
-}
-
--(void)addBead:(Bead *)bead
-{
-    [self.beads addObject:bead];
+    return nil;
 }
 
 -(void)reset
@@ -70,21 +74,21 @@
     if ([self canValueBeSet:value]) {
         if (value > (5 * _placeValue)) {
             NSInteger valueSet = 0;
-            Bead *bead = [self beads][0];
+            Bead *bead = [self getBead:5];
             [bead setValue:5 * _placeValue];
             valueSet = 5 * _placeValue;
             for (int i = 1; i <= 4; i++) {
                 if (valueSet == value) {
                     break;
                 }
-                Bead *bead = [self beads][i];
+                Bead *bead = [self getBead:i];
                 if (![bead isSet]) {
                     [bead setValue:1 * _placeValue];
                     valueSet += 1 * _placeValue;
                 }
             }
         } else if (value == 5 * _placeValue) {
-            Bead *bead = [self beads][0];
+            Bead *bead = [self getBead:5];
             [bead setValue:5 * _placeValue];
         } else if (value < (5 * _placeValue) && value > 0) {
             NSInteger valueSet = 0;
@@ -92,28 +96,28 @@
                 if (valueSet == value) {
                     break;
                 }
-                Bead *bead = [self beads][i];
+                Bead *bead = [self getBead:i];
                 if (![bead isSet]) {
                     [bead setValue:1 * _placeValue];
                     valueSet += 1 * _placeValue;
                 }
             }
         } else if (value < (-1 * 5 * _placeValue)) {
-            Bead *bead = [self beads][0];
+            Bead *bead = [self getBead:5];
             [bead setValue:0];
             NSInteger valueReset = 5 * _placeValue;
             for (int i = 4; i >= 1; i--) {
                 if (valueReset == -1 * value) {
                     break;
                 }
-                Bead *bead = [self beads][i];
+                Bead *bead = [self getBead:i];
                 if ([bead isSet]) {
                     [bead setValue:0];
                     valueReset += 1 * _placeValue;
                 }
             }
         } else if (value == (-1 * 5 * _placeValue)) {
-            Bead *bead = [self beads][0];
+            Bead *bead = [self getBead:5];
             [bead setValue:0];
         } else if (value > (-1 * 5 * _placeValue) && value < 0) {
             NSInteger valueReset = 0;
@@ -121,7 +125,7 @@
                 if (valueReset == -1 * value) {
                     break;
                 }
-                Bead *bead = [self beads][i];
+                Bead *bead = [self getBead:i];
                 if ([bead isSet]) {
                     [bead setValue:0];
                     valueReset += 1 * _placeValue;
@@ -140,14 +144,14 @@
         int numOfEmpty1Beads = 0;
         int numOfNonEmpty1Beads = 0;
         for (int i = 1; i <= 4; i++) {
-            Bead *bead = [self beads][i];
+            Bead *bead = [self getBead:i];
             if ([bead isSet]) {
                 numOfNonEmpty1Beads++;
             } else {
                 numOfEmpty1Beads++;
             }
         }
-        Bead *bead = [self beads][0];
+        Bead *bead = [self getBead:5];
         BOOL isEmpty5Bead = ([bead isSet]) ? NO : YES;
         if (value > (5 * _placeValue)) {
             NSInteger remainingValue = value - (5 * _placeValue);

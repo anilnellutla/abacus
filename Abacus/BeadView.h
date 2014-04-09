@@ -10,5 +10,5 @@
 #import "Bead.h"
 
 @interface BeadView : UIView
-@property NSUInteger beadIndex;
+@property NSInteger beadIndex;
 @end

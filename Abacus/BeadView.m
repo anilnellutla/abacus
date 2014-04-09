@@ -214,7 +214,7 @@ static const CGFloat BEAD_GAP = 2;
     return [self moveUpLimit:self.beadIndex];
 }
 
-- (CGFloat)moveUpLimit:(NSUInteger)beadIndex
+- (CGFloat)moveUpLimit:(NSInteger)beadIndex
 {
     CGFloat moveUpLimit = 0;
     if(beadIndex == 1) {
@@ -241,7 +241,7 @@ static const CGFloat BEAD_GAP = 2;
     return [self moveDownLimit:self.beadIndex];
 }
 
-- (CGFloat)moveDownLimit:(NSUInteger)beadIndex
+- (CGFloat)moveDownLimit:(NSInteger)beadIndex
 {
     CGFloat moveDownLimit = 0;
     if(beadIndex == 1) {
@@ -354,7 +354,7 @@ static const CGFloat BEAD_GAP = 2;
     
     return anchorBead;
 }
-- (BeadView *) getBeadView:(NSUInteger)beadIndex
+- (BeadView *) getBeadView:(NSInteger)beadIndex
 {
     BeadView *beadView;
     switch (beadIndex) {

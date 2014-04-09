@@ -13,12 +13,18 @@
 
 @property (strong, nonatomic) NSMutableArray *expression;
 
--(void)addColumn:(Column *)column;
+-(Column *)getColumn:(NSInteger)placeValue;
 
 -(void)reset;
 
 -(NSInteger)value;
 
--(void)add:(NSInteger)value;
+-(void)add:(NSInteger)number;
+
+-(void)subtract:(NSInteger)number;
+
+-(void)add:(NSInteger)number1 to:(NSInteger)number2;
+
+-(void)subtract:(NSInteger)number1 from:(NSInteger)number2;
 
 @end
