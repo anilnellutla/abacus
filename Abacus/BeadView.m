@@ -10,7 +10,7 @@
 #import "BeadBehavior.h"
 
 @interface BeadView()
-@property (nonatomic) NSString *moveDirection;
+@property (nonatomic) NSString *initialMoveDirection;
 @end
 
 @implementation BeadView
@@ -43,6 +43,7 @@ static const CGFloat BEAD_GAP = 2;
 - (UIColor *)beadColor
 {
     return [UIColor colorWithRed:0.45 green:0.2 blue:0.02 alpha:1.0];
+    //return [UIColor colorWithRed:0.99 green:0.75 blue:0.83 alpha:1.0];
 }
 
 
@@ -77,14 +78,14 @@ static const CGFloat BEAD_GAP = 2;
     if(dragUp == YES) {
         
         if ([recognizer state] == UIGestureRecognizerStateBegan) {
-            _moveDirection = @"moveUp";
+            _initialMoveDirection = @"moveUp";
         }
         
         if(translation.y < 0) {
             [self moveUp:translation.y];
         }
         
-        if([[self moveDirection] isEqualToString:@"moveDown"]) {
+        if([[self initialMoveDirection] isEqualToString:@"moveDown"]) {
             BeadView *bottomAnchorBead = [[self getBottomBead] getBottomAnchorBead];
             if(![bottomAnchorBead isReset]) {
                 [bottomAnchorBead moveUp:translation.y];
@@ -108,14 +109,14 @@ static const CGFloat BEAD_GAP = 2;
     } else {
         
         if ([recognizer state] == UIGestureRecognizerStateBegan) {
-            _moveDirection = @"moveDown";
+            _initialMoveDirection = @"moveDown";
         }
         
         if(translation.y > 0) {
             [self moveDown:translation.y];
         }
         
-        if([[self moveDirection] isEqualToString:@"moveUp"]) {
+        if([[self initialMoveDirection] isEqualToString:@"moveUp"]) {
             BeadView *topAnchorBead = [[self getTopBead] getTopAnchorBead];
             if(![topAnchorBead isSet]) {
                 [topAnchorBead moveDown:translation.y];

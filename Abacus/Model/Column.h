@@ -12,11 +12,11 @@
 @interface Column : NSObject
 
 // designated initializer
--(instancetype)initWithPlaceValue:(NSInteger)placeValue;
-
--(Bead *)getBead:(NSInteger)index;
+-(instancetype)initWithPlaceValue:(NSInteger)placeValue beadsPerColumn:(NSInteger)beadsPerColumn;
 
 @property (nonatomic) NSInteger placeValue;
+
+-(Bead *)getBead:(NSInteger)index;
 
 -(void)reset;
 

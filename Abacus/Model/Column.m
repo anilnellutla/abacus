@@ -14,15 +14,13 @@
 
 @implementation Column
 
-static const NSInteger BEADS_PER_COLUMN = 5;
-
--(instancetype)initWithPlaceValue:(NSInteger)placeValue
+-(instancetype)initWithPlaceValue:(NSInteger)placeValue beadsPerColumn:(NSInteger)beadsPerColumn
 {
     self = [super init];
     if(self) {
         _placeValue = placeValue;
-        _beads = [[NSMutableArray alloc] initWithCapacity:BEADS_PER_COLUMN];
-        for(NSInteger i = 1; i <= BEADS_PER_COLUMN; i++) {
+        _beads = [[NSMutableArray alloc] initWithCapacity:beadsPerColumn];
+        for(NSInteger i = 1; i <= beadsPerColumn; i++) {
             Bead *bead = [[Bead alloc] initWithValue:0 index:i];
             [_beads addObject:bead];
         }

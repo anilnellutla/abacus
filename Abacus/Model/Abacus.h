@@ -13,6 +13,9 @@
 
 @property (strong, nonatomic) NSMutableArray *expression;
 
+//designated initializer
+-(instancetype)initWithNumberOfColumns:(NSInteger)numOfColumns beadsPerColumn:(NSInteger)beadsPerColumn;
+
 -(Column *)getColumn:(NSInteger)placeValue;
 
 -(void)reset;

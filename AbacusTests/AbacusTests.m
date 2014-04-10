@@ -51,7 +51,7 @@
 
 - (void)testAbacus
 {
-    Abacus *abacus = [[Abacus alloc] init];
+    Abacus *abacus = [[Abacus alloc] initWithNumberOfColumns:10 beadsPerColumn:5];
     NSLog(@"Abacus:\n%@",[abacus description]);
     [abacus add:4];
     NSLog(@"Abacus:\n%@",[abacus description]);

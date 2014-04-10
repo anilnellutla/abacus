@@ -12,20 +12,22 @@
 
 @interface Abacus()
 @property (strong, nonatomic) NSMutableArray *columns;
+@property (nonatomic) NSInteger numOfColumns;
+@property (nonatomic) NSInteger beadsPerColumn;
 @end
 
 @implementation Abacus
 
-static const NSInteger NUM_OF_COLUMNS = 10;
-
--(instancetype)init
+-(instancetype)initWithNumberOfColumns:(NSInteger)numOfColumns beadsPerColumn:(NSInteger)beadsPerColumn
 {
     self = [super init];
     if(self) {
-        _columns = [[NSMutableArray alloc] initWithCapacity:NUM_OF_COLUMNS];
+        _numOfColumns = numOfColumns;
+        _beadsPerColumn = beadsPerColumn;
+        _columns = [[NSMutableArray alloc] initWithCapacity:numOfColumns];
         NSInteger placeValue = 1;
-        for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
-            Column *column = [[Column alloc] initWithPlaceValue:placeValue];
+        for(NSInteger i = 0; i < numOfColumns; i++) {
+            Column *column = [[Column alloc] initWithPlaceValue:placeValue beadsPerColumn:beadsPerColumn];
             [_columns addObject:column];
             placeValue *= 10;
         }
@@ -146,20 +148,20 @@ static const NSInteger NUM_OF_COLUMNS = 10;
     NSMutableString *abacusStr = [[NSMutableString alloc] init];
     
     [abacusStr appendString:@"\n"];
-    for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+    for(NSInteger i = 0; i < [self numOfColumns]; i++) {
         [abacusStr appendString:@"***"];
     }
     [abacusStr appendString:@"\n"];
     
-    NSInteger placeValue = pow(10, NUM_OF_COLUMNS-1);
-    for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+    NSInteger placeValue = pow(10, [self numOfColumns]-1);
+    for(NSInteger i = 0; i < [self numOfColumns]; i++) {
         Column *column = [self getColumn:placeValue];
         placeValue = placeValue/10;
         Bead *bead = [column getBead:5];
         if([bead isSet]) {
             [abacusStr appendString:@" - "];
         } else {
-            if (i == (NUM_OF_COLUMNS - 1)) {
+            if (i == ([self numOfColumns] - 1)) {
                 [abacusStr appendString:@"| "];
             } else {
                 [abacusStr appendString:@" | "];
@@ -168,21 +170,21 @@ static const NSInteger NUM_OF_COLUMNS = 10;
     }
     
     [abacusStr appendString:@"\n"];
-    for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+    for(NSInteger i = 0; i < [self numOfColumns]; i++) {
         [abacusStr appendString:@"***"];
     }
     
-    for(NSInteger j = 1; j <= 4; j++) {
+    for(NSInteger j = 1; j <= [self beadsPerColumn] - 1; j++) {
         [abacusStr appendString:@"\n"];
-        placeValue = pow(10, NUM_OF_COLUMNS-1);
-        for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+        placeValue = pow(10, [self numOfColumns] - 1);
+        for(NSInteger i = 0; i < [self numOfColumns]; i++) {
             Column *column = [self getColumn:placeValue];
             placeValue = placeValue/10;
             Bead *bead = [column getBead:j];
             if([bead isSet]) {
                 [abacusStr appendString:@" - "];
             } else {
-                if (i == (NUM_OF_COLUMNS - 1)) {
+                if (i == ([self numOfColumns] - 1)) {
                     [abacusStr appendString:@"| "];
                 } else {
                     [abacusStr appendString:@" | "];
@@ -192,7 +194,7 @@ static const NSInteger NUM_OF_COLUMNS = 10;
         [abacusStr appendString:@"\n"];
     }
     
-    for(NSInteger i = 0; i < NUM_OF_COLUMNS; i++) {
+    for(NSInteger i = 0; i < [self numOfColumns]; i++) {
         [abacusStr appendString:@"***"];
     }
     [abacusStr appendString:@"\n"];
