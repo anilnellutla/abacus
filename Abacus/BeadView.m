@@ -10,7 +10,7 @@
 #import "BeadBehavior.h"
 
 @interface BeadView()
-@property (nonatomic) NSString *initialMoveDirection;
+@property (strong, nonatomic) NSString *initialMoveDirection;
 @end
 
 @implementation BeadView
