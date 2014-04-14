@@ -15,7 +15,7 @@
 
 @implementation BeadView
 
-static const CGFloat BEAD_GAP = 2;
+static const CGFloat BEAD_GAP = 2.000000;
 
 #pragma mark - Initialization
 
@@ -307,7 +307,7 @@ static const CGFloat BEAD_GAP = 2;
     BeadView *adjacentBeadView = [self getBottomBead];
     if(adjacentBeadView) {
         if((adjacentBeadView.center.y - adjacentBeadView.bounds.size.height/2)
-           - (self.center.y + self.bounds.size.height/2) ==  BEAD_GAP ) {
+           - (self.center.y + self.bounds.size.height/2) - BEAD_GAP < BEAD_GAP/2) {
             return adjacentBeadView;
         }
     }
@@ -319,7 +319,7 @@ static const CGFloat BEAD_GAP = 2;
     BeadView *adjacentBeadView = [self getTopBead];
     if(adjacentBeadView) {
         if((self.center.y - self.bounds.size.height/2)
-           - (adjacentBeadView.center.y + adjacentBeadView.bounds.size.height/2) == BEAD_GAP ) {
+           - (adjacentBeadView.center.y + adjacentBeadView.bounds.size.height/2) - BEAD_GAP < BEAD_GAP/2) {
             return adjacentBeadView;
         }
     }
@@ -475,6 +475,34 @@ static const CGFloat BEAD_GAP = 2;
 - (void)reset
 {
     [self moveDown];
+}
+
+-(NSString*)description
+{
+    NSMutableString *desc = [[NSMutableString alloc] init];
+    
+    [desc appendString:@"Bounds="];
+    [desc appendString:NSStringFromCGRect(self.bounds)];
+    
+    [desc appendString:@", Size="];
+    [desc appendString:NSStringFromCGSize(self.bounds.size)];
+    
+    [desc appendString:@", Center="];
+    [desc appendString:NSStringFromCGPoint(self.center)];
+    
+    [desc appendString:@", height="];
+    [desc appendFormat:@"%f", self.bounds.size.height];
+    
+    [desc appendString:@", width="];
+    [desc appendFormat:@"%f", self.bounds.size.width];
+    
+    [desc appendString:@", x="];
+    [desc appendFormat:@"%f", self.center.x];
+    
+    [desc appendString:@", y="];
+    [desc appendFormat:@"%f", self.center.y];
+    
+    return desc;
 }
 
 
