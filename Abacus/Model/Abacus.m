@@ -27,7 +27,7 @@
         _columns = [[NSMutableArray alloc] initWithCapacity:numOfColumns];
         NSInteger placeValue = 1;
         for(NSInteger i = 0; i < numOfColumns; i++) {
-            Column *column = [[Column alloc] initWithPlaceValue:placeValue beadsPerColumn:beadsPerColumn];
+            Column *column = [[Column alloc] initWithBeadsPerColumn:beadsPerColumn placeValue:placeValue];
             [_columns addObject:column];
             placeValue *= 10;
         }
@@ -157,7 +157,7 @@
     for(NSInteger i = 0; i < [self numOfColumns]; i++) {
         Column *column = [self getColumn:placeValue];
         placeValue = placeValue/10;
-        Bead *bead = [column getBead:5];
+        Bead *bead = [column getBeadAtIndex:5];
         if([bead isSet]) {
             [abacusStr appendString:@" - "];
         } else {
@@ -180,7 +180,7 @@
         for(NSInteger i = 0; i < [self numOfColumns]; i++) {
             Column *column = [self getColumn:placeValue];
             placeValue = placeValue/10;
-            Bead *bead = [column getBead:j];
+            Bead *bead = [column getBeadAtIndex:j];
             if([bead isSet]) {
                 [abacusStr appendString:@" - "];
             } else {

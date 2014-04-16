@@ -8,6 +8,7 @@
 
 #import "BeadView.h"
 #import "BeadBehavior.h"
+#import "ColumnView.h"
 
 @interface BeadView()
 @property (strong, nonatomic) NSString *initialMoveDirection;
@@ -15,7 +16,7 @@
 
 @implementation BeadView
 
-static const CGFloat BEAD_GAP = 2.000000;
+static const CGFloat BEAD_GAP = 2;
 
 #pragma mark - Initialization
 
@@ -31,11 +32,13 @@ static const CGFloat BEAD_GAP = 2.000000;
     [self setUp];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame placeValue:(NSInteger)placeValue beadIndex:(NSInteger)beadIndex
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self setUp];
+        _placeValue = placeValue;
+        _beadIndex = beadIndex;
     }
     return self;
 }
@@ -104,6 +107,8 @@ static const CGFloat BEAD_GAP = 2.000000;
                     [bottomAnchorBead moveUp];
                 }
             }
+            
+            [self postBeadValueChangedNotification];
         }
         
     } else {
@@ -135,6 +140,8 @@ static const CGFloat BEAD_GAP = 2.000000;
                     [topAnchorBead moveDown];
                 }
             }
+            
+            [self postBeadValueChangedNotification];
         }
         
     }
@@ -477,6 +484,13 @@ static const CGFloat BEAD_GAP = 2.000000;
     [self moveDown];
 }
 
+- (void)postBeadValueChangedNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"BeadValueChangedNotification"
+                                                        object:self
+                                                      userInfo:nil];
+}
+
 -(NSString*)description
 {
     NSMutableString *desc = [[NSMutableString alloc] init];
@@ -489,18 +503,6 @@ static const CGFloat BEAD_GAP = 2.000000;
     
     [desc appendString:@", Center="];
     [desc appendString:NSStringFromCGPoint(self.center)];
-    
-    [desc appendString:@", height="];
-    [desc appendFormat:@"%f", self.bounds.size.height];
-    
-    [desc appendString:@", width="];
-    [desc appendFormat:@"%f", self.bounds.size.width];
-    
-    [desc appendString:@", x="];
-    [desc appendFormat:@"%f", self.center.x];
-    
-    [desc appendString:@", y="];
-    [desc appendFormat:@"%f", self.center.y];
     
     return desc;
 }

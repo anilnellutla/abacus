@@ -10,4 +10,9 @@
 #import "Column.h"
 
 @interface ColumnView : UIView
+
+@property (nonatomic) NSInteger placeValue;
+// designated initializer
+- (id)initWithFrame:(CGRect)frame placeValue:(NSInteger)placeValue;
+
 @end

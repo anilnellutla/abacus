@@ -10,5 +10,13 @@
 #import "Bead.h"
 
 @interface BeadView : UIView
-@property NSInteger beadIndex;
+
+@property (nonatomic) NSInteger placeValue;
+@property (nonatomic) NSInteger beadIndex;
+
+// designated initializer
+- (id)initWithFrame:(CGRect)frame placeValue:(NSInteger)placeValue beadIndex:(NSInteger)beadIndex;
+- (BOOL)isSet;
+- (BOOL)isReset;
+
 @end

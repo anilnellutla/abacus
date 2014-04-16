@@ -41,17 +41,17 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    NSLog(@"ContainerView");
-    CGRect numberViewbounds = CGRectMake(super.bounds.origin.x + 3, super.bounds.origin.y - 3,
-                                         .95*super.bounds.size.width, .125*super.bounds.size.height);
-    
+    CGRect numberViewbounds = CGRectMake(super.bounds.origin.x + 3,
+                                         super.bounds.origin.y - 3,
+                                         .95*super.bounds.size.width,
+                                         .125*super.bounds.size.height);
     NumberView *numberView = [[NumberView alloc] initWithFrame:numberViewbounds];
     [self addSubview:numberView];
     
-    CGRect abacusViewbounds = CGRectMake(super.bounds.origin.x + 3, numberViewbounds.size.height + 3,
+    CGRect abacusViewbounds = CGRectMake(super.bounds.origin.x + 3,
+                                         numberViewbounds.size.height + 3,
                                          .95*super.bounds.size.width,
                                          super.bounds.size.height - numberViewbounds.size.height - 3);
-    
     AbacusView *abacusView = [[AbacusView alloc] initWithFrame:abacusViewbounds];
     [self addSubview:abacusView];
     

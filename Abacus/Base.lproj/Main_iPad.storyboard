@@ -34,6 +34,9 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="containterView" destination="7vV-2p-Osr" id="XK1-7b-5ZI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBW-xL-rrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

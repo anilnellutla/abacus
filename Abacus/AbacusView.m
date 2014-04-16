@@ -53,7 +53,7 @@ static const NSInteger NUM_OF_COLUMNS = 10;
     int placeValue = 1;
     for(int i = 0; i < NUM_OF_COLUMNS; i++) {
         CGRect columnFrame = CGRectMake(pathX, rect.origin.y, columnWidth, rect.size.height);
-        ColumnView *columnView = [[ColumnView alloc] initWithFrame:columnFrame];
+        ColumnView *columnView = [[ColumnView alloc] initWithFrame:columnFrame placeValue:placeValue];
         [self addSubview:columnView];
                 
         pathX = pathX - columnWidth - columnGap;

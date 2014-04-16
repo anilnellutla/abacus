@@ -56,11 +56,15 @@
     [abacus add:4];
     NSLog(@"Abacus:\n%@",[abacus description]);
     [abacus add:70];
+    
     NSLog(@"Abacus:\n%@",[abacus description]);
     [abacus subtract:5];
     NSLog(@"Abacus:\n%@",[abacus description]);
+    
+    
     [abacus add:61471397];
     NSLog(@"Abacus:\n%@",[abacus description]);
+    
     NSLog(@"Abacus Value:%ld",[abacus value]);
 }
 

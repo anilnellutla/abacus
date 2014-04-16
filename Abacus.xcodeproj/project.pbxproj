@@ -24,6 +24,8 @@
 		0406F1DD18D6EB600072BF1F /* AbacusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1DC18D6EB600072BF1F /* AbacusTests.m */; };
 		0406F1E818D6EB740072BF1F /* Bead.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1E718D6EB740072BF1F /* Bead.m */; };
 		040B501418DF4AE6007C0ACE /* ColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B501318DF4AE6007C0ACE /* ColumnView.m */; };
+		042839A818FB65E400F680E6 /* ContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042839A518FB65E400F680E6 /* ContainerView.m */; };
+		042839A918FB65E400F680E6 /* NumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042839A718FB65E400F680E6 /* NumberView.m */; };
 		043B30AF18F36F3F00F68FB9 /* Partners.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30AE18F36F3F00F68FB9 /* Partners.m */; };
 		043B30B218F3713000F68FB9 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30B118F3713000F68FB9 /* Util.m */; };
 		043B30B518F3A33F00F68FB9 /* Formulae.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30B418F3A33F00F68FB9 /* Formulae.m */; };
@@ -71,6 +73,10 @@
 		0406F1E718D6EB740072BF1F /* Bead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bead.m; sourceTree = "<group>"; };
 		040B501218DF4AE6007C0ACE /* ColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnView.h; sourceTree = "<group>"; };
 		040B501318DF4AE6007C0ACE /* ColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnView.m; sourceTree = "<group>"; };
+		042839A418FB65E400F680E6 /* ContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerView.h; sourceTree = "<group>"; };
+		042839A518FB65E400F680E6 /* ContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerView.m; sourceTree = "<group>"; };
+		042839A618FB65E400F680E6 /* NumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberView.h; sourceTree = "<group>"; };
+		042839A718FB65E400F680E6 /* NumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberView.m; sourceTree = "<group>"; };
 		043B30AD18F36F3F00F68FB9 /* Partners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partners.h; sourceTree = "<group>"; };
 		043B30AE18F36F3F00F68FB9 /* Partners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Partners.m; sourceTree = "<group>"; };
 		043B30B018F3713000F68FB9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
@@ -150,10 +156,14 @@
 		0406F1B418D6EB5F0072BF1F /* Abacus */ = {
 			isa = PBXGroup;
 			children = (
-				0406F1BD18D6EB5F0072BF1F /* AbacusAppDelegate.h */,
-				0406F1BE18D6EB5F0072BF1F /* AbacusAppDelegate.m */,
 				0406F1C018D6EB5F0072BF1F /* Main_iPhone.storyboard */,
 				0406F1C318D6EB5F0072BF1F /* Main_iPad.storyboard */,
+				042839A418FB65E400F680E6 /* ContainerView.h */,
+				042839A518FB65E400F680E6 /* ContainerView.m */,
+				042839A618FB65E400F680E6 /* NumberView.h */,
+				042839A718FB65E400F680E6 /* NumberView.m */,
+				0406F1BD18D6EB5F0072BF1F /* AbacusAppDelegate.h */,
+				0406F1BE18D6EB5F0072BF1F /* AbacusAppDelegate.m */,
 				045A5A6618D8C96300F98418 /* AbacusView.h */,
 				045A5A6718D8C96300F98418 /* AbacusView.m */,
 				04433BEC18DFB58200335F0C /* BeadView.h */,
@@ -330,6 +340,8 @@
 				0406F1C818D6EB5F0072BF1F /* AbacusViewController.m in Sources */,
 				0457414618E29274007FE184 /* BeadBehavior.m in Sources */,
 				0406F1E818D6EB740072BF1F /* Bead.m in Sources */,
+				042839A918FB65E400F680E6 /* NumberView.m in Sources */,
+				042839A818FB65E400F680E6 /* ContainerView.m in Sources */,
 				0406F1BB18D6EB5F0072BF1F /* main.m in Sources */,
 				043B30B818F3B68C00F68FB9 /* Calculator.m in Sources */,
 				04433BEE18DFB58200335F0C /* BeadView.m in Sources */,

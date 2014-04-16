@@ -10,13 +10,14 @@
 
 @interface Bead : NSObject
 
-//designated initializer
--(instancetype)initWithValue:(NSInteger)value index:(NSInteger)index;
+@property (nonatomic) NSInteger beadIndex;
+@property (nonatomic) NSInteger placeValue;
+@property (nonatomic, getter = isSet) BOOL set;
 
-@property (nonatomic) NSInteger index;
+//designated initializer
+-(instancetype)initWithPlaceValue:(NSInteger)placeValue beadIndex:(NSInteger)beadIndex;
 
 // values would be 0, 1, 5, 10, 50, 100, 500...
-@property (nonatomic) NSInteger value;
+-(NSInteger) getValue;
 
--(BOOL)isSet;
 @end

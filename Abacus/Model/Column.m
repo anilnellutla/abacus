@@ -14,24 +14,24 @@
 
 @implementation Column
 
--(instancetype)initWithPlaceValue:(NSInteger)placeValue beadsPerColumn:(NSInteger)beadsPerColumn
+-(instancetype)initWithBeadsPerColumn:(NSInteger)beadsPerColumn placeValue:(NSInteger)placeValue
 {
     self = [super init];
     if(self) {
         _placeValue = placeValue;
         _beads = [[NSMutableArray alloc] initWithCapacity:beadsPerColumn];
         for(NSInteger i = 1; i <= beadsPerColumn; i++) {
-            Bead *bead = [[Bead alloc] initWithValue:0 index:i];
+            Bead *bead = [[Bead alloc] initWithPlaceValue:_placeValue beadIndex:i];
             [_beads addObject:bead];
         }
     }
     return self;
 }
 
--(Bead *)getBead:(NSInteger)index
+-(Bead *)getBeadAtIndex:(NSInteger)beadIndex
 {
     for(Bead *bead in self.beads) {
-        if([bead index] == index) {
+        if([bead beadIndex] == beadIndex) {
             return bead;
         }
     }
@@ -41,7 +41,7 @@
 -(void)reset
 {
     for(Bead *bead in self.beads) {
-        bead.value = 0;
+        bead.set = NO;
     }
 }
 
@@ -49,7 +49,7 @@
 {
     NSInteger value = 0;
     for(Bead *bead in self.beads) {
-        value += [bead value];
+        value += [bead getValue];
     }
     return value;
 }
@@ -72,60 +72,68 @@
     if ([self canValueBeSet:value]) {
         if (value > (5 * _placeValue)) {
             NSInteger valueSet = 0;
-            Bead *bead = [self getBead:5];
-            [bead setValue:5 * _placeValue];
+            Bead *bead = [self getBeadAtIndex:5];
+            //[bead setValue:5 * _placeValue];
+            bead.set = YES;
             valueSet = 5 * _placeValue;
             for (int i = 1; i <= 4; i++) {
                 if (valueSet == value) {
                     break;
                 }
-                Bead *bead = [self getBead:i];
+                Bead *bead = [self getBeadAtIndex:i];
                 if (![bead isSet]) {
-                    [bead setValue:1 * _placeValue];
+                    //[bead setValue:1 * _placeValue];
+                    bead.set = YES;
                     valueSet += 1 * _placeValue;
                 }
             }
         } else if (value == 5 * _placeValue) {
-            Bead *bead = [self getBead:5];
-            [bead setValue:5 * _placeValue];
+            Bead *bead = [self getBeadAtIndex:5];
+            //[bead setValue:5 * _placeValue];
+            bead.set = YES;
         } else if (value < (5 * _placeValue) && value > 0) {
             NSInteger valueSet = 0;
             for (int i = 1; i <= 4; i++) {
                 if (valueSet == value) {
                     break;
                 }
-                Bead *bead = [self getBead:i];
+                Bead *bead = [self getBeadAtIndex:i];
                 if (![bead isSet]) {
-                    [bead setValue:1 * _placeValue];
+                    //[bead setValue:1 * _placeValue];
+                    bead.set = YES;
                     valueSet += 1 * _placeValue;
                 }
             }
         } else if (value < (-1 * 5 * _placeValue)) {
-            Bead *bead = [self getBead:5];
-            [bead setValue:0];
+            Bead *bead = [self getBeadAtIndex:5];
+            //[bead setValue:0];
+            bead.set = NO;
             NSInteger valueReset = 5 * _placeValue;
             for (int i = 4; i >= 1; i--) {
                 if (valueReset == -1 * value) {
                     break;
                 }
-                Bead *bead = [self getBead:i];
+                Bead *bead = [self getBeadAtIndex:i];
                 if ([bead isSet]) {
-                    [bead setValue:0];
+                    //[bead setValue:0];
+                    bead.set = NO;
                     valueReset += 1 * _placeValue;
                 }
             }
         } else if (value == (-1 * 5 * _placeValue)) {
-            Bead *bead = [self getBead:5];
-            [bead setValue:0];
+            Bead *bead = [self getBeadAtIndex:5];
+            //[bead setValue:0];
+            bead.set = NO;
         } else if (value > (-1 * 5 * _placeValue) && value < 0) {
             NSInteger valueReset = 0;
             for (int i = 4; i >= 1; i--) {
                 if (valueReset == -1 * value) {
                     break;
                 }
-                Bead *bead = [self getBead:i];
+                Bead *bead = [self getBeadAtIndex:i];
                 if ([bead isSet]) {
-                    [bead setValue:0];
+                    //[bead setValue:0];
+                    bead.set = NO;
                     valueReset += 1 * _placeValue;
                 }
             }
@@ -142,14 +150,14 @@
         int numOfEmpty1Beads = 0;
         int numOfNonEmpty1Beads = 0;
         for (int i = 1; i <= 4; i++) {
-            Bead *bead = [self getBead:i];
+            Bead *bead = [self getBeadAtIndex:i];
             if ([bead isSet]) {
                 numOfNonEmpty1Beads++;
             } else {
                 numOfEmpty1Beads++;
             }
         }
-        Bead *bead = [self getBead:5];
+        Bead *bead = [self getBeadAtIndex:5];
         BOOL isEmpty5Bead = ([bead isSet]) ? NO : YES;
         if (value > (5 * _placeValue)) {
             NSInteger remainingValue = value - (5 * _placeValue);

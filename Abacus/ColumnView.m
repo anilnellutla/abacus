@@ -34,11 +34,12 @@ static const CGFloat BEAD_GAP = 2;
     [self setUp];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame placeValue:(NSInteger)placeValue
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self setUp];
+        _placeValue = placeValue;
     }
     return self;
 }
@@ -77,8 +78,7 @@ static const CGFloat BEAD_GAP = 2;
     
     int beadIndex = 5;
     CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
-    BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
-    beadView.beadIndex = beadIndex;
+    BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame placeValue:_placeValue beadIndex:beadIndex];
     [self addSubview:beadView];
     
     beadIndex -= 1;
@@ -86,8 +86,7 @@ static const CGFloat BEAD_GAP = 2;
     beadOriginY = (rect.size.height) - (BEAD_SIZE.height) - (BEAD_GAP);
     for(NSInteger i = 0; i < (BEADS_PER_COLUMN - 1); i++) {
         CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
-        BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame];
-        beadView.beadIndex = beadIndex;
+        BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame placeValue:_placeValue beadIndex:beadIndex];
         [self addSubview:beadView];
                 
         beadOriginY = beadOriginY - BEAD_SIZE.height - (BEAD_GAP);

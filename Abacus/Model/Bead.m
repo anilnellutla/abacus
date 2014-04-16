@@ -10,18 +10,26 @@
 
 @implementation Bead
 
--(instancetype)initWithValue:(NSInteger)value index:(NSInteger)index
+-(instancetype)initWithPlaceValue:(NSInteger)placeValue beadIndex:(NSInteger)beadIndex
 {
     self = [super init];
     if(self) {
-        _value = value;
-        _index = index;
+        _placeValue = placeValue;
+        _beadIndex = beadIndex;
+        _set = NO;
     }
     return self;
 }
 
--(BOOL)isSet
-{    
-    return (_value == 0) ? NO : YES;
+-(NSInteger) getValue
+{
+    if([self isSet]) {
+        if([self beadIndex] == 5) {
+            return [self placeValue] * 5;
+        }
+        return [self placeValue] * 1;
+    }
+    return 0;
 }
+
 @end
