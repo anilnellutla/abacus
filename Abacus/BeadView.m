@@ -108,7 +108,7 @@ static const CGFloat BEAD_GAP = 2;
                 }
             }
             
-            [self postBeadValueChangedNotification];
+            [self postBeadMovedNotification];
         }
         
     } else {
@@ -141,7 +141,7 @@ static const CGFloat BEAD_GAP = 2;
                 }
             }
             
-            [self postBeadValueChangedNotification];
+            [self postBeadMovedNotification];
         }
         
     }
@@ -484,9 +484,9 @@ static const CGFloat BEAD_GAP = 2;
     [self moveDown];
 }
 
-- (void)postBeadValueChangedNotification
+- (void)postBeadMovedNotification
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"BeadValueChangedNotification"
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"BeadMovedNotification"
                                                         object:self
                                                       userInfo:nil];
 }

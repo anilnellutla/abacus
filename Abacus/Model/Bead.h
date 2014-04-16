@@ -12,7 +12,7 @@
 
 @property (nonatomic) NSInteger beadIndex;
 @property (nonatomic) NSInteger placeValue;
-@property (nonatomic, getter = isSet) BOOL set;
+@property (nonatomic, getter = isSet, setter = set:) BOOL set;
 
 //designated initializer
 -(instancetype)initWithPlaceValue:(NSInteger)placeValue beadIndex:(NSInteger)beadIndex;

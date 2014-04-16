@@ -33,8 +33,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"viewDidLoad");
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(beadValueChanged:)
-                                                 name:@"BeadValueChangedNotification"
+                                             selector:@selector(beadMoved:)
+                                                 name:@"BeadMovedNotification"
                                                object:nil];
 }
 
@@ -44,7 +44,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)beadValueChanged:(NSNotification *) notification
+- (void)beadMoved:(NSNotification *) notification
 {
     //NSLog(@"beadValueChanged");
 
