@@ -46,7 +46,7 @@ static const CGFloat BEAD_GAP = 2;
 - (UIColor *)beadColor
 {
     return [UIColor colorWithRed:0.45 green:0.2 blue:0.02 alpha:1.0];
-    //return [UIColor colorWithRed:0.99 green:0.75 blue:0.83 alpha:1.0];
+    //return [UIColor colorWithRed:0.99 green:0.75 blue:0.83 alpha:1.0];    
 }
 
 

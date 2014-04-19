@@ -10,10 +10,9 @@
 #import "ColumnView.h"
 #import "RowView.h"
 #import "Column.h"
+#import "UIConfig.h"
 
 @implementation AbacusView
-
-static const NSInteger NUM_OF_COLUMNS = 10;
 
 - (UIColor *)abacusBorderColor
 {
@@ -47,25 +46,20 @@ static const NSInteger NUM_OF_COLUMNS = 10;
 
 -(void)drawColumns:(CGRect)rect
 {
-    CGFloat columnWidth = rect.size.width/(NUM_OF_COLUMNS + 1);
-    CGFloat columnGap = columnWidth / (NUM_OF_COLUMNS);
-    CGFloat pathX = rect.size.width - columnWidth - columnGap;
     int placeValue = 1;
-    for(int i = 0; i < NUM_OF_COLUMNS; i++) {
-        CGRect columnFrame = CGRectMake(pathX, rect.origin.y, columnWidth, rect.size.height);
-        ColumnView *columnView = [[ColumnView alloc] initWithFrame:columnFrame placeValue:placeValue];
+    for(int i = 1; i <= [UIConfig getNumOfColumns]; i++) {
+        CGRect columnViewBounds = [UIConfig getColumnViewBounds:rect forColumn:i];
+        ColumnView *columnView = [[ColumnView alloc] initWithFrame:columnViewBounds placeValue:placeValue];
         [self addSubview:columnView];
                 
-        pathX = pathX - columnWidth - columnGap;
         placeValue *= 10;
     }
 }
 
 -(void)drawRow:(CGRect)rect
 {
-    CGFloat columnHeight = rect.size.height/7;
-    CGRect rowFrame = CGRectMake(rect.origin.x, rect.origin.y + (columnHeight * 2), rect.size.width, 1);
-    RowView *rowView = [[RowView alloc] initWithFrame:rowFrame];
+    CGRect rowViewBounds = [UIConfig getRowViewBounds:rect];
+    RowView *rowView = [[RowView alloc] initWithFrame:rowViewBounds];
     [self addSubview:rowView];
 }
 

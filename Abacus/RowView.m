@@ -43,10 +43,9 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(rect.origin.x, rect.origin.y)];
-    [path addLineToPoint:CGPointMake(rect.origin.x + rect.size.width, rect.origin.y)];
-    [path closePath];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
+    [[self rowColor] setFill];
+    [path fill];
     [[self rowColor] setStroke];
     [path stroke];
 }

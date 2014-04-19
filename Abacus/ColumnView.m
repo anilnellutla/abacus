@@ -9,6 +9,7 @@
 #import "ColumnView.h"
 #import "BeadView.h"
 #import "Bead.h"
+#import "UIConfig.h"
 
 
 @implementation ColumnView
@@ -59,10 +60,9 @@ static const CGFloat BEAD_GAP = 2;
 
 - (void)drawColumn:(CGRect)rect
 {
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(rect.origin.x + (rect.size.width/2), rect.origin.y)];
-    [path addLineToPoint:CGPointMake(rect.origin.x + (rect.size.width/2), rect.size.height)];
-    [path closePath];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:[UIConfig getColumnBounds:rect]];
+    [[self columnColor] setFill];
+    [path fill];
     [[self columnColor] setStroke];
     [path stroke];
     

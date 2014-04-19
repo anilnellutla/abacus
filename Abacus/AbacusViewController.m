@@ -31,7 +31,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"viewDidLoad");
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(beadMoved:)
                                                  name:@"BeadMovedNotification"
@@ -55,9 +54,9 @@
     for(BeadView *beadView in [columnView subviews]) {
         Bead *bead = [column getBeadAtIndex:[beadView beadIndex]];
         if([beadView isSet]) {
-            bead.set = YES;
+            [bead set:YES];
         } else if([beadView isReset]){
-            bead.set = NO;
+            [bead set:NO];
         }
     }
     
