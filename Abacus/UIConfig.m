@@ -7,20 +7,9 @@
 //
 
 #import "UIConfig.h"
+#import "UIConstants.h"
 
 @implementation UIConfig
-
-#define NUMBER_VIEW_ORIGIN_X_OFFSET 3
-#define NUMBER_VIEW_ORIGIN_Y_OFFSET 3
-#define NUMBER_VIEW_WIDTH_SCALE_FACTOR 0.95
-#define NUMBER_VIEW_HEIGHT_SCALE_FACTOR 0.08
-
-#define ABACUS_VIEW_ORIGIN_X_OFFSET 3
-#define ABACUS_VIEW_ORIGIN_Y_OFFSET 3
-#define ABACUS_VIEW_WIDTH_SCALE_FACTOR 0.95
-
-#define NUM_OF_COLUMNS 10
-
 
 +(CGRect) getNumberViewBounds:(CGRect)containerViewBounds
 {
@@ -69,13 +58,13 @@
     return abacusViewBounds.size.height;
 }
 
-+(CGRect)getColumnViewBounds:(CGRect)abacusViewBounds forColumn:(NSInteger)columnNumber
++(CGRect)getColumnViewBounds:(CGRect)abacusViewBounds forColumn:(NSInteger)columnIndex
 {
     CGFloat columnViewWidth = [self getColumnViewWidth:abacusViewBounds];
     CGFloat columnViewGap = [self getColumnViewGap:abacusViewBounds];
     CGFloat columnnViewHeight = [self getColumnViewHeight:abacusViewBounds];
     
-    CGFloat originX = abacusViewBounds.size.width - columnNumber * columnViewWidth - columnNumber * columnViewGap;
+    CGFloat originX = abacusViewBounds.size.width - columnIndex * columnViewWidth - columnIndex * columnViewGap;
     CGFloat originY = abacusViewBounds.origin.y;
     return CGRectMake(originX,
                       originY,
@@ -88,6 +77,30 @@
     CGFloat columnWidth = 2;
     CGFloat originX = columnViewBounds.origin.x + (columnViewBounds.size.width - columnWidth)/2;
     return CGRectMake(originX, columnViewBounds.origin.y, columnWidth, columnViewBounds.size.height);
+}
+
++(CGSize)getBeadSize:(CGRect)columnViewBounds
+{
+    CGSize beadSize = { columnViewBounds.size.width * COLUMN_BEAD_WIDTH_RATIO,
+                        columnViewBounds.size.width * COLUMN_BEAD_HEIGHT_RATIO};
+    return beadSize;
+}
+
+
+
++(CGRect) getBeadViewBounds:(CGRect)columnViewBounds forBead:(NSInteger)beadIndex
+{
+    CGSize BEAD_SIZE = { columnViewBounds.size.width * COLUMN_BEAD_WIDTH_RATIO,
+                         columnViewBounds.size.width * COLUMN_BEAD_HEIGHT_RATIO};
+    CGFloat beadOriginY;
+    if(beadIndex == 5) {
+        beadOriginY = 0 + BEAD_GAP;
+    } else {
+        beadOriginY = (columnViewBounds.size.height) - (BEADS_PER_COLUMN - beadIndex)*(BEAD_SIZE.height) - (BEADS_PER_COLUMN - beadIndex)*BEAD_GAP;
+    }
+    CGFloat beadOriginX = columnViewBounds.origin.x + (columnViewBounds.size.width - BEAD_SIZE.width)/2;
+    CGRect beadViewBounds = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
+    return beadViewBounds;
 }
 
 

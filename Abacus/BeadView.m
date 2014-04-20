@@ -9,6 +9,7 @@
 #import "BeadView.h"
 #import "BeadBehavior.h"
 #import "ColumnView.h"
+#import "UIConstants.h"
 
 @interface BeadView()
 @property (strong, nonatomic) NSString *initialMoveDirection;
@@ -16,7 +17,6 @@
 
 @implementation BeadView
 
-static const CGFloat BEAD_GAP = 2;
 
 #pragma mark - Initialization
 

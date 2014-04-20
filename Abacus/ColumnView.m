@@ -10,16 +10,10 @@
 #import "BeadView.h"
 #import "Bead.h"
 #import "UIConfig.h"
+#import "UIConstants.h"
 
 
 @implementation ColumnView
-
-static const NSInteger BEADS_PER_COLUMN = 5;
-static const CGFloat BEAD_GAP = 2;
-
-//#define COLUMN_BEAD_SIZE_RATIO 0.70
-#define COLUMN_BEAD_WIDTH_RATIO 0.62
-#define COLUMN_BEAD_HEIGHT_RATIO 0.52
 
 #pragma mark - Initialization
 
@@ -72,26 +66,10 @@ static const CGFloat BEAD_GAP = 2;
 
 - (void)drawBeads:(CGRect)rect
 {
-    CGSize BEAD_SIZE = { rect.size.width * COLUMN_BEAD_WIDTH_RATIO, rect.size.width * COLUMN_BEAD_HEIGHT_RATIO};
-    CGFloat beadOriginX = rect.origin.x + (rect.size.width - BEAD_SIZE.width)/2;
-    CGFloat beadOriginY = 0 + BEAD_GAP;
-    
-    int beadIndex = 5;
-    CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
-    BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame placeValue:_placeValue beadIndex:beadIndex];
-    [self addSubview:beadView];
-    
-    beadIndex -= 1;
-   
-    beadOriginY = (rect.size.height) - (BEAD_SIZE.height) - (BEAD_GAP);
-    for(NSInteger i = 0; i < (BEADS_PER_COLUMN - 1); i++) {
-        CGRect beadFrame = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
-        BeadView *beadView = [[BeadView alloc] initWithFrame:beadFrame placeValue:_placeValue beadIndex:beadIndex];
+    for(NSInteger i = BEADS_PER_COLUMN; i >= 1; i--) {
+        CGRect beadViewBounds = [UIConfig getBeadViewBounds:rect forBead:i];
+        BeadView *beadView = [[BeadView alloc] initWithFrame:beadViewBounds placeValue:_placeValue beadIndex:i];
         [self addSubview:beadView];
-                
-        beadOriginY = beadOriginY - BEAD_SIZE.height - (BEAD_GAP);
-        beadIndex -= 1;
-
     }
 }
 
