@@ -66,7 +66,7 @@
 
 - (void)drawBeads:(CGRect)rect
 {
-    for(NSInteger i = BEADS_PER_COLUMN; i >= 1; i--) {
+    for(NSInteger i = 1; i <= BEADS_PER_COLUMN; i++) {
         CGRect beadViewBounds = [UIConfig getBeadViewBounds:rect forBead:i];
         BeadView *beadView = [[BeadView alloc] initWithFrame:beadViewBounds placeValue:_placeValue beadIndex:i];
         [self addSubview:beadView];

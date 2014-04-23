@@ -7,6 +7,9 @@
 //
 
 #import "NumberView.h"
+#import "DigitView.h"
+#import "UIConfig.h"
+#import "UIConstants.h"
 
 @implementation NumberView
 
@@ -38,14 +41,19 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-    [path addClip];
-    
-    //[[UIColor redColor] setFill];
-    [[UIColor colorWithRed:0.45 green:0.2 blue:0.02 alpha:1.0] setFill];
-    [path fill];
+    [self drawDigits:rect];
+}
 
-
+-(void)drawDigits:(CGRect)rect
+{
+    int placeValue = 1;
+    for(int i = 1; i <= NUM_OF_COLUMNS; i++) {
+        CGRect digitViewBounds = [UIConfig getDigitViewBounds:rect forDigit:i];
+        DigitView *digitView = [[DigitView alloc] initWithFrame:digitViewBounds placeValue:placeValue];
+        [self addSubview:digitView];
+        
+        placeValue *= 10;
+    }
 }
 
 

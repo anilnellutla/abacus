@@ -11,6 +11,7 @@
 #import "ColumnView.h"
 #import "BeadView.h"
 #import "Abacus.h"
+#import "DigitView.h"
 
 @interface AbacusViewController ()
 @property (weak, nonatomic) IBOutlet ContainerView *containterView;
@@ -59,9 +60,16 @@
             [bead set:NO];
         }
     }
+
+    NSArray *digitviews = [[[[self containterView] subviews] firstObject] subviews];
+    for(DigitView *digitView in digitviews) {
+        if([digitView placeValue] == [beadView placeValue]) {
+            [digitView setDigit:[column value]];
+            break;
+        }
+    }
     
-    NSLog(@"%ld", [[self abacus] value]);
-    
+    //NSLog(@"%ld", [[self abacus] value]);
     
 }
 

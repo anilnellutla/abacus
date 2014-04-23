@@ -11,9 +11,9 @@
 @interface UIConfig : NSObject
 +(CGRect) getNumberViewBounds:(CGRect)containerViewBounds;
 +(CGRect) getAbacusViewBounds:(CGRect)containerViewBounds;
-+(NSInteger) getNumOfColumns;
 +(CGRect) getColumnViewBounds:(CGRect)abacusViewBounds forColumn:(NSInteger)columnIndex;
 +(CGRect) getRowViewBounds:(CGRect)abacusBounds;
 +(CGRect) getColumnBounds:(CGRect)columnViewBounds;
 +(CGRect) getBeadViewBounds:(CGRect)columnViewBounds forBead:(NSInteger)beadIndex;
++(CGRect)getDigitViewBounds:(CGRect)numberViewBounds forDigit:(NSInteger)digitIndex;
 @end

@@ -364,28 +364,12 @@
 }
 - (BeadView *) getBeadView:(NSInteger)beadIndex
 {
-    BeadView *beadView;
-    switch (beadIndex) {
-        case 1:
-            beadView =  [[[self superview] subviews] objectAtIndex:4];
-            break;
-        case 2:
-            beadView =  [[[self superview] subviews] objectAtIndex:3];
-            break;
-        case 3:
-            beadView =  [[[self superview] subviews] objectAtIndex:2];
-            break;
-        case 4:
-            beadView =  [[[self superview] subviews] objectAtIndex:1];
-            break;
-        case 5:
-            beadView =  [[[self superview] subviews] objectAtIndex:0];
-            break;
-            
-        default:
-            break;
+    for(BeadView *beadView in [[self superview] subviews]) {
+        if([beadView beadIndex] == beadIndex) {
+            return beadView;
+        }
     }
-    return beadView;
+    return nil;
 }
 
 - (BOOL)shouldAutoMoveDown

@@ -38,11 +38,6 @@
                       3);
 }
 
-+(NSInteger)getNumOfColumns
-{
-    return NUM_OF_COLUMNS;
-}
-
 +(CGFloat)getColumnViewWidth:(CGRect)abacusViewBounds
 {
     return abacusViewBounds.size.width/(NUM_OF_COLUMNS + 1);
@@ -96,11 +91,42 @@
     if(beadIndex == 5) {
         beadOriginY = 0 + BEAD_GAP;
     } else {
-        beadOriginY = (columnViewBounds.size.height) - (BEADS_PER_COLUMN - beadIndex)*(BEAD_SIZE.height) - (BEADS_PER_COLUMN - beadIndex)*BEAD_GAP;
+        beadOriginY = (columnViewBounds.size.height) - (BEADS_PER_COLUMN - beadIndex)*(BEAD_SIZE.height) -
+        (BEADS_PER_COLUMN - beadIndex)*BEAD_GAP;
     }
     CGFloat beadOriginX = columnViewBounds.origin.x + (columnViewBounds.size.width - BEAD_SIZE.width)/2;
     CGRect beadViewBounds = CGRectMake(beadOriginX, beadOriginY, BEAD_SIZE.width, BEAD_SIZE.height);
     return beadViewBounds;
+}
+
++(CGFloat)getDigitViewWidth:(CGRect)numberViewBounds
+{
+    return numberViewBounds.size.width/(NUM_OF_COLUMNS + 1);
+}
+
++(CGFloat)getDigitViewGap:(CGRect)numberViewBounds
+{
+    return [self getDigitViewWidth:numberViewBounds]/(NUM_OF_COLUMNS);
+}
+
++(CGFloat)getDigitViewHeight:(CGRect)numberViewBounds
+{
+    return numberViewBounds.size.height;
+}
+
+
++(CGRect)getDigitViewBounds:(CGRect)numberViewBounds forDigit:(NSInteger)digitIndex
+{
+    CGFloat digitViewWidth = [self getDigitViewWidth:numberViewBounds];
+    CGFloat digitViewGap = [self getDigitViewGap:numberViewBounds];
+    CGFloat digitViewHeight = [self getDigitViewHeight:numberViewBounds];
+    
+    CGFloat originX = numberViewBounds.size.width - digitIndex * digitViewWidth - digitIndex * digitViewGap;
+    CGFloat originY = numberViewBounds.origin.y;
+    return CGRectMake(originX,
+                      originY,
+                      digitViewWidth,
+                      digitViewHeight);
 }
 
 
