@@ -100,15 +100,19 @@
                 BeadView *topAnchorBead = [self getTopAnchorBead];
                 if(![topAnchorBead isSet]) {
                     [topAnchorBead moveDown];
+                } else {
+                    [self postBeadMovedNotification];
                 }
             } else {
                 BeadView *bottomAnchorBead = [self getBottomAnchorBead];
                 if(![bottomAnchorBead isReset]) {
                     [bottomAnchorBead moveUp];
+                } else {
+                    [self postBeadMovedNotification];
                 }
             }
             
-            [self postBeadMovedNotification];
+            //[self postBeadMovedNotification];
         }
         
     } else {
@@ -133,15 +137,19 @@
                 BeadView *bottomAnchorBead = [self getBottomAnchorBead];
                 if(![bottomAnchorBead isReset]) {
                     [bottomAnchorBead moveUp];
+                } else {
+                    [self postBeadMovedNotification];
                 }
             } else {
                 BeadView *topAnchorBead = [self getTopAnchorBead];
                 if(![topAnchorBead isSet]) {
                     [topAnchorBead moveDown];
+                } else {
+                    [self postBeadMovedNotification];
                 }
             }
             
-            [self postBeadMovedNotification];
+            //[self postBeadMovedNotification];
         }
         
     }
@@ -194,7 +202,7 @@
                          self.center = CGPointMake(self.center.x, moveTo);
                      }
                      completion:^(BOOL finished) {
-                     
+                         [self postBeadMovedNotification];
                      }
      ];
 }
@@ -212,7 +220,7 @@
                          self.center = CGPointMake(self.center.x, moveTo);
                      }
                      completion:^(BOOL finished) {
-                         
+                         [self postBeadMovedNotification];
                      }
      ];
 }
@@ -396,29 +404,29 @@
 {
     
     if(self.beadIndex == 1) {
-        if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+        if(((self.center.y - self.bounds.size.height/2) - [self moveUpLimit]) < BEAD_GAP/2 ) {
             return YES;
         }
     } else if(self.beadIndex == 2) {
         if([[self getBeadView:1] isSet]) {
-            if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+            if(((self.center.y - self.bounds.size.height/2) - [self moveUpLimit]) < BEAD_GAP/2 ) {
                 return YES;
             }
         }
     } else if(self.beadIndex == 3) {
         if([[self getBeadView:2] isSet]) {
-            if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+            if(((self.center.y - self.bounds.size.height/2) - [self moveUpLimit]) < BEAD_GAP/2) {
                 return YES;
             }
         }
     } else if(self.beadIndex == 4) {
         if([[self getBeadView:3] isSet]) {
-            if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+            if(((self.center.y - self.bounds.size.height/2) - [self moveUpLimit]) < BEAD_GAP/2) {
                 return YES;
             }
         }
     } else if(self.beadIndex == 5) {
-        if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+        if(([self moveDownLimit] - (self.center.y + self.bounds.size.height/2)) < BEAD_GAP/2) {
             return YES;
         }
     }
@@ -429,29 +437,29 @@
 {
     
     if(self.beadIndex == 4) {
-        if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+        if(([self moveDownLimit] - (self.center.y + self.bounds.size.height/2)) < BEAD_GAP/2) {
             return YES;
         }
     } else if(self.beadIndex == 3) {
         if([[self getBeadView:4] isReset]) {
-            if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+            if(([self moveDownLimit] - (self.center.y + self.bounds.size.height/2)) < BEAD_GAP/2) {
                 return YES;
             }
         }
     } else if(self.beadIndex == 2) {
         if([[self getBeadView:3] isReset]) {
-            if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+            if(([self moveDownLimit] - (self.center.y + self.bounds.size.height/2)) < BEAD_GAP/2) {
                 return YES;
             }
         }
     } else if(self.beadIndex == 1) {
         if([[self getBeadView:2 ] isReset]) {
-            if((self.center.y + self.bounds.size.height/2) >= [self moveDownLimit]) {
+            if(([self moveDownLimit] - (self.center.y + self.bounds.size.height/2)) < BEAD_GAP/2) {
                 return YES;
             }
         }
     } else if(self.beadIndex == 5) {
-        if((self.center.y - self.bounds.size.height/2) <= [self moveUpLimit]) {
+        if(((self.center.y - self.bounds.size.height/2) - [self moveUpLimit]) < BEAD_GAP/2) {
             return YES;
         }
     }

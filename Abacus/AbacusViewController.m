@@ -48,10 +48,10 @@
 {
     //NSLog(@"beadValueChanged");
 
-    BeadView *beadView = (BeadView*)[notification object];
-    ColumnView *columnView = (ColumnView*)[beadView superview];
+    BeadView *notifiedBeadView = (BeadView*)[notification object];
+    ColumnView *columnView = (ColumnView*)[notifiedBeadView superview];
     
-    Column *column = [[self abacus] getColumn:[beadView placeValue]];
+    Column *column = [[self abacus] getColumn:[notifiedBeadView placeValue]];
     for(BeadView *beadView in [columnView subviews]) {
         Bead *bead = [column getBeadAtIndex:[beadView beadIndex]];
         if([beadView isSet]) {
@@ -63,7 +63,7 @@
 
     NSArray *digitviews = [[[[self containterView] subviews] firstObject] subviews];
     for(DigitView *digitView in digitviews) {
-        if([digitView placeValue] == [beadView placeValue]) {
+        if([digitView placeValue] == [notifiedBeadView placeValue]) {
             [digitView setDigit:[column value]];
             break;
         }
