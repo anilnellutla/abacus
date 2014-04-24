@@ -45,6 +45,7 @@
     digitLabel.text = [NSString stringWithFormat:@"%ld", [self digit]];
     digitLabel.textAlignment = NSTextAlignmentCenter;
     digitLabel.textColor = [UIColor blackColor];
+    digitLabel.adjustsFontSizeToFitWidth =  YES;
     [self addSubview:digitLabel];
 }
 
