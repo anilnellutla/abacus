@@ -12,9 +12,14 @@
 #import "BeadView.h"
 #import "Abacus.h"
 #import "DigitView.h"
+#import "NumberView.h"
+#import "UIConfig.h"
+#import "AbacusValueView.h"
 
 @interface AbacusViewController ()
 @property (weak, nonatomic) IBOutlet ContainerView *containterView;
+@property (weak, nonatomic) IBOutlet AbacusValueView *abacusValueView;
+
 @property (strong, nonatomic) Abacus *abacus;
 @end
 
@@ -61,7 +66,9 @@
         }
     }
 
-    NSArray *digitviews = [[[[self containterView] subviews] firstObject] subviews];
+    NumberView *numberView = [[[self containterView] subviews] firstObject];
+    
+    NSArray *digitviews = [numberView subviews];
     for(DigitView *digitView in digitviews) {
         if([digitView placeValue] == [notifiedBeadView placeValue]) {
             [digitView setDigit:[column value]];
@@ -69,7 +76,10 @@
         }
     }
     
-    //NSLog(@"%ld", [[self abacus] value]);
+    NSLog(@"%ld", [[self abacus] value]);
+    [[self abacusValueView] setValue:[[self abacus] value]];
+    
+    
     
 }
 

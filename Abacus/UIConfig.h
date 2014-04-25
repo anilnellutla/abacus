@@ -16,4 +16,6 @@
 +(CGRect) getColumnBounds:(CGRect)columnViewBounds;
 +(CGRect) getBeadViewBounds:(CGRect)columnViewBounds forBead:(NSInteger)beadIndex;
 +(CGRect)getDigitViewBounds:(CGRect)numberViewBounds forDigit:(NSInteger)digitIndex;
++(CGRect)getDigitLabelBounds:(CGRect)digitViewBounds;
++(CGRect)getAbacusValueLabelBounds:(CGRect)numberViewBounds;
 @end

@@ -17,17 +17,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-hw-73L" customClass="ContainerView">
-                                <rect key="frame" x="20" y="84" width="528" height="216"/>
+                                <rect key="frame" x="20" y="52" width="528" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Zzb-hw-73L" firstAttribute="top" secondItem="m51-Pv-Myy" secondAttribute="bottom" constant="64" id="My6-tE-qU4"/>
-                            <constraint firstItem="Zzb-hw-73L" firstAttribute="leading" secondItem="Ho6-UT-Ve9" secondAttribute="leading" constant="20" symbolic="YES" id="Qdb-9C-fhs"/>
-                            <constraint firstAttribute="bottom" secondItem="Zzb-hw-73L" secondAttribute="bottom" constant="20" symbolic="YES" id="a1s-5p-cfN"/>
-                            <constraint firstAttribute="trailing" secondItem="Zzb-hw-73L" secondAttribute="trailing" constant="20" symbolic="YES" id="f99-tc-xxo"/>
+                            <constraint firstAttribute="trailing" secondItem="Zzb-hw-73L" secondAttribute="trailing" constant="20" symbolic="YES" id="RoV-kg-S9p"/>
+                            <constraint firstItem="Zzb-hw-73L" firstAttribute="top" secondItem="m51-Pv-Myy" secondAttribute="bottom" constant="32" id="SrM-5f-7rC"/>
+                            <constraint firstItem="Zzb-hw-73L" firstAttribute="centerY" secondItem="Ho6-UT-Ve9" secondAttribute="centerY" id="V5y-22-QGf"/>
+                            <constraint firstItem="Zzb-hw-73L" firstAttribute="leading" secondItem="Ho6-UT-Ve9" secondAttribute="leading" constant="20" symbolic="YES" id="xEL-cG-52o"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>

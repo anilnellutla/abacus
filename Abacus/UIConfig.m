@@ -130,4 +130,25 @@
 }
 
 
++(CGRect)getDigitLabelBounds:(CGRect)digitViewBounds
+{
+    return CGRectMake(digitViewBounds.origin.x,
+                      digitViewBounds.origin.y + digitViewBounds.size.height/2,
+                      digitViewBounds.size.width,
+                      digitViewBounds.size.height/2);
+    
+}
+
++(CGRect)getAbacusValueLabelBounds:(CGRect)containerViewBounds
+{
+    return CGRectMake(ABACUS_VALUE_VIEW_ORIGIN_X_OFFSET,
+                      containerViewBounds.origin.y - ABACUS_VALUE_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height,
+                      ABACUS_VALUE_VIEW_WIDTH_SCALE_FACTOR * containerViewBounds.size.width,
+                      ABACUS_VALUE_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height);
+    
+    
+}
+
+
+
 @end
