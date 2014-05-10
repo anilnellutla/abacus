@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "Util.h"
 #import "Abacus.h"
+#import "Calculator.h"
 
 @interface AbacusTests : XCTestCase
 
@@ -52,20 +53,24 @@
 - (void)testAbacus
 {
     Abacus *abacus = [[Abacus alloc] initWithNumberOfColumns:10 beadsPerColumn:5];
-    NSLog(@"Abacus:\n%@",[abacus description]);
-    [abacus add:4];
-    NSLog(@"Abacus:\n%@",[abacus description]);
-    [abacus add:70];
     
     NSLog(@"Abacus:\n%@",[abacus description]);
-    [abacus subtract:5];
+    
+    Calculator *calculator = [[Calculator alloc] initWithAbacus:abacus];
+    
+    [calculator performAdd:4];
+    NSLog(@"Abacus:\n%@",[[calculator abacus] description]);
+    [calculator performAdd:70];
+    
+    NSLog(@"Abacus:\n%@",[[calculator abacus] description]);
+    [calculator performSubtract:5];
     NSLog(@"Abacus:\n%@",[abacus description]);
     
     
-    [abacus add:61471397];
-    NSLog(@"Abacus:\n%@",[abacus description]);
+    [calculator performAdd:61471397];
+    NSLog(@"Abacus:\n%@",[[calculator abacus] description]);
     
-    NSLog(@"Abacus Value:%ld",[abacus value]);
+    NSLog(@"Abacus Value:%ld",[[calculator abacus] value]);
 }
 
 @end

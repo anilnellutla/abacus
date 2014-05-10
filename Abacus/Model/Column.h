@@ -24,7 +24,4 @@
 
 -(NSInteger)maxValue;
 
--(void)setValue:(NSInteger)value;
-
--(BOOL)isPartnerNeeded:(NSInteger)value; 
 @end

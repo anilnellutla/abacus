@@ -11,7 +11,8 @@
 
 @interface Abacus : NSObject
 
-@property (strong, nonatomic) NSMutableArray *expression;
+@property (nonatomic) NSInteger numOfColumns;
+@property (nonatomic) NSInteger beadsPerColumn;
 
 //designated initializer
 -(instancetype)initWithNumberOfColumns:(NSInteger)numOfColumns beadsPerColumn:(NSInteger)beadsPerColumn;
@@ -22,12 +23,6 @@
 
 -(NSInteger)value;
 
--(void)add:(NSInteger)number;
-
--(void)subtract:(NSInteger)number;
-
--(void)add:(NSInteger)number1 to:(NSInteger)number2;
-
--(void)subtract:(NSInteger)number1 from:(NSInteger)number2;
+-(NSInteger) getColumnValue:(NSInteger)placeValue;
 
 @end

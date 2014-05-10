@@ -9,14 +9,22 @@
 #import <Foundation/Foundation.h>
 
 #import "Abacus.h"
+#import "AddOperation.h"
+#import "SubtractOperation.h"
 
 @interface Calculator : NSObject
 
+@property (strong, nonatomic) Abacus *abacus;
+
 // designated initializer
--(instancetype)initWithAbacus:(Abacus*)abacus;
+-(instancetype) initWithAbacus:(Abacus*)abacus;
 
--(NSInteger) add:(NSInteger)number1 to:(NSInteger)number2;
+-(void)performAdd:(NSInteger)number;
 
--(NSInteger) subtract:(NSInteger)number1 from:(NSInteger)number2;
+-(void)performSubtract:(NSInteger)number;
+
+-(void)performAdd:(NSInteger)number1 to:(NSInteger)number2;
+
+-(void)performSubtract:(NSInteger)number1 from:(NSInteger)number2;
 
 @end

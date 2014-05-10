@@ -32,10 +32,16 @@
 		043B30B818F3B68C00F68FB9 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30B718F3B68C00F68FB9 /* Calculator.m */; };
 		04420BA918E1149700D2B13B /* Column.m in Sources */ = {isa = PBXBuildFile; fileRef = 04420BA818E1149700D2B13B /* Column.m */; };
 		04420BAC18E12FFA00D2B13B /* Abacus.m in Sources */ = {isa = PBXBuildFile; fileRef = 04420BAB18E12FFA00D2B13B /* Abacus.m */; };
+		04429222191E6E0900FDE502 /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04429221191E6E0900FDE502 /* Operation.m */; };
+		04429225191E6E1F00FDE502 /* AddOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04429224191E6E1F00FDE502 /* AddOperation.m */; };
+		04429228191E760C00FDE502 /* SubtractOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04429227191E760C00FDE502 /* SubtractOperation.m */; };
 		04433BEE18DFB58200335F0C /* BeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04433BED18DFB58200335F0C /* BeadView.m */; };
 		04433BF118DFC06100335F0C /* RowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04433BF018DFC06100335F0C /* RowView.m */; };
 		0457414618E29274007FE184 /* BeadBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457414518E29274007FE184 /* BeadBehavior.m */; };
+		0458A70718FE053300558706 /* UIConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A70618FE053300558706 /* UIConfig.m */; };
 		045A5A6818D8C96300F98418 /* AbacusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045A5A6718D8C96300F98418 /* AbacusView.m */; };
+		046315B31909F90B00D28E84 /* AbacusValueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 046315B21909F90B00D28E84 /* AbacusValueView.m */; };
+		04AE532E1907DF6F00FD054E /* DigitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE532D1907DF6F00FD054E /* DigitView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,14 +95,27 @@
 		04420BA818E1149700D2B13B /* Column.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Column.m; sourceTree = "<group>"; };
 		04420BAA18E12FFA00D2B13B /* Abacus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Abacus.h; sourceTree = "<group>"; };
 		04420BAB18E12FFA00D2B13B /* Abacus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Abacus.m; sourceTree = "<group>"; };
+		04429220191E6E0900FDE502 /* Operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
+		04429221191E6E0900FDE502 /* Operation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Operation.m; sourceTree = "<group>"; };
+		04429223191E6E1F00FDE502 /* AddOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOperation.h; sourceTree = "<group>"; };
+		04429224191E6E1F00FDE502 /* AddOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOperation.m; sourceTree = "<group>"; };
+		04429226191E760C00FDE502 /* SubtractOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtractOperation.h; sourceTree = "<group>"; };
+		04429227191E760C00FDE502 /* SubtractOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtractOperation.m; sourceTree = "<group>"; };
 		04433BEC18DFB58200335F0C /* BeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeadView.h; sourceTree = "<group>"; };
 		04433BED18DFB58200335F0C /* BeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeadView.m; sourceTree = "<group>"; };
 		04433BEF18DFC06100335F0C /* RowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowView.h; sourceTree = "<group>"; };
 		04433BF018DFC06100335F0C /* RowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowView.m; sourceTree = "<group>"; };
 		0457414418E29274007FE184 /* BeadBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeadBehavior.h; sourceTree = "<group>"; };
 		0457414518E29274007FE184 /* BeadBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeadBehavior.m; sourceTree = "<group>"; };
+		0458A70518FE053300558706 /* UIConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConfig.h; sourceTree = "<group>"; };
+		0458A70618FE053300558706 /* UIConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConfig.m; sourceTree = "<group>"; };
 		045A5A6618D8C96300F98418 /* AbacusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbacusView.h; sourceTree = "<group>"; };
 		045A5A6718D8C96300F98418 /* AbacusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbacusView.m; sourceTree = "<group>"; };
+		046315B11909F90B00D28E84 /* AbacusValueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbacusValueView.h; sourceTree = "<group>"; };
+		046315B21909F90B00D28E84 /* AbacusValueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbacusValueView.m; sourceTree = "<group>"; };
+		04AE532C1907DF6F00FD054E /* DigitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitView.h; sourceTree = "<group>"; };
+		04AE532D1907DF6F00FD054E /* DigitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitView.m; sourceTree = "<group>"; };
+		04F3082619037C1E00D0ABBE /* UIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,24 +177,31 @@
 			children = (
 				0406F1C018D6EB5F0072BF1F /* Main_iPhone.storyboard */,
 				0406F1C318D6EB5F0072BF1F /* Main_iPad.storyboard */,
+				0406F1BD18D6EB5F0072BF1F /* AbacusAppDelegate.h */,
+				0406F1BE18D6EB5F0072BF1F /* AbacusAppDelegate.m */,
+				0406F1C618D6EB5F0072BF1F /* AbacusViewController.h */,
+				0406F1C718D6EB5F0072BF1F /* AbacusViewController.m */,
 				042839A418FB65E400F680E6 /* ContainerView.h */,
 				042839A518FB65E400F680E6 /* ContainerView.m */,
 				042839A618FB65E400F680E6 /* NumberView.h */,
 				042839A718FB65E400F680E6 /* NumberView.m */,
-				0406F1BD18D6EB5F0072BF1F /* AbacusAppDelegate.h */,
-				0406F1BE18D6EB5F0072BF1F /* AbacusAppDelegate.m */,
 				045A5A6618D8C96300F98418 /* AbacusView.h */,
 				045A5A6718D8C96300F98418 /* AbacusView.m */,
+				04AE532C1907DF6F00FD054E /* DigitView.h */,
+				04AE532D1907DF6F00FD054E /* DigitView.m */,
+				046315B11909F90B00D28E84 /* AbacusValueView.h */,
+				046315B21909F90B00D28E84 /* AbacusValueView.m */,
 				04433BEC18DFB58200335F0C /* BeadView.h */,
 				04433BED18DFB58200335F0C /* BeadView.m */,
 				04433BEF18DFC06100335F0C /* RowView.h */,
 				04433BF018DFC06100335F0C /* RowView.m */,
 				040B501218DF4AE6007C0ACE /* ColumnView.h */,
 				040B501318DF4AE6007C0ACE /* ColumnView.m */,
-				0406F1C618D6EB5F0072BF1F /* AbacusViewController.h */,
-				0406F1C718D6EB5F0072BF1F /* AbacusViewController.m */,
 				0457414418E29274007FE184 /* BeadBehavior.h */,
 				0457414518E29274007FE184 /* BeadBehavior.m */,
+				0458A70518FE053300558706 /* UIConfig.h */,
+				0458A70618FE053300558706 /* UIConfig.m */,
+				04F3082619037C1E00D0ABBE /* UIConstants.h */,
 				04420BA618E1130800D2B13B /* Model */,
 				0406F1C918D6EB5F0072BF1F /* Images.xcassets */,
 				0406F1B518D6EB5F0072BF1F /* Supporting Files */,
@@ -229,6 +255,12 @@
 				043B30B418F3A33F00F68FB9 /* Formulae.m */,
 				043B30B618F3B68C00F68FB9 /* Calculator.h */,
 				043B30B718F3B68C00F68FB9 /* Calculator.m */,
+				04429220191E6E0900FDE502 /* Operation.h */,
+				04429221191E6E0900FDE502 /* Operation.m */,
+				04429223191E6E1F00FDE502 /* AddOperation.h */,
+				04429224191E6E1F00FDE502 /* AddOperation.m */,
+				04429226191E760C00FDE502 /* SubtractOperation.h */,
+				04429227191E760C00FDE502 /* SubtractOperation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,15 +371,21 @@
 				043B30B518F3A33F00F68FB9 /* Formulae.m in Sources */,
 				0406F1C818D6EB5F0072BF1F /* AbacusViewController.m in Sources */,
 				0457414618E29274007FE184 /* BeadBehavior.m in Sources */,
+				04429225191E6E1F00FDE502 /* AddOperation.m in Sources */,
 				0406F1E818D6EB740072BF1F /* Bead.m in Sources */,
 				042839A918FB65E400F680E6 /* NumberView.m in Sources */,
 				042839A818FB65E400F680E6 /* ContainerView.m in Sources */,
 				0406F1BB18D6EB5F0072BF1F /* main.m in Sources */,
+				04AE532E1907DF6F00FD054E /* DigitView.m in Sources */,
+				04429222191E6E0900FDE502 /* Operation.m in Sources */,
 				043B30B818F3B68C00F68FB9 /* Calculator.m in Sources */,
 				04433BEE18DFB58200335F0C /* BeadView.m in Sources */,
+				04429228191E760C00FDE502 /* SubtractOperation.m in Sources */,
 				0406F1BF18D6EB5F0072BF1F /* AbacusAppDelegate.m in Sources */,
+				046315B31909F90B00D28E84 /* AbacusValueView.m in Sources */,
 				04420BA918E1149700D2B13B /* Column.m in Sources */,
 				04420BAC18E12FFA00D2B13B /* Abacus.m in Sources */,
+				0458A70718FE053300558706 /* UIConfig.m in Sources */,
 				045A5A6818D8C96300F98418 /* AbacusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

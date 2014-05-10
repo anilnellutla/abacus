@@ -78,9 +78,6 @@
     
     NSLog(@"%ld", [[self abacus] value]);
     [[self abacusValueView] setValue:[[self abacus] value]];
-    
-    
-    
 }
 
 @end

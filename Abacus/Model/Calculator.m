@@ -8,9 +8,11 @@
 
 #import "Calculator.h"
 #import "Util.h"
+#import "Formulae.h"
 
 @interface Calculator()
-@property (strong, nonatomic) Abacus *abacus;
+@property (strong, nonatomic) AddOperation *addOperation;
+@property (strong, nonatomic) SubtractOperation *subtractOperation;
 @end
 
 @implementation Calculator
@@ -20,33 +22,30 @@
     self = [super init];
     if(self) {
         _abacus = abacus;
+        _addOperation = [[AddOperation alloc] initWithAbacus:abacus];
+        _subtractOperation = [[SubtractOperation alloc] initWithAbacus:abacus];
     }
     return self;
 }
 
--(NSInteger) add:(NSInteger)number
+-(void)performAdd:(NSInteger)number
 {
-    return [self add:number to:0];
+    [[self addOperation] add:number to:0];
 }
 
--(NSInteger) add:(NSInteger)number1 to:(NSInteger)number2
+-(void)performSubtract:(NSInteger)number
 {
-    NSArray *digits = [Util digits:number1];
-    for(NSNumber *digit in digits) {
-        [[self abacus] add:digit.longValue];
-    }
-    
-    digits = [Util digits:number2];
-    for(NSNumber *digit in digits) {
-        [[self abacus] add:digit.longValue];
-    }
-    
-    return [[self abacus] value];
+    [[self subtractOperation ]subtract:number];
 }
 
--(NSInteger) subtract:(NSInteger)number1 from:(NSInteger)number2
+-(void) performAdd:(NSInteger)number1 to:(NSInteger)number2
 {
-    return [self add:number2 to:-1*number1];
+    [[self addOperation] add:number1 to:number2];    
+}
+
+-(void) performSubtract:(NSInteger)number1 from:(NSInteger)number2
+{
+    [[self subtractOperation]subtract:number2 from:number1];
 }
 
 
