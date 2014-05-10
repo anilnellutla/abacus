@@ -14,4 +14,6 @@
 @property (strong, nonatomic) NSMutableArray *expression;
 @property (strong, nonatomic) Abacus *abacus;
 
+-(void)resetExpression;
+
 @end

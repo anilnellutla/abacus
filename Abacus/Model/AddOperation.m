@@ -183,9 +183,4 @@
     return (([column value] + value <= [column maxValue]) && ([column value] + value >= 0)) ? YES : NO;
 }
 
--(void)resetExpression
-{
-    [[self expression] removeAllObjects];
-}
-
 @end

@@ -10,4 +10,9 @@
 
 @implementation Operation
 
+-(void)resetExpression
+{
+    [[self expression] removeAllObjects];
+}
+
 @end

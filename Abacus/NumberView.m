@@ -10,6 +10,7 @@
 #import "DigitView.h"
 #import "UIConfig.h"
 #import "UIConstants.h"
+#import "AbacusConstants.h"
 
 @implementation NumberView
 

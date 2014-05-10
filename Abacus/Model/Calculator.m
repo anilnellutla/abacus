@@ -48,5 +48,4 @@
     [[self subtractOperation]subtract:number2 from:number1];
 }
 
-
 @end

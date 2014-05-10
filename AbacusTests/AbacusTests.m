@@ -10,6 +10,7 @@
 #import "Util.h"
 #import "Abacus.h"
 #import "Calculator.h"
+#import "AbacusConstants.h"
 
 @interface AbacusTests : XCTestCase
 
@@ -52,7 +53,7 @@
 
 - (void)testAbacus
 {
-    Abacus *abacus = [[Abacus alloc] initWithNumberOfColumns:10 beadsPerColumn:5];
+    Abacus *abacus = [[Abacus alloc] initWithNumberOfColumns:NUM_OF_COLUMNS beadsPerColumn:BEADS_PER_COLUMN];
     
     NSLog(@"Abacus:\n%@",[abacus description]);
     

@@ -39,7 +39,29 @@
 -(void)setDigitLabel
 {
     UILabel *digitLabel = [[super subviews] firstObject];
-    digitLabel.text = [NSString stringWithFormat:@"%ld", [self digit]/[self placeValue]];
+    //digitLabel.text = [NSString stringWithFormat:@"%ld", [self digit]/[self placeValue]];
+    
+    NSString *digitLabelText;
+    if([self digit] == 0) {
+        digitLabelText= [NSString stringWithFormat:@"%ld", [self digit]];
+    } else {
+        if([self placeValue] == 1 || [self placeValue] == 10 || [self placeValue] == 100 || [self placeValue] == 1000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld", [self digit]];
+        } else if([self placeValue] == 10000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld,000", [self digit]/1000];
+        } else if([self placeValue] == 100000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld,000", [self digit]/1000];
+        } else if([self placeValue] == 1000000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/1000000];
+        } else if([self placeValue] == 10000000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/1000000];
+        } else if([self placeValue] == 100000000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/1000000];
+        } else if([self placeValue] == 1000000000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/1000000000];
+        }
+    }
+    digitLabel.text = digitLabelText;
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -53,38 +75,6 @@
     digitLabel.textColor = [UIColor blackColor];
     digitLabel.adjustsFontSizeToFitWidth =  YES;
     [self addSubview:digitLabel];
-   
-    /*
-    NSString *placeValueLabelText;
-    if([self placeValue] == 1) {
-        placeValueLabelText= @"";
-    } else if([self placeValue] == 10) {
-        placeValueLabelText= @"";
-    } else if([self placeValue] == 100) {
-        placeValueLabelText= @"";
-    } else if([self placeValue] == 1000) {
-        placeValueLabelText= @"";
-    } else if([self placeValue] == 10000) {
-        placeValueLabelText= @"";
-    } else if([self placeValue] == 100000) {
-        placeValueLabelText= @"";
-    } else if([self placeValue] == 1000000) {
-        placeValueLabelText= @"(mil)";
-    } else if([self placeValue] == 10000000) {
-        placeValueLabelText= @"(10 mil)";
-    } else if([self placeValue] == 100000000) {
-        placeValueLabelText= @"(100 mil)";
-    } else if([self placeValue] == 1000000000) {
-        placeValueLabelText= @"(bil)";
-    }
-    UILabel *placeValueLabel = [[UILabel alloc] initWithFrame:[UIConfig getPlaceValueLabelBounds:rect]];
-    placeValueLabel.text = placeValueLabelText;
-    placeValueLabel.textAlignment = NSTextAlignmentCenter;
-    placeValueLabel.textColor = [UIColor blackColor];
-    placeValueLabel.adjustsFontSizeToFitWidth =  YES;
-    [self addSubview:placeValueLabel];
-    */
-
 }
 
 

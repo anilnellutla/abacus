@@ -101,6 +101,7 @@
 		04429224191E6E1F00FDE502 /* AddOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOperation.m; sourceTree = "<group>"; };
 		04429226191E760C00FDE502 /* SubtractOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtractOperation.h; sourceTree = "<group>"; };
 		04429227191E760C00FDE502 /* SubtractOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtractOperation.m; sourceTree = "<group>"; };
+		04429229191EAD6500FDE502 /* AbacusConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbacusConstants.h; sourceTree = "<group>"; };
 		04433BEC18DFB58200335F0C /* BeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeadView.h; sourceTree = "<group>"; };
 		04433BED18DFB58200335F0C /* BeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeadView.m; sourceTree = "<group>"; };
 		04433BEF18DFC06100335F0C /* RowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowView.h; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 				0458A70518FE053300558706 /* UIConfig.h */,
 				0458A70618FE053300558706 /* UIConfig.m */,
 				04F3082619037C1E00D0ABBE /* UIConstants.h */,
+				04429229191EAD6500FDE502 /* AbacusConstants.h */,
 				04420BA618E1130800D2B13B /* Model */,
 				0406F1C918D6EB5F0072BF1F /* Images.xcassets */,
 				0406F1B518D6EB5F0072BF1F /* Supporting Files */,

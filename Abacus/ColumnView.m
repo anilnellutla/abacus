@@ -11,7 +11,7 @@
 #import "Bead.h"
 #import "UIConfig.h"
 #import "UIConstants.h"
-
+#import "AbacusConstants.h"
 
 @implementation ColumnView
 
@@ -61,7 +61,6 @@
     [path stroke];
     
     [self drawBeads:rect];
-
 }
 
 - (void)drawBeads:(CGRect)rect
