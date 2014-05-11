@@ -7,9 +7,10 @@
 //
 
 #import "ContainerView.h"
-#import "NumberView.h"
-#import "AbacusView.h"
 #import "UIConfig.h"
+#import "AbacusView.h"
+#import "NumberView.h"
+#import "AbacusValueView.h"
 
 @implementation ContainerView
 
@@ -42,13 +43,17 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    CGRect abacusViewbounds = [UIConfig getAbacusViewBounds:rect];
+    AbacusView *abacusView = [[AbacusView alloc] initWithFrame:abacusViewbounds];
+    [self addSubview:abacusView];
+    
     CGRect numberViewbounds = [UIConfig getNumberViewBounds:rect];
     NumberView *numberView = [[NumberView alloc] initWithFrame:numberViewbounds];
     [self addSubview:numberView];
     
-    CGRect abacusViewbounds = [UIConfig getAbacusViewBounds:rect];
-    AbacusView *abacusView = [[AbacusView alloc] initWithFrame:abacusViewbounds];
-    [self addSubview:abacusView];
+    CGRect abacusValueViewbounds = [UIConfig getAbacusValueViewBounds:rect];
+    AbacusValueView *abacusValueView = [[AbacusValueView alloc] initWithFrame:abacusValueViewbounds];
+    [self addSubview:abacusValueView];
     
 }
 

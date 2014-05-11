@@ -27,4 +27,6 @@
 
 -(void)performSubtract:(NSInteger)number1 from:(NSInteger)number2;
 
+@property (strong, nonatomic) NSMutableArray *expression;
+
 @end

@@ -15,11 +15,10 @@
 #import "NumberView.h"
 #import "UIConfig.h"
 #import "AbacusValueView.h"
+#import "AbacusConstants.h"
 
 @interface AbacusViewController ()
 @property (weak, nonatomic) IBOutlet ContainerView *containterView;
-@property (weak, nonatomic) IBOutlet AbacusValueView *abacusValueView;
-
 @property (strong, nonatomic) Abacus *abacus;
 @end
 
@@ -28,7 +27,7 @@
 - (Abacus*)abacus
 {
     if(!_abacus) {
-        _abacus = [[Abacus alloc] initWithNumberOfColumns:10 beadsPerColumn:5];
+        _abacus = [[Abacus alloc] initWithNumberOfColumns:NUM_OF_COLUMNS beadsPerColumn:BEADS_PER_COLUMN];
     }
     return _abacus;
 }
@@ -66,7 +65,7 @@
         }
     }
 
-    NumberView *numberView = [[[self containterView] subviews] firstObject];
+    NumberView *numberView = [[[self containterView] subviews] objectAtIndex:1];
     
     NSArray *digitviews = [numberView subviews];
     for(DigitView *digitView in digitviews) {
@@ -77,7 +76,9 @@
     }
     
     NSLog(@"%ld", [[self abacus] value]);
-    [[self abacusValueView] setValue:[[self abacus] value]];
+    
+    AbacusValueView *abacusValueView = [[[self containterView] subviews] objectAtIndex:2];
+    [abacusValueView setValue:[[self abacus] value]];
 }
 
 @end

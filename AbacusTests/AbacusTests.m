@@ -58,20 +58,40 @@
     NSLog(@"Abacus:\n%@",[abacus description]);
     
     Calculator *calculator = [[Calculator alloc] initWithAbacus:abacus];
-    
+    [calculator performAdd:4];
+    NSLog(@"Expression:\n%@",[calculator expression]);
+    [calculator performAdd:5];
+    NSLog(@"Expression:\n%@",[calculator expression]);
+    [calculator performAdd:1];
+    NSLog(@"Expression:\n%@",[calculator expression]);
+    [calculator performAdd:40];
+    NSLog(@"Expression:\n%@",[calculator expression]);
+    [calculator performAdd:60];
+    NSLog(@"Expression:\n%@",[calculator expression]);
+    [calculator performAdd:999999];
+    NSLog(@"Expression:\n%@",[calculator expression]);
+
+
+    NSLog(@"Abacus Value:%ld",[[calculator abacus] value]);
+    /*
     [calculator performAdd:4];
     NSLog(@"Abacus:\n%@",[[calculator abacus] description]);
+    NSLog(@"Expression:\n%@",[calculator expression]);
     [calculator performAdd:70];
     
     NSLog(@"Abacus:\n%@",[[calculator abacus] description]);
+    NSLog(@"Expression:\n%@",[calculator expression]);
     [calculator performSubtract:5];
     NSLog(@"Abacus:\n%@",[abacus description]);
+    NSLog(@"Expression:\n%@",[calculator expression]);
     
     
     [calculator performAdd:61471397];
     NSLog(@"Abacus:\n%@",[[calculator abacus] description]);
+    NSLog(@"Expression:\n%@",[calculator expression]);
     
     NSLog(@"Abacus Value:%ld",[[calculator abacus] value]);
+    */
 }
 
 @end

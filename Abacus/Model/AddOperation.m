@@ -30,6 +30,8 @@
 
 -(void)add:(NSInteger)number1 to:(NSInteger)number2
 {
+    [self resetExpression];
+
     NSArray *digits = [Util digits:number1];
     for(NSNumber *digit in digits) {
         [self setAbacusValue:digit.longValue];
@@ -48,18 +50,18 @@
         if ([self isPartnerNeeded:[partners operand1]]) {
             [self setAbacusValue:[partners operand1]];
         } else {
-            [[self expression] addObject:[[NSNumber alloc] initWithInteger:[partners operand1]]];
+            [self addDigitToExpression:[partners operand1]];
             [self setColumnValue:[partners operand1]];
         }
         
         if ([self isPartnerNeeded:[partners operand2]]) {
             [self setAbacusValue:[partners operand2]];
         } else {
-            [[self expression] addObject:[[NSNumber alloc] initWithInteger:[partners operand2]]];
+            [self addDigitToExpression:[partners operand2]];
             [self setColumnValue:[partners operand2]];
         }
     } else {
-        [[self expression] addObject:[[NSNumber alloc] initWithInteger:value]];
+        [self addDigitToExpression:value];
         [self setColumnValue:value];
     }
 }
@@ -181,6 +183,35 @@
 -(BOOL)canValueBeSet:(NSInteger)value forColumn:(Column*)column
 {
     return (([column value] + value <= [column maxValue]) && ([column value] + value >= 0)) ? YES : NO;
+}
+
+-(void)addDigitToExpression:(NSInteger)digit
+{
+    if(digit != 0) {
+        NSInteger placeValue = [Util leftMostDigitPlaceValue:digit];
+        NSInteger previousDigit = [(NSString*)[[self expression] lastObject] intValue];
+        NSInteger previousDigitPlaceValue = [Util leftMostDigitPlaceValue:previousDigit];
+        if(placeValue == previousDigitPlaceValue) {
+            if((previousDigit > 0 && digit > 0) || (previousDigit < 0 && digit < 0)) {
+                digit += previousDigit;
+            }
+        }
+        
+        if(placeValue == previousDigitPlaceValue) {
+            if((previousDigit > 0 && digit > 0) || (previousDigit < 0 && digit < 0)) {
+                if([[self expression] count] > 0) {
+                    NSInteger lastIndex = [[self expression] count] - 1;
+                    [[self expression] replaceObjectAtIndex:lastIndex withObject:[NSString stringWithFormat:@"%ld", digit]];
+                } else {
+                    [[self expression] addObject:[NSString stringWithFormat:@"%ld", digit]];
+                }
+            } else {
+                [[self expression] addObject:[NSString stringWithFormat:@"%ld", digit]];
+            }
+        } else {
+            [[self expression] addObject:[NSString stringWithFormat:@"%ld", digit]];
+        }
+    }
 }
 
 @end

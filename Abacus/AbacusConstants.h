@@ -9,7 +9,7 @@
 #ifndef Abacus_AbacusConstants_h
 #define Abacus_AbacusConstants_h
 
-#define NUM_OF_COLUMNS 10
+#define NUM_OF_COLUMNS 13
 #define BEADS_PER_COLUMN 5
 
 #endif

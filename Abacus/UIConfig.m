@@ -12,23 +12,38 @@
 
 @implementation UIConfig
 
-+(CGRect) getNumberViewBounds:(CGRect)containerViewBounds
-{
-    return CGRectMake(NUMBER_VIEW_ORIGIN_X_OFFSET,
-                      NUMBER_VIEW_ORIGIN_Y_OFFSET,
-                      NUMBER_VIEW_WIDTH_SCALE_FACTOR * containerViewBounds.size.width,
-                      NUMBER_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height);
-
-}
-
 +(CGRect) getAbacusViewBounds:(CGRect)containerViewBounds
 {
     return CGRectMake(ABACUS_VIEW_ORIGIN_X_OFFSET,
-                      NUMBER_VIEW_ORIGIN_Y_OFFSET +
-                      NUMBER_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height +
-                      ABACUS_VIEW_ORIGIN_Y_OFFSET,
+                      containerViewBounds.size.height -
+                      ABACUS_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height -
+                      ABACUS_VIEW_OFFSET_FROM_BASE,
                       ABACUS_VIEW_WIDTH_SCALE_FACTOR * containerViewBounds.size.width,
-                      containerViewBounds.size.height - NUMBER_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height);
+                      ABACUS_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height);
+}
+
++(CGRect) getNumberViewBounds:(CGRect)containerViewBounds
+{
+    CGRect abacusViewbounds = [self getAbacusViewBounds:containerViewBounds];
+
+    return CGRectMake(NUMBER_VIEW_ORIGIN_X_OFFSET,
+                      abacusViewbounds.origin.y -
+                      NUMBER_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height -
+                      NUMBER_VIEW_OFFSET_FROM_ABACUS_VIEW,
+                      NUMBER_VIEW_WIDTH_SCALE_FACTOR * containerViewBounds.size.width,
+                      NUMBER_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height);
+}
+
++(CGRect) getAbacusValueViewBounds:(CGRect)containerViewBounds
+{
+    CGRect numberViewbounds = [self getNumberViewBounds:containerViewBounds];
+
+    return CGRectMake(ABACUS_VALUE_VIEW_ORIGIN_X_OFFSET,
+                      numberViewbounds.origin.y -
+                      ABACUS_VALUE_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height -
+                      ABACUS_VALUE_VIEW_OFFSET_FROM_NUMBER_VIEW,
+                      ABACUS_VALUE_VIEW_WIDTH_SCALE_FACTOR * containerViewBounds.size.width,
+                      ABACUS_VALUE_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height);
 }
 
 +(CGRect)getRowViewBounds:(CGRect)abacusViewBounds
@@ -81,8 +96,6 @@
                         columnViewBounds.size.width * COLUMN_BEAD_HEIGHT_RATIO};
     return beadSize;
 }
-
-
 
 +(CGRect) getBeadViewBounds:(CGRect)columnViewBounds forBead:(NSInteger)beadIndex
 {
@@ -137,19 +150,6 @@
                       digitViewBounds.origin.y + digitViewBounds.size.height/2,
                       digitViewBounds.size.width,
                       digitViewBounds.size.height/2);
-    
 }
-
-+(CGRect)getAbacusValueLabelBounds:(CGRect)containerViewBounds
-{
-    return CGRectMake(ABACUS_VALUE_VIEW_ORIGIN_X_OFFSET,
-                      containerViewBounds.origin.y - ABACUS_VALUE_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height,
-                      ABACUS_VALUE_VIEW_WIDTH_SCALE_FACTOR * containerViewBounds.size.width,
-                      ABACUS_VALUE_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height);
-    
-    
-}
-
-
 
 @end

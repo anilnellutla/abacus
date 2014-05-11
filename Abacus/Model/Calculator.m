@@ -7,8 +7,6 @@
 //
 
 #import "Calculator.h"
-#import "Util.h"
-#import "Formulae.h"
 
 @interface Calculator()
 @property (strong, nonatomic) AddOperation *addOperation;
@@ -31,21 +29,26 @@
 -(void)performAdd:(NSInteger)number
 {
     [[self addOperation] add:number to:0];
+    self.expression = [[self addOperation] expression];
 }
 
 -(void)performSubtract:(NSInteger)number
 {
     [[self subtractOperation ]subtract:number];
+    self.expression = [[self subtractOperation] expression];
 }
 
 -(void) performAdd:(NSInteger)number1 to:(NSInteger)number2
 {
-    [[self addOperation] add:number1 to:number2];    
+    [[self addOperation] add:number1 to:number2];
+    self.expression = [[self addOperation] expression];
 }
 
 -(void) performSubtract:(NSInteger)number1 from:(NSInteger)number2
 {
     [[self subtractOperation]subtract:number2 from:number1];
+    self.expression = [[self subtractOperation] expression];
 }
+
 
 @end

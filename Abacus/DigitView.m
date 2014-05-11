@@ -59,6 +59,12 @@
             digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/1000000];
         } else if([self placeValue] == 1000000000) {
             digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/1000000000];
+        } else if([self placeValue] == 10000000000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/1000000000];
+        } else if([self placeValue] == 100000000000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/1000000000];
+        } else if([self placeValue] == 1000000000000) {
+            digitLabelText= [NSString stringWithFormat:@"%ld tril", [self digit]/1000000000000];
         }
     }
     digitLabel.text = digitLabelText;

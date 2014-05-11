@@ -16,13 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GA5-jW-i63" customClass="AbacusValueView">
-                                <rect key="frame" x="20" y="283" width="984" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vV-2p-Osr" customClass="ContainerView">
-                                <rect key="frame" x="20" y="323" width="984" height="400"/>
+                                <rect key="frame" x="20" y="20" width="984" height="728"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,20 +26,15 @@
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="GA5-jW-i63" firstAttribute="leading" secondItem="7vV-2p-Osr" secondAttribute="leading" id="N1o-jm-jYs"/>
-                            <constraint firstItem="7vV-2p-Osr" firstAttribute="leading" secondItem="jxg-ec-6Gv" secondAttribute="leading" constant="20" symbolic="YES" id="S3p-pj-aCd"/>
-                            <constraint firstItem="GA5-jW-i63" firstAttribute="trailing" secondItem="7vV-2p-Osr" secondAttribute="trailing" id="X2u-AM-QWh"/>
-                            <constraint firstItem="7vV-2p-Osr" firstAttribute="top" secondItem="jF3-tg-PrT" secondAttribute="bottom" constant="303" id="c1w-0A-3Qu"/>
-                            <constraint firstItem="GA5-jW-i63" firstAttribute="top" secondItem="jF3-tg-PrT" secondAttribute="bottom" constant="263" id="eCw-j5-94j"/>
-                            <constraint firstItem="MfZ-l6-SZp" firstAttribute="top" secondItem="7vV-2p-Osr" secondAttribute="bottom" constant="45" id="vAy-cs-AQg"/>
-                            <constraint firstAttribute="trailing" secondItem="7vV-2p-Osr" secondAttribute="trailing" constant="20" symbolic="YES" id="vNK-8O-z5T"/>
-                            <constraint firstItem="7vV-2p-Osr" firstAttribute="top" secondItem="GA5-jW-i63" secondAttribute="bottom" constant="8" symbolic="YES" id="wNP-eg-J9Q"/>
+                            <constraint firstAttribute="trailing" secondItem="7vV-2p-Osr" secondAttribute="trailing" constant="20" symbolic="YES" id="1lV-98-wRB"/>
+                            <constraint firstItem="7vV-2p-Osr" firstAttribute="leading" secondItem="jxg-ec-6Gv" secondAttribute="leading" constant="20" symbolic="YES" id="3Tn-H2-Yvw"/>
+                            <constraint firstAttribute="bottom" secondItem="7vV-2p-Osr" secondAttribute="bottom" constant="20" symbolic="YES" id="aUf-Zp-gV2"/>
+                            <constraint firstItem="7vV-2p-Osr" firstAttribute="top" secondItem="jxg-ec-6Gv" secondAttribute="top" constant="20" symbolic="YES" id="gpX-hZ-f9D"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="abacusValueView" destination="GA5-jW-i63" id="VNP-2W-rgD"/>
                         <outlet property="containterView" destination="7vV-2p-Osr" id="XK1-7b-5ZI"/>
                     </connections>
                 </viewController>
