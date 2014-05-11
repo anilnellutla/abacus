@@ -75,7 +75,7 @@
         }
     }
     
-    NSLog(@"%ld", [[self abacus] value]);
+    //NSLog(@"%ld", [[self abacus] value]);
     
     AbacusValueView *abacusValueView = [[[self containterView] subviews] objectAtIndex:2];
     [abacusValueView setValue:[[self abacus] value]];

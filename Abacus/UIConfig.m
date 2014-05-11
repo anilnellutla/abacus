@@ -48,15 +48,15 @@
 
 +(CGRect)getRowViewBounds:(CGRect)abacusViewBounds
 {
-    return CGRectMake(abacusViewBounds.origin.x,
-                      abacusViewBounds.origin.y + ((abacusViewBounds.size.height/7) * 2),
-                      abacusViewBounds.size.width,
-                      3);
+    return CGRectMake(abacusViewBounds.origin.x + ABACUS_VIEW_BORDER_SIZE,
+                      abacusViewBounds.origin.y + ABACUS_VIEW_BORDER_SIZE + ((abacusViewBounds.size.height/7) * 2),
+                      abacusViewBounds.size.width - 2*ABACUS_VIEW_BORDER_SIZE,
+                      ROW_VIEW_HEIGHT);
 }
 
 +(CGFloat)getColumnViewWidth:(CGRect)abacusViewBounds
 {
-    return abacusViewBounds.size.width/(NUM_OF_COLUMNS + 1);
+    return (abacusViewBounds.size.width-2*ABACUS_VIEW_BORDER_SIZE)/(NUM_OF_COLUMNS + 1);
 }
 
 +(CGFloat)getColumnViewGap:(CGRect)abacusViewBounds
@@ -66,7 +66,7 @@
 
 +(CGFloat)getColumnViewHeight:(CGRect)abacusViewBounds
 {
-    return abacusViewBounds.size.height;
+    return abacusViewBounds.size.height - 2*ABACUS_VIEW_BORDER_SIZE;
 }
 
 +(CGRect)getColumnViewBounds:(CGRect)abacusViewBounds forColumn:(NSInteger)columnIndex
@@ -75,8 +75,8 @@
     CGFloat columnViewGap = [self getColumnViewGap:abacusViewBounds];
     CGFloat columnnViewHeight = [self getColumnViewHeight:abacusViewBounds];
     
-    CGFloat originX = abacusViewBounds.size.width - columnIndex * columnViewWidth - columnIndex * columnViewGap;
-    CGFloat originY = abacusViewBounds.origin.y;
+    CGFloat originX = (abacusViewBounds.size.width - ABACUS_VIEW_BORDER_SIZE) - columnIndex * columnViewWidth - columnIndex * columnViewGap;
+    CGFloat originY = abacusViewBounds.origin.y + ABACUS_VIEW_BORDER_SIZE;
     return CGRectMake(originX,
                       originY,
                       columnViewWidth,
@@ -85,7 +85,7 @@
 
 +(CGRect)getColumnBounds:(CGRect)columnViewBounds
 {
-    CGFloat columnWidth = 2;
+    CGFloat columnWidth = COLUMN_WIDTH;
     CGFloat originX = columnViewBounds.origin.x + (columnViewBounds.size.width - columnWidth)/2;
     return CGRectMake(originX, columnViewBounds.origin.y, columnWidth, columnViewBounds.size.height);
 }
@@ -115,7 +115,7 @@
 
 +(CGFloat)getDigitViewWidth:(CGRect)numberViewBounds
 {
-    return numberViewBounds.size.width/(NUM_OF_COLUMNS + 1);
+    return (numberViewBounds.size.width-2*ABACUS_VIEW_BORDER_SIZE)/(NUM_OF_COLUMNS + 1);
 }
 
 +(CGFloat)getDigitViewGap:(CGRect)numberViewBounds
@@ -135,7 +135,8 @@
     CGFloat digitViewGap = [self getDigitViewGap:numberViewBounds];
     CGFloat digitViewHeight = [self getDigitViewHeight:numberViewBounds];
     
-    CGFloat originX = numberViewBounds.size.width - digitIndex * digitViewWidth - digitIndex * digitViewGap;
+    CGFloat originX = (numberViewBounds.size.width - ABACUS_VIEW_BORDER_SIZE)
+                        - digitIndex * digitViewWidth - digitIndex * digitViewGap;
     CGFloat originY = numberViewBounds.origin.y;
     return CGRectMake(originX,
                       originY,

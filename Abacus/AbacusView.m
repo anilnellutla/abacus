@@ -11,6 +11,7 @@
 #import "RowView.h"
 #import "Column.h"
 #import "UIConfig.h"
+#import "UIConstants.h"
 #import "AbacusConstants.h"
 
 @implementation AbacusView
@@ -35,7 +36,7 @@
 -(void)drawAbacus:(CGRect)rect
 {    
     UIBezierPath *abacusRect = [UIBezierPath bezierPathWithRect:rect];
-    
+    [abacusRect setLineWidth:2*ABACUS_VIEW_BORDER_SIZE];
     [[self abacusBorderColor] setStroke];
     [abacusRect stroke];
         

@@ -235,7 +235,7 @@
     CGFloat moveUpLimit = 0;
     if(beadIndex == 1) {
         UIView *rowView = [[[[self superview] superview] subviews] firstObject];
-        moveUpLimit = rowView.center.y + rowView.bounds.size.height + BEAD_GAP;
+        moveUpLimit = rowView.center.y + rowView.bounds.size.height + BEAD_GAP - ABACUS_VIEW_BORDER_SIZE;
     } else if(beadIndex == 2) {
         UIView *firstBeadView = [self getBeadView:1];
         moveUpLimit = firstBeadView.center.y +firstBeadView.bounds.size.height/2 + BEAD_GAP;
@@ -247,7 +247,7 @@
         moveUpLimit = thirdBeadView.center.y +thirdBeadView.bounds.size.height/2 + BEAD_GAP;
     } else if(beadIndex == 5) {
         UIView *columnView = [self superview];
-        moveUpLimit = columnView.center.y - columnView.bounds.size.height/2 + BEAD_GAP;
+        moveUpLimit = columnView.center.y - columnView.bounds.size.height/2 + BEAD_GAP - ABACUS_VIEW_BORDER_SIZE;
     }
     return moveUpLimit;
 }
@@ -271,10 +271,10 @@
         moveDownLimit = fourthBeadView.center.y - fourthBeadView.bounds.size.height/2 - BEAD_GAP;
     } else if(beadIndex == 4) {
         UIView *columnView = [self superview];
-        moveDownLimit = columnView.center.y + columnView.bounds.size.height/2 - BEAD_GAP;
+        moveDownLimit = columnView.center.y + columnView.bounds.size.height/2 - BEAD_GAP - ABACUS_VIEW_BORDER_SIZE;
     } else if(beadIndex == 5) {
         UIView *rowView = [[[[self superview] superview] subviews] firstObject];
-        moveDownLimit = rowView.center.y - rowView.bounds.size.height - BEAD_GAP;
+        moveDownLimit = rowView.center.y - rowView.bounds.size.height - BEAD_GAP - ABACUS_VIEW_BORDER_SIZE;
     }
     return moveDownLimit;
 }
