@@ -49,7 +49,7 @@
 -(void)drawColumns:(CGRect)rect
 {
     NSInteger placeValue = 1;
-    for(int i = 1; i <= NUM_OF_COLUMNS; i++) {
+    for(NSInteger i = 1; i <= NUM_OF_COLUMNS; i++) {
         CGRect columnViewBounds = [UIConfig getColumnViewBounds:rect forColumn:i];
         ColumnView *columnView = [[ColumnView alloc] initWithFrame:columnViewBounds placeValue:placeValue];
         [self addSubview:columnView];

@@ -11,6 +11,7 @@
 #import "AbacusView.h"
 #import "NumberView.h"
 #import "AbacusValueView.h"
+#import "CalculatorView.h"
 
 @implementation ContainerView
 
@@ -51,9 +52,15 @@
     NumberView *numberView = [[NumberView alloc] initWithFrame:numberViewbounds];
     [self addSubview:numberView];
     
+    /*
     CGRect abacusValueViewbounds = [UIConfig getAbacusValueViewBounds:rect];
     AbacusValueView *abacusValueView = [[AbacusValueView alloc] initWithFrame:abacusValueViewbounds];
     [self addSubview:abacusValueView];
+    */
+    
+    CGRect calculatorViewbounds = [UIConfig getCalculatorViewBounds:rect];
+    CalculatorView *calculatorView = [[CalculatorView alloc] initWithFrame:calculatorViewbounds];
+    [self addSubview:calculatorView];
     
 }
 

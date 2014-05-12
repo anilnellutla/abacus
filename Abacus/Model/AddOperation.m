@@ -10,7 +10,6 @@
 #import "Util.h"
 #import "Formulae.h"
 
-
 @implementation AddOperation
 
 -(instancetype)initWithAbacus:(Abacus*)abacus

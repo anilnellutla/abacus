@@ -48,7 +48,7 @@
 -(void)drawDigits:(CGRect)rect
 {
     NSInteger placeValue = 1;
-    for(int i = 1; i <= NUM_OF_COLUMNS; i++) {
+    for(NSInteger i = 1; i <= NUM_OF_COLUMNS; i++) {
         CGRect digitViewBounds = [UIConfig getDigitViewBounds:rect forDigit:i];
         DigitView *digitView = [[DigitView alloc] initWithFrame:digitViewBounds placeValue:placeValue];
         [self addSubview:digitView];

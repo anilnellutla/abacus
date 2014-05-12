@@ -8,6 +8,7 @@
 
 #import "DigitView.h"
 #import "UIConfig.h"
+#import "AbacusConstants.h"
 
 @implementation DigitView
 
@@ -45,26 +46,27 @@
     if([self digit] == 0) {
         digitLabelText= [NSString stringWithFormat:@"%ld", [self digit]];
     } else {
-        if([self placeValue] == 1 || [self placeValue] == 10 || [self placeValue] == 100 || [self placeValue] == 1000) {
+        if([self placeValue] == ONE || [self placeValue] == TEN ||
+           [self placeValue] == ONE_HUNDRED || [self placeValue] == ONE_THOUSAND) {
             digitLabelText= [NSString stringWithFormat:@"%ld", [self digit]];
-        } else if([self placeValue] == 10000) {
-            digitLabelText= [NSString stringWithFormat:@"%ld,000", [self digit]/1000];
-        } else if([self placeValue] == 100000) {
-            digitLabelText= [NSString stringWithFormat:@"%ld,000", [self digit]/1000];
-        } else if([self placeValue] == 1000000) {
-            digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/1000000];
-        } else if([self placeValue] == 10000000) {
-            digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/1000000];
-        } else if([self placeValue] == 100000000) {
-            digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/1000000];
-        } else if([self placeValue] == 1000000000) {
-            digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/1000000000];
-        } else if([self placeValue] == 10000000000) {
-            digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/1000000000];
-        } else if([self placeValue] == 100000000000) {
-            digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/1000000000];
-        } else if([self placeValue] == 1000000000000) {
-            digitLabelText= [NSString stringWithFormat:@"%ld tril", [self digit]/1000000000000];
+        } else if([self placeValue] == TEN_THOUSAND) {
+            digitLabelText= [NSString stringWithFormat:@"%ld,000", [self digit]/ONE_THOUSAND];
+        } else if([self placeValue] == HUNDRED_THOUSAND) {
+            digitLabelText= [NSString stringWithFormat:@"%ld,000", [self digit]/ONE_THOUSAND];
+        } else if([self placeValue] == ONE_MILLION) {
+            digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/ONE_MILLION];
+        } else if([self placeValue] == TEN_MILLION) {
+            digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/ONE_MILLION];
+        } else if([self placeValue] == HUNDRED_MILLION) {
+            digitLabelText= [NSString stringWithFormat:@"%ld mil", [self digit]/ONE_MILLION];
+        } else if([self placeValue] == ONE_BILLION) {
+            digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/ONE_BILLION];
+        } else if([self placeValue] == TEN_BILLION) {
+            digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/ONE_BILLION];
+        } else if([self placeValue] == HUNDRED_BILLION) {
+            digitLabelText= [NSString stringWithFormat:@"%ld bil", [self digit]/ONE_BILLION];
+        } else if([self placeValue] == ONE_TRILLION) {
+            digitLabelText= [NSString stringWithFormat:@"%ld tril", [self digit]/ONE_TRILLION];
         }
     }
     digitLabel.text = digitLabelText;

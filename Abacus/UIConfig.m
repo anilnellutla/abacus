@@ -46,6 +46,19 @@
                       ABACUS_VALUE_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height);
 }
 
++(CGRect) getCalculatorViewBounds:(CGRect)containerViewBounds
+{
+    CGRect abacusValueViewbounds = [self getAbacusValueViewBounds:containerViewBounds];
+    
+    return CGRectMake(CALCULATOR_VIEW_ORIGIN_X_OFFSET,
+                      abacusValueViewbounds.origin.y -
+                      CALCULATOR_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height -
+                      CALCULATOR_VIEW_OFFSET_FROM_ABACUS_VALUE_VIEW,
+                      CALCULATOR_VIEW_WIDTH_SCALE_FACTOR * containerViewBounds.size.width,
+                      CALCULATOR_VIEW_HEIGHT_SCALE_FACTOR * containerViewBounds.size.height);
+    
+}
+
 +(CGRect)getRowViewBounds:(CGRect)abacusViewBounds
 {
     return CGRectMake(abacusViewBounds.origin.x + ABACUS_VIEW_BORDER_SIZE,
@@ -151,6 +164,27 @@
                       digitViewBounds.origin.y + digitViewBounds.size.height/2,
                       digitViewBounds.size.width,
                       digitViewBounds.size.height/2);
+}
+
++(CGRect)getCalculatorDigitDisplayBounds:(CGRect)calculatorViewBounds
+{
+    return CGRectMake(calculatorViewBounds.origin.x, calculatorViewBounds.origin.y,
+                      calculatorViewBounds.size.width, calculatorViewBounds.size.height*CALCULATOR_DIGIT_DISPLAY_HEIGHT_SCALE_FACTOR);
+}
+
++(CGRect)getCalculatorDigitButtonBounds:(CGRect)calculatorViewBounds forRow:(NSInteger)row forColumn:(NSInteger)column
+{
+    CGRect calculatorDigitDisplayBounds = [self getCalculatorDigitDisplayBounds:calculatorViewBounds];
+
+    CGFloat buttonWidth = calculatorViewBounds.size.width/CALCULATOR_DIGIT_BUTTONS_COLUMNS;
+    CGFloat buttonHeight = (calculatorViewBounds.size.height - calculatorDigitDisplayBounds.size.height)
+                            /CALCULATOR_DIGIT_BUTTONS_ROWS;
+    
+    
+    return CGRectMake(calculatorDigitDisplayBounds.origin.x + (column - 1)*buttonWidth,
+                      calculatorDigitDisplayBounds.origin.y + calculatorDigitDisplayBounds.size.height + (row -1)*buttonHeight,
+                      buttonWidth,
+                      buttonHeight);
 }
 
 @end

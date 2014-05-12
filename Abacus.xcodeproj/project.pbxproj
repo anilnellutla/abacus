@@ -24,6 +24,8 @@
 		0406F1DD18D6EB600072BF1F /* AbacusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1DC18D6EB600072BF1F /* AbacusTests.m */; };
 		0406F1E818D6EB740072BF1F /* Bead.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1E718D6EB740072BF1F /* Bead.m */; };
 		040B501418DF4AE6007C0ACE /* ColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B501318DF4AE6007C0ACE /* ColumnView.m */; };
+		04177DB219203F8D001B3BA6 /* CalculatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04177DB119203F8D001B3BA6 /* CalculatorView.m */; };
+		04177DB9192081A7001B3BA6 /* CalculatorButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04177DB8192081A7001B3BA6 /* CalculatorButtonView.m */; };
 		042839A818FB65E400F680E6 /* ContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042839A518FB65E400F680E6 /* ContainerView.m */; };
 		042839A918FB65E400F680E6 /* NumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042839A718FB65E400F680E6 /* NumberView.m */; };
 		043B30AF18F36F3F00F68FB9 /* Partners.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B30AE18F36F3F00F68FB9 /* Partners.m */; };
@@ -79,6 +81,10 @@
 		0406F1E718D6EB740072BF1F /* Bead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bead.m; sourceTree = "<group>"; };
 		040B501218DF4AE6007C0ACE /* ColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnView.h; sourceTree = "<group>"; };
 		040B501318DF4AE6007C0ACE /* ColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnView.m; sourceTree = "<group>"; };
+		04177DB019203F8D001B3BA6 /* CalculatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorView.h; sourceTree = "<group>"; };
+		04177DB119203F8D001B3BA6 /* CalculatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorView.m; sourceTree = "<group>"; };
+		04177DB7192081A7001B3BA6 /* CalculatorButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorButtonView.h; sourceTree = "<group>"; };
+		04177DB8192081A7001B3BA6 /* CalculatorButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorButtonView.m; sourceTree = "<group>"; };
 		042839A418FB65E400F680E6 /* ContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerView.h; sourceTree = "<group>"; };
 		042839A518FB65E400F680E6 /* ContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerView.m; sourceTree = "<group>"; };
 		042839A618FB65E400F680E6 /* NumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberView.h; sourceTree = "<group>"; };
@@ -93,7 +99,7 @@
 		043B30B718F3B68C00F68FB9 /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		04420BA718E1149700D2B13B /* Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Column.h; sourceTree = "<group>"; };
 		04420BA818E1149700D2B13B /* Column.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Column.m; sourceTree = "<group>"; };
-		04420BAA18E12FFA00D2B13B /* Abacus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Abacus.h; sourceTree = "<group>"; };
+		04420BAA18E12FFA00D2B13B /* Abacus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Abacus.h; path = Model/Abacus.h; sourceTree = "<group>"; };
 		04420BAB18E12FFA00D2B13B /* Abacus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Abacus.m; sourceTree = "<group>"; };
 		04429220191E6E0900FDE502 /* Operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
 		04429221191E6E0900FDE502 /* Operation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Operation.m; sourceTree = "<group>"; };
@@ -198,6 +204,11 @@
 				04AE532D1907DF6F00FD054E /* DigitView.m */,
 				046315B11909F90B00D28E84 /* AbacusValueView.h */,
 				046315B21909F90B00D28E84 /* AbacusValueView.m */,
+				04177DB019203F8D001B3BA6 /* CalculatorView.h */,
+				04177DB119203F8D001B3BA6 /* CalculatorView.m */,
+				04177DB7192081A7001B3BA6 /* CalculatorButtonView.h */,
+				04177DB8192081A7001B3BA6 /* CalculatorButtonView.m */,
+				04420BAA18E12FFA00D2B13B /* Abacus.h */,
 				0457414418E29274007FE184 /* BeadBehavior.h */,
 				0457414518E29274007FE184 /* BeadBehavior.m */,
 				0458A70518FE053300558706 /* UIConfig.h */,
@@ -247,7 +258,6 @@
 				0406F1E718D6EB740072BF1F /* Bead.m */,
 				04420BA718E1149700D2B13B /* Column.h */,
 				04420BA818E1149700D2B13B /* Column.m */,
-				04420BAA18E12FFA00D2B13B /* Abacus.h */,
 				04420BAB18E12FFA00D2B13B /* Abacus.m */,
 				043B30AD18F36F3F00F68FB9 /* Partners.h */,
 				043B30AE18F36F3F00F68FB9 /* Partners.m */,
@@ -374,10 +384,12 @@
 				0406F1C818D6EB5F0072BF1F /* AbacusViewController.m in Sources */,
 				0457414618E29274007FE184 /* BeadBehavior.m in Sources */,
 				04429225191E6E1F00FDE502 /* AddOperation.m in Sources */,
+				04177DB219203F8D001B3BA6 /* CalculatorView.m in Sources */,
 				0406F1E818D6EB740072BF1F /* Bead.m in Sources */,
 				042839A918FB65E400F680E6 /* NumberView.m in Sources */,
 				042839A818FB65E400F680E6 /* ContainerView.m in Sources */,
 				0406F1BB18D6EB5F0072BF1F /* main.m in Sources */,
+				04177DB9192081A7001B3BA6 /* CalculatorButtonView.m in Sources */,
 				04AE532E1907DF6F00FD054E /* DigitView.m in Sources */,
 				04429222191E6E0900FDE502 /* Operation.m in Sources */,
 				043B30B818F3B68C00F68FB9 /* Calculator.m in Sources */,
