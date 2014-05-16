@@ -38,12 +38,17 @@
     return self;
 }
 
+- (UIColor *)backgroundColor
+{
+    return [UIColor colorWithRed:0.43 green:0.43 blue:0.49 alpha:1.0];
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    
     CGRect abacusViewbounds = [UIConfig getAbacusViewBounds:rect];
     AbacusView *abacusView = [[AbacusView alloc] initWithFrame:abacusViewbounds];
     [self addSubview:abacusView];

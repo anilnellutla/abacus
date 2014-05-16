@@ -10,6 +10,7 @@
 #import "UIConfig.h"
 #import "UIConstants.h"
 #import "CalculatorButtonView.h"
+#import "CalculatorDisplayView.h"
 
 @implementation CalculatorView
 
@@ -41,6 +42,17 @@
     return [UIColor blackColor];
 }
 
+- (UIColor *)calculatorBackgroundColor
+{
+    return [UIColor blackColor];
+}
+
+
+- (UIColor *)displayBackgroundColor
+{
+    return [UIColor blackColor];
+}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -48,6 +60,9 @@
 {
     // Drawing code
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
+    [[self calculatorBackgroundColor] setFill];
+    [path fill];
+
     [[self calculatorBorderColor] setStroke];
     [path stroke];
     
@@ -57,10 +72,8 @@
 
 - (void)drawDisplay:(CGRect)calculatorViewBounds
 {
-    CGRect displayBounds = [UIConfig getCalculatorDigitDisplayBounds:calculatorViewBounds];
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:displayBounds];
-    [[self calculatorBorderColor] setStroke];
-    [path stroke];
+    CalculatorDisplayView *calculatorDisplayView = [[CalculatorDisplayView alloc] initWithFrame:calculatorViewBounds];
+    [self addSubview:calculatorDisplayView];
 }
 
 - (void)drawButtons:(CGRect)calculatorViewBounds

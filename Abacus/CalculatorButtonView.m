@@ -19,7 +19,6 @@
 
 - (void)setUp
 {
-    //self.backgroundColor = nil;
     self.opaque = NO;
     self.contentMode = UIViewContentModeRedraw;
 }
@@ -40,73 +39,129 @@
     return self;
 }
 
-- (UIColor *)borderColor
+- (UIColor*)operandBackgroundColor
+{
+    return [UIColor colorWithRed:0.81 green:0.81 blue:0.81 alpha:1.0];
+}
+
+- (UIColor*)operandTouchUpInsideBackgroundColor
+{
+    return [UIColor colorWithRed:0.61 green:0.81 blue:0.81 alpha:1.0];
+}
+
+- (UIColor*)operandTouchDownBackgroundColor
+{
+    return [UIColor colorWithRed:0.71 green:0.81 blue:0.81 alpha:1.0];
+}
+
+- (UIColor*)operatorBackgroundColor
+{
+    return [UIColor colorWithRed:1.0 green:0.51 blue:0.0 alpha:1.0];
+}
+
+- (UIColor*)borderColor
 {
     return [UIColor blackColor];
 }
 
+- (UIColor*)buttonTitleColor
+{
+    return [UIColor blackColor];
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-    [[self borderColor] setStroke];
-    [path stroke];
-    
     UIButton *button = [[UIButton alloc] initWithFrame:rect];
-    [button setTitle:[self buttonText] forState:UIControlStateNormal];
+    NSAttributedString *buttonTitle = [self buttonTitle];
+    NSString* buttonTitleStr = [buttonTitle string];
+    if([buttonTitleStr isEqualToString:@"+"] || [buttonTitleStr isEqualToString:@"-"] || [buttonTitleStr isEqualToString:@"="]
+       || [buttonTitleStr isEqualToString:@"<--"] || [buttonTitleStr isEqualToString:@"C"] || [buttonTitleStr isEqualToString:@"X"]) {
+        [button setBackgroundColor:[self operatorBackgroundColor]];
+    } else {
+        [button setBackgroundColor:[self operandBackgroundColor]];
+    }
+    //[button setShowsTouchWhenHighlighted:YES];
+    [button setAttributedTitle:buttonTitle forState:UIControlStateNormal];
+    button.layer.borderWidth = 0.5f;
+    button.layer.borderColor = [self borderColor].CGColor;
+    [button addTarget:self action:@selector(buttonTouchDown:) forControlEvents:UIControlEventTouchDown];
     [self addSubview:button];
 }
 
-- (NSString*)buttonText
+- (NSAttributedString*)buttonTitle
 {
-    NSString* buttonText;
+    NSString* buttonTitleStr;
     if([self row] == 1) {
         if([self column] == 1) {
-            buttonText = @"7";
+            buttonTitleStr = @"7";
         } else if([self column] ==2) {
-            buttonText = @"8";
+            buttonTitleStr = @"8";
         } else if([self column] ==3) {
-            buttonText = @"9";
+            buttonTitleStr = @"9";
         } else if([self column] ==4) {
-            buttonText = @"X";
+            buttonTitleStr = @"X";
         }
     } else if([self row] == 2) {
         if([self column] == 1) {
-            buttonText = @"4";
+            buttonTitleStr = @"4";
         } else if([self column] ==2) {
-            buttonText = @"5";
+            buttonTitleStr = @"5";
         } else if([self column] ==3) {
-            buttonText = @"6";
+            buttonTitleStr = @"6";
         } else if([self column] ==4) {
-            buttonText = @"-";
+            buttonTitleStr = @"-";
         }
     } else if([self row] == 3) {
         if([self column] == 1) {
-            buttonText = @"1";
+            buttonTitleStr = @"1";
         } else if([self column] ==2) {
-            buttonText = @"2";
+            buttonTitleStr = @"2";
         } else if([self column] ==3) {
-            buttonText = @"3";
+            buttonTitleStr = @"3";
         } else if([self column] ==4) {
-            buttonText = @"+";
+            buttonTitleStr = @"+";
         }
     } else if([self row] == 4) {
         if([self column] == 1) {
-            buttonText = @"0";
+            buttonTitleStr = @"0";
         } else if([self column] ==2) {
-            buttonText = @"<--";
+            buttonTitleStr = @"<--";
         } else if([self column] ==3) {
-            buttonText = @"C";
+            buttonTitleStr = @"C";
         } else if([self column] ==4) {
-            buttonText = @"=";
+            buttonTitleStr = @"=";
         }
     }
     
-    return buttonText;
+    NSMutableAttributedString *butonTitle = [[NSMutableAttributedString alloc] initWithString:buttonTitleStr];
+    [butonTitle setAttributes:@{NSStrokeColorAttributeName : [self buttonTitleColor] }
+                   range:NSMakeRange(0, [butonTitle length])];
+    return butonTitle;
 }
+
+-(void)buttonTouchDown:(UIButton*)button
+{    
+    [UIView animateWithDuration: 0.2 delay: 0 options: UIViewAnimationOptionCurveLinear
+                     animations: ^{
+                         button.alpha = 0.9;
+                     }
+                     completion: ^(BOOL finished) {
+                         [UIView animateWithDuration: 0.2 delay: 0 options: UIViewAnimationOptionCurveLinear
+                                          animations: ^{
+                                              button.alpha = 1.0;
+                                          }
+                                          completion: ^(BOOL finished) {
+                                          }
+                          ];
+                     }
+     ];
+    
+}
+
+
 
 
 @end
